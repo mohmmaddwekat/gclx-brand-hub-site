@@ -139,10 +139,7 @@ const CollectionDetail: React.FC = () => {
                       name={product.name}
                       brand={product.brand}
                       imageUrl={product.imageUrl}
-                      originalPrice={product.originalPrice}
-                      discountPrice={product.discountPrice}
                       category={product.category}
-                      link={`/product/${product.id}`}
                     />
                   ))}
                 </div>
