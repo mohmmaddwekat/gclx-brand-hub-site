@@ -16,10 +16,11 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
 
   return (
     <Link to="/" className={`flex items-center ${className}`}>
-      {/* Replace with actual logo image when available */}
-      <div className={`bg-gclx-navy rounded-md flex items-center justify-center ${sizeClasses[size]} aspect-[3/1]`}>
-        <span className="text-white font-bold">GCLX</span>
-      </div>
+      <img 
+        src="/lovable-uploads/db1627ba-4089-435c-8ec5-4a6da7cf2a00.png" 
+        alt="GCLX General Trading" 
+        className={`${sizeClasses[size]} w-auto`}
+      />
     </Link>
   );
 };
