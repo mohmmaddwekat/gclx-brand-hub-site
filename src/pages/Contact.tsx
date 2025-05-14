@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
   return (
     <PageLayout 
       title="Contact Us" 
-      description="Get in touch with GCLX General Trading. Contact us for inquiries about our products, discounts, wholesale opportunities, or any other questions."
+      description="Get in touch with GCLX General Trading. Contact us for inquiries about our products, discounts, or any other questions."
     >
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-16">
@@ -64,43 +64,24 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Form & Map Section */}
+      {/* Contact Info & Form Section */}
       <section className="py-16">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Map & Contact Info */}
+            {/* Contact Info */}
             <div>
-              <div className="bg-gray-200 w-full h-80 rounded-lg overflow-hidden mb-8">
-                {/* Replace with actual Google Maps embed */}
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7224.572295117191!2d55.26473728387519!3d25.186162872489524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f682829c85c07%3A0xa5eda9fb3c93b69d!2sBusiness%20Bay%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1653395503037!5m2!1sen!2sus"
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen 
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="GCLX Office Location"
-                ></iframe>
-              </div>
-
               <div className="space-y-6">
                 <h2 className="text-2xl font-semibold text-gclx-navy">Get in Touch</h2>
+                <p className="text-lg text-gray-600">
+                  Have questions about our products, brands, or coupons? We're here to help! Fill out the form or reach out to us directly through email.
+                </p>
                 
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <div className="mr-4 text-2xl">📍</div>
                     <div>
-                      <h3 className="font-semibold">Our Office</h3>
+                      <h3 className="font-semibold">Our Store</h3>
                       <p className="text-gray-600">Business Bay, Dubai, United Arab Emirates</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="mr-4 text-2xl">📞</div>
-                    <div>
-                      <h3 className="font-semibold">Phone</h3>
-                      <p className="text-gray-600">+971 4 123 4567</p>
                     </div>
                   </div>
                   
@@ -109,15 +90,6 @@ const Contact: React.FC = () => {
                     <div>
                       <h3 className="font-semibold">Email</h3>
                       <p className="text-gray-600">info@gclx-trading.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="mr-4 text-2xl">🕑</div>
-                    <div>
-                      <h3 className="font-semibold">Business Hours</h3>
-                      <p className="text-gray-600">Sunday - Thursday: 9:00 AM - 6:00 PM</p>
-                      <p className="text-gray-600">Friday - Saturday: Closed</p>
                     </div>
                   </div>
                 </div>

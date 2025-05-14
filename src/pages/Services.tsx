@@ -11,21 +11,21 @@ const Services: React.FC = () => {
     {
       id: "bulk-sourcing",
       title: "Bulk Sourcing & Procurement",
-      shortDesc: "Direct relationships with global brands for wholesale procurement",
+      shortDesc: "Direct relationships with global brands for product procurement",
       icon: "📦",
       fullDesc: [
-        "GCLX has established direct relationships with over 40 global brands, allowing us to source products in large quantities directly from official channels. Our bulk sourcing capabilities enable us to secure the best possible prices, which we pass on to our customers.",
+        "GCLX has established direct relationships with over 40 global brands, allowing us to source products directly from official channels. Our procurement capabilities enable us to secure the best possible prices, which we pass on to our customers.",
         "Our procurement team constantly negotiates with suppliers to ensure we have access to the latest products across fashion, beauty, lifestyle, and more. This direct approach eliminates middlemen and significantly reduces costs without compromising on authenticity or quality."
       ]
     },
     {
-      id: "retail-wholesale",
-      title: "Multi-brand Retail & Wholesale",
+      id: "retail-experience",
+      title: "Premium Retail Experience",
       shortDesc: "One-stop shop for multiple premium global brands",
       icon: "🏬",
       fullDesc: [
         "As a multi-brand retailer, GCLX offers customers the convenience of shopping for products from dozens of premium global brands in one place. Our carefully curated collections span men's and women's fashion, accessories, beauty products, and lifestyle items.",
-        "For business clients, our wholesale division provides competitive pricing on bulk orders with flexible terms. Whether you're a boutique retailer or a large department store, our wholesale program offers authentic products at prices that help maximize your profit margins."
+        "Our store provides a comfortable and luxurious shopping environment where customers can explore our collection at their leisure. Our knowledgeable staff are always ready to provide guidance and assistance to ensure you find exactly what you're looking for."
       ]
     },
     {
@@ -38,36 +38,26 @@ const Services: React.FC = () => {
         "Our signature Exclusive Coupon Programme is what sets GCLX apart from other retailers. Through this innovative initiative, customers can access premium products at discounts of 20-50% off regular retail prices.",
         "These substantial savings are made possible through our direct sourcing model, strategic partnerships with brands, and our commitment to operating with efficient margins. The result is authentic, high-quality products at prices that our competitors simply cannot match."
       ]
-    },
-    {
-      id: "logistics",
-      title: "Fast Logistics & Fulfilment",
-      shortDesc: "Rapid delivery across the UAE and Gulf region",
-      icon: "🚚",
-      fullDesc: [
-        "GCLX maintains a sophisticated logistics network with strategically located warehouses and distribution centers across the UAE. This infrastructure allows us to provide fast and reliable delivery to customers throughout the Emirates and neighboring GCC countries.",
-        "Our fulfilment operations are designed for efficiency and accuracy, with advanced inventory management systems ensuring that orders are processed quickly and correctly. With real-time tracking and professional delivery partners, customers enjoy a seamless experience from purchase to doorstep."
-      ]
-    },
+    }
   ];
 
   return (
     <PageLayout 
       title="Our Services" 
-      description="Explore GCLX General Trading's services including bulk sourcing, multi-brand retail & wholesale, exclusive coupon program with 20-50% discounts, and fast logistics."
+      description="Explore GCLX General Trading's services including bulk sourcing, retail experience, and exclusive coupon program with 20-50% discounts."
     >
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-16">
         <div className="container-custom text-center text-white">
           <h1 className="text-4xl font-bold mb-4">Our Services</h1>
-          <p className="text-xl max-w-2xl mx-auto">Comprehensive solutions from sourcing to delivery</p>
+          <p className="text-xl max-w-2xl mx-auto">Premium shopping experience with unbeatable prices</p>
         </div>
       </section>
 
       {/* Services Grid */}
       <section className="py-16">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {services.map((service) => (
               <Card key={service.id} className={`card-shadow ${service.highlight ? 'border-2 border-gclx-gold' : ''}`}>
                 <CardContent className="p-6">

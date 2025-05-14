@@ -11,7 +11,7 @@ import {
   CarouselPrevious
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShieldCheck, TicketPercent, Lock } from 'lucide-react';
+import { ShieldCheck, TicketPercent, CreditCard } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
@@ -51,9 +51,9 @@ const Home: React.FC = () => {
       icon: <TicketPercent className="h-6 w-6" />
     },
     {
-      title: "Secure Checkout",
-      description: "Safe and protected payment options",
-      icon: <Lock className="h-6 w-6" />
+      title: "Cash Payment",
+      description: "Simple cash payment at our store location",
+      icon: <CreditCard className="h-6 w-6" />
     }
   ];
 

@@ -6,203 +6,118 @@ export interface Product {
   category: string;
   subCategory: string;
   imageUrl: string;
-  originalPrice: number;
-  discountPrice: number;
   gender: 'women' | 'men';
 }
 
-export const womenProducts: Product[] = [
-  {
-    id: 'w1',
-    name: 'Floral Print Summer Dress',
-    brand: 'Zara',
-    category: 'Clothing',
-    subCategory: 'Dresses',
-    imageUrl: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7',
-    originalPrice: 89.99,
-    discountPrice: 44.99,
-    gender: 'women'
-  },
-  {
-    id: 'w2',
-    name: 'Designer Handbag',
-    brand: 'Gucci',
-    category: 'Accessories',
-    subCategory: 'Bags',
-    imageUrl: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81',
-    originalPrice: 1299.99,
-    discountPrice: 799.99,
-    gender: 'women'
-  },
-  {
-    id: 'w3',
-    name: 'Athletic Sneakers',
-    brand: 'Nike',
-    category: 'Shoes',
-    subCategory: 'Sneakers',
-    imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
-    originalPrice: 129.99,
-    discountPrice: 79.99,
-    gender: 'women'
-  },
-  {
-    id: 'w4',
-    name: 'Luxury Perfume',
-    brand: 'Dior',
-    category: 'Perfumes',
-    subCategory: 'Fragrances',
-    imageUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c',
-    originalPrice: 149.99,
-    discountPrice: 99.99,
-    gender: 'women'
-  },
-  {
-    id: 'w5',
-    name: 'Premium Makeup Set',
-    brand: 'NARS',
-    category: 'Beauty',
-    subCategory: 'Makeup',
-    imageUrl: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7',
-    originalPrice: 199.99,
-    discountPrice: 129.99,
-    gender: 'women'
-  },
-  {
-    id: 'w6',
-    name: 'Silver Bracelet',
-    brand: 'H&M',
-    category: 'Accessories',
-    subCategory: 'Jewelry',
-    imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5',
-    originalPrice: 39.99,
-    discountPrice: 24.99,
-    gender: 'women'
-  },
-  {
-    id: 'w7',
-    name: 'Designer Sunglasses',
-    brand: 'Gucci',
-    category: 'Accessories',
-    subCategory: 'Eyewear',
-    imageUrl: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81',
-    originalPrice: 299.99,
-    discountPrice: 199.99,
-    gender: 'women'
-  },
-  {
-    id: 'w8',
-    name: 'Skincare Set',
-    brand: 'Huda Beauty',
-    category: 'Beauty',
-    subCategory: 'Skincare',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f',
-    originalPrice: 149.99,
-    discountPrice: 89.99,
-    gender: 'women'
+// Generate product categories based on gender
+const generateCategories = (gender: 'women' | 'men') => {
+  if (gender === 'women') {
+    return [
+      'Dresses', 'Tops', 'Pants', 'Skirts', 'Jackets', 'Shoes',
+      'Bags', 'Accessories', 'Makeup', 'Fragrance'
+    ];
+  } else {
+    return [
+      'Shirts', 'T-shirts', 'Pants', 'Jackets', 'Suits',
+      'Shoes', 'Accessories', 'Sportswear', 'Watches', 'Fragrance'
+    ];
   }
-];
+};
 
-export const menProducts: Product[] = [
-  {
-    id: 'm1',
-    name: 'Classic Fit Polo Shirt',
-    brand: 'Ralph Lauren',
-    category: 'Clothing',
-    subCategory: 'Shirts',
-    imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b',
-    originalPrice: 89.99,
-    discountPrice: 49.99,
-    gender: 'men'
-  },
-  {
-    id: 'm2',
-    name: 'Performance Running Shoes',
-    brand: 'Nike',
-    category: 'Shoes',
-    subCategory: 'Athletic',
-    imageUrl: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1',
-    originalPrice: 129.99,
-    discountPrice: 79.99,
-    gender: 'men'
-  },
-  {
-    id: 'm3',
-    name: 'Leather Watch',
-    brand: 'Hugo Boss',
-    category: 'Watches',
-    subCategory: 'Luxury',
-    imageUrl: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81',
-    originalPrice: 249.99,
-    discountPrice: 169.99,
-    gender: 'men'
-  },
-  {
-    id: 'm4',
-    name: 'Slim Fit Jeans',
-    brand: 'Calvin Klein',
-    category: 'Clothing',
-    subCategory: 'Pants',
-    imageUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c',
-    originalPrice: 99.99,
-    discountPrice: 59.99,
-    gender: 'men'
-  },
-  {
-    id: 'm5',
-    name: 'Signature Cologne',
-    brand: 'Hugo Boss',
-    category: 'Fragrance',
-    subCategory: 'Cologne',
-    imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5',
-    originalPrice: 119.99,
-    discountPrice: 79.99,
-    gender: 'men'
-  },
-  {
-    id: 'm6',
-    name: 'Leather Wallet',
-    brand: 'Calvin Klein',
-    category: 'Accessories',
-    subCategory: 'Wallets',
-    imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b',
-    originalPrice: 69.99,
-    discountPrice: 39.99,
-    gender: 'men'
-  },
-  {
-    id: 'm7',
-    name: 'Track Jacket',
-    brand: 'Adidas',
-    category: 'Clothing',
-    subCategory: 'Activewear',
-    imageUrl: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1',
-    originalPrice: 79.99,
-    discountPrice: 49.99,
-    gender: 'men'
-  },
-  {
-    id: 'm8',
-    name: 'Classic Aviator Sunglasses',
-    brand: 'Puma',
-    category: 'Accessories',
-    subCategory: 'Eyewear',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f',
-    originalPrice: 129.99,
-    discountPrice: 79.99,
-    gender: 'men'
+// Generate 10 products for each brand for both genders
+const generateBrandProducts = (brand: string): Product[] => {
+  const products: Product[] = [];
+  
+  // Women's products
+  const womenCategories = generateCategories('women');
+  for (let i = 1; i <= 10; i++) {
+    const categoryIndex = (i - 1) % womenCategories.length;
+    products.push({
+      id: `${brand.toLowerCase()}-w${i}`,
+      name: `Women's ${womenCategories[categoryIndex]} ${i}`,
+      brand: brand,
+      category: 'Women',
+      subCategory: womenCategories[categoryIndex],
+      imageUrl: `https://images.unsplash.com/photo-${1650000000000 + (i * 123456)}`,
+      gender: 'women'
+    });
   }
-];
+  
+  // Men's products
+  const menCategories = generateCategories('men');
+  for (let i = 1; i <= 10; i++) {
+    const categoryIndex = (i - 1) % menCategories.length;
+    products.push({
+      id: `${brand.toLowerCase()}-m${i}`,
+      name: `Men's ${menCategories[categoryIndex]} ${i}`,
+      brand: brand,
+      category: 'Men',
+      subCategory: menCategories[categoryIndex],
+      imageUrl: `https://images.unsplash.com/photo-${1650000000000 + (i * 654321)}`,
+      gender: 'men'
+    });
+  }
+  
+  return products;
+};
+
+// Brands categorized by collection
+const categorizedBrands = {
+  marketplace: ["Amazon", "Noon", "Talabat", "Carrefour", "Namshi"],
+  sportswear: ["Nike", "Adidas", "Puma", "Skechers", "Ecco"],
+  fashionMass: ["Calvin Klein", "Zara", "H&M", "Mango", "Forever 21", "Tommy Hilfiger", "Levi's", "Diesel"],
+  luxury: [
+    "Dolce & Gabbana", "Gucci", "Louis Vuitton", "Chanel", "Versace",
+    "Balenciaga", "Valentino", "Fendi", "Ralph Lauren", "Hugo Boss",
+    "Dior", "Chloé", "Self-Portrait", "Reformation", "Prada",
+    "Jimmy Choo", "Christian Louboutin", "Steve Madden", "Charles & Keith"
+  ],
+  beauty: [
+    "Huda Beauty", "Charlotte Tilbury", "Fenty Beauty", "MAC",
+    "Estée Lauder", "Lancôme", "The Ordinary", "La Roche-Posay", "NARS", "Dareen"
+  ],
+  home: ["IKEA"]
+};
+
+// Generate all products
+let allProducts: Product[] = [];
+
+// Add products for each brand in each category
+Object.values(categorizedBrands).forEach(brands => {
+  brands.forEach(brand => {
+    allProducts = [...allProducts, ...generateBrandProducts(brand)];
+  });
+});
+
+// Helper function to get products by gender
+export const getProductsByGender = (gender: 'women' | 'men'): Product[] => {
+  return allProducts.filter(product => product.gender === gender);
+};
+
+// Helper function to get products by brand and gender
+export const getProductsByBrandAndGender = (brand: string, gender: 'women' | 'men'): Product[] => {
+  return allProducts.filter(product => product.brand === brand && product.gender === gender);
+};
+
+// Helper function to get products by category
+export const getProductsByCategory = (category: string): Product[] => {
+  const brands = Object.entries(categorizedBrands).find(([key, _]) => key === category)?.[1] || [];
+  return allProducts.filter(product => brands.includes(product.brand));
+};
 
 // Helper function to get all brands for a specific gender
 export const getBrandsByGender = (gender: 'women' | 'men'): string[] => {
-  const products = gender === 'women' ? womenProducts : menProducts;
-  const brands = [...new Set(products.map(product => product.brand))];
-  return brands;
+  const uniqueBrands = [...new Set(allProducts.filter(product => product.gender === gender).map(product => product.brand))];
+  return uniqueBrands;
 };
 
 // Helper function to get all categories for a specific gender
 export const getCategoriesByGender = (gender: 'women' | 'men'): string[] => {
-  const products = gender === 'women' ? womenProducts : menProducts;
-  const categories = [...new Set(products.map(product => product.category))];
+  const products = allProducts.filter(product => product.gender === gender);
+  const categories = [...new Set(products.map(product => product.subCategory))];
   return categories;
 };
+
+// Export all women's and men's products for backward compatibility
+export const womenProducts = getProductsByGender('women');
+export const menProducts = getProductsByGender('men');

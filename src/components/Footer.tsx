@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import { Facebook, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -16,10 +17,8 @@ const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { name: 'Facebook', icon: '📱', url: 'https://facebook.com' },
-    { name: 'Instagram', icon: '📸', url: 'https://instagram.com' },
-    { name: 'Twitter', icon: '🐦', url: 'https://twitter.com' },
-    { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com' },
+    { name: 'Facebook', icon: <Facebook className="w-5 h-5" />, url: 'https://facebook.com' },
+    { name: 'Instagram', icon: <Instagram className="w-5 h-5" />, url: 'https://instagram.com' },
   ];
 
   return (
@@ -62,7 +61,7 @@ const Footer: React.FC = () => {
                   href={social.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-xl hover:text-gclx-gold transition-colors duration-200"
+                  className="hover:text-gclx-gold transition-colors duration-200"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -72,13 +71,12 @@ const Footer: React.FC = () => {
             <address className="not-italic text-sm text-gray-300">
               <p>Business Bay, Dubai, UAE</p>
               <p>Email: info@gclx-trading.com</p>
-              <p>Phone: +971 4 123 4567</p>
             </address>
           </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-700 text-sm text-gray-400 text-center">
-          <p>© {currentYear} GCLX General Trading. All rights reserved.</p>
+          <p>© {currentYear} GCLX General Trading — Instant Coupon Redemption</p>
         </div>
       </div>
     </footer>
