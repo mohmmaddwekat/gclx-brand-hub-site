@@ -11,6 +11,7 @@ import {
   CarouselPrevious
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
+import { ShieldCheck, TicketPercent, Lock } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
@@ -33,7 +34,7 @@ const Home: React.FC = () => {
     },
     {
       title: "Enjoy big savings",
-      description: "Experience premium products at unbeatable prices with fast UAE delivery.",
+      description: "Experience premium products at unbeatable prices.",
       icon: "💰"
     }
   ];
@@ -42,17 +43,17 @@ const Home: React.FC = () => {
     {
       title: "Genuine Brands",
       description: "100% authentic products from official sources",
-      icon: "✅"
+      icon: <ShieldCheck className="h-6 w-6" />
     },
     {
-      title: "Fast UAE Delivery",
-      description: "Doorstep delivery across all Emirates",
-      icon: "🚚"
+      title: "Instant Coupon",
+      description: "Redeem your GCLX coupon for immediate savings",
+      icon: <TicketPercent className="h-6 w-6" />
     },
     {
       title: "Secure Checkout",
       description: "Safe and protected payment options",
-      icon: "🔒"
+      icon: <Lock className="h-6 w-6" />
     }
   ];
 
@@ -62,10 +63,10 @@ const Home: React.FC = () => {
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 text-white py-16 md:py-24">
         <div className="container-custom text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-6">
-            Unlock <span className="text-gclx-gold">20-50% OFF</span> on Top Global Brands
+            Unlock <span className="text-gclx-gold">20-50% OFF</span> on Top Global Brands — Instant Coupon Redemption
           </h1>
           <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-            Shop authentic fashion, beauty and lifestyle products from 40+ world-class names.
+            Shop authentic products from 40+ names you love.
           </p>
           <Button asChild className="bg-gclx-gold text-gclx-navy hover:bg-yellow-400 text-lg px-8 py-6 h-auto">
             <Link to="/collections">Explore Collections</Link>
@@ -79,7 +80,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {trustBadges.map((badge, index) => (
               <div key={index} className="bg-white rounded-lg p-6 text-center shadow-sm">
-                <div className="text-4xl mb-4">{badge.icon}</div>
+                <div className="text-4xl mb-4 flex justify-center">{badge.icon}</div>
                 <h3 className="text-xl font-semibold text-gclx-navy mb-2">{badge.title}</h3>
                 <p className="text-gray-600">{badge.description}</p>
               </div>
