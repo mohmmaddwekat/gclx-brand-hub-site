@@ -49,7 +49,7 @@ const Collections: React.FC = () => {
               <Card className="overflow-hidden card-shadow h-full">
                 <div className="aspect-[3/2]">
                   <img 
-                    src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
+                    src="/lovable-uploads/WomenCollection.png" 
                     alt="Women's Collection" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -68,7 +68,7 @@ const Collections: React.FC = () => {
               <Card className="overflow-hidden card-shadow h-full">
                 <div className="aspect-[3/2]">
                   <img 
-                    src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" 
+                    src="/lovable-uploads/MenCollection.png" 
                     alt="Men's Collection" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
