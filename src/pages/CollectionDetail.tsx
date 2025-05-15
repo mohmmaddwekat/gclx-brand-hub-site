@@ -1,10 +1,32 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Search, Filter, X } from 'lucide-react';
+import { Search, Filter, X, ChevronDown } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { 
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 import { 
   Table, 
   TableBody, 
@@ -19,6 +41,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogFooter,
 } from '@/components/ui/dialog';
 import { Checkbox } from "@/components/ui/checkbox";
 import PageLayout from '@/components/PageLayout';
@@ -87,6 +110,10 @@ const CollectionDetail: React.FC = () => {
     // Search is already handled by the useEffect
   };
 
+  const handleCategoryChange = (value: string) => {
+    setSelectedCategory(value);
+  };
+
   const applyFilters = () => {
     setFilterDialogOpen(false);
   };
@@ -131,73 +158,69 @@ const CollectionDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* Filter Button and View Mode */}
+      {/* Filter Section and View Mode */}
       <div className="container-custom my-4">
         <div className="flex flex-wrap gap-3 items-center justify-between">
-          {/* Filter Dialog Trigger */}
-          <Dialog open={filterDialogOpen} onOpenChange={setFilterDialogOpen}>
-            <DialogTrigger asChild>
-              <Button 
-                variant="outline" 
-                className="flex items-center justify-center gap-2"
-              >
-                <Filter size={18} /> Filters
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-md">
-              <DialogHeader>
-                <DialogTitle>Filter Products</DialogTitle>
-              </DialogHeader>
-              
-              <div className="space-y-4 py-3 max-h-[70vh] overflow-y-auto">
-                {/* Categories */}
-                <div>
-                  <h3 className="font-semibold text-lg mb-3">Categories</h3>
-                  <Tabs defaultValue={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
-                    <TabsList className="w-full overflow-x-auto flex flex-nowrap pb-2">
-                      <TabsTrigger value="all">All</TabsTrigger>
-                      {categories.map(category => (
-                        <TabsTrigger key={category} value={category}>{category}</TabsTrigger>
-                      ))}
-                    </TabsList>
-                  </Tabs>
+          {/* Category Filter Select */}
+          <div className="flex items-center gap-3">
+            <Select value={selectedCategory} onValueChange={handleCategoryChange}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select Category" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Categories</SelectLabel>
+                  <SelectItem value="all">All Categories</SelectItem>
+                  {categories.map(category => (
+                    <SelectItem key={category} value={category}>{category}</SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+            
+            {/* Brands Filter Dialog */}
+            <Dialog open={filterDialogOpen} onOpenChange={setFilterDialogOpen}>
+              <DialogTrigger asChild>
+                <Button variant="outline" className="flex items-center gap-2">
+                  <Filter size={18} /> Brands
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Filter by Brands</DialogTitle>
+                </DialogHeader>
+                
+                <div className="grid grid-cols-2 gap-4 py-4 max-h-[60vh] overflow-y-auto">
+                  {brands.map(brand => (
+                    <div key={brand} className="flex items-center space-x-2">
+                      <Checkbox 
+                        id={brand}
+                        checked={selectedBrands.includes(brand)}
+                        onCheckedChange={() => toggleBrand(brand)}
+                      />
+                      <label 
+                        htmlFor={brand} 
+                        className="flex-1 cursor-pointer text-sm"
+                      >
+                        {brand}
+                      </label>
+                    </div>
+                  ))}
                 </div>
                 
-                {/* Brands */}
-                <div>
-                  <h3 className="font-semibold text-lg mb-3">Brands</h3>
-                  <div className="space-y-2 max-h-72 overflow-y-auto">
-                    {brands.map(brand => (
-                      <div key={brand} className="flex items-center space-x-2">
-                        <Checkbox 
-                          id={brand}
-                          checked={selectedBrands.includes(brand)}
-                          onCheckedChange={() => toggleBrand(brand)}
-                        />
-                        <label 
-                          htmlFor={brand} 
-                          className="flex-1 cursor-pointer text-sm"
-                        >
-                          {brand}
-                        </label>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              
-              <div className="flex justify-between mt-4">
-                <Button 
-                  variant="outline" 
-                  onClick={clearFilters}
-                  disabled={selectedBrands.length === 0 && selectedCategory === 'all'}
-                >
-                  Clear All
-                </Button>
-                <Button onClick={applyFilters}>Apply Filters</Button>
-              </div>
-            </DialogContent>
-          </Dialog>
+                <DialogFooter className="flex justify-between">
+                  <Button 
+                    variant="outline" 
+                    onClick={clearFilters}
+                    disabled={selectedBrands.length === 0 && selectedCategory === 'all'}
+                  >
+                    Clear All
+                  </Button>
+                  <Button onClick={applyFilters}>Apply Filters</Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          </div>
           
           {/* View Mode Toggle */}
           <div className="flex gap-2 ml-auto">
