@@ -18,6 +18,7 @@ import {
 
 const CollectionDetail: React.FC = () => {
   const { gender } = useParams<{ gender: string }>();
+   console.log('PARAM gender =>', gender);
   const isWomen = gender === 'women';
   const pageTitle = isWomen ? "Women's Collection" : "Men's Collection";
 
