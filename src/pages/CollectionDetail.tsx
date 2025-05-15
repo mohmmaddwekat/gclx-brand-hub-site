@@ -13,6 +13,14 @@ import {
   TableHeader, 
   TableRow 
 } from '@/components/ui/table';
+import { 
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { Checkbox } from "@/components/ui/checkbox";
 import PageLayout from '@/components/PageLayout';
 import ProductCard from '@/components/ProductCard';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -34,7 +42,7 @@ const CollectionDetail: React.FC = () => {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
-  const [showMobileFilters, setShowMobileFilters] = useState(false);
+  const [filterDialogOpen, setFilterDialogOpen] = useState(false);
   
   const products = isWomen ? womenProducts : menProducts;
   const categories = getCategoriesByGender(isWomen ? 'women' : 'men');
@@ -79,6 +87,15 @@ const CollectionDetail: React.FC = () => {
     // Search is already handled by the useEffect
   };
 
+  const applyFilters = () => {
+    setFilterDialogOpen(false);
+  };
+
+  const clearFilters = () => {
+    setSelectedCategory('all');
+    setSelectedBrands([]);
+  };
+
   return (
     <PageLayout 
       title={pageTitle} 
@@ -114,167 +131,187 @@ const CollectionDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* Mobile Filter Toggle */}
-      <div className="container-custom my-4 md:hidden">
-        <Button 
-          variant="outline" 
-          className="w-full flex items-center justify-center gap-2"
-          onClick={() => setShowMobileFilters(!showMobileFilters)}
-        >
-          {showMobileFilters ? (
-            <>
-              <X size={18} /> Hide Filters
-            </>
-          ) : (
-            <>
-              <Filter size={18} /> Show Filters
-            </>
-          )}
-        </Button>
+      {/* Filter Button and View Mode */}
+      <div className="container-custom my-4">
+        <div className="flex flex-wrap gap-3 items-center justify-between">
+          {/* Filter Dialog Trigger */}
+          <Dialog open={filterDialogOpen} onOpenChange={setFilterDialogOpen}>
+            <DialogTrigger asChild>
+              <Button 
+                variant="outline" 
+                className="flex items-center justify-center gap-2"
+              >
+                <Filter size={18} /> Filters
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle>Filter Products</DialogTitle>
+              </DialogHeader>
+              
+              <div className="space-y-4 py-3 max-h-[70vh] overflow-y-auto">
+                {/* Categories */}
+                <div>
+                  <h3 className="font-semibold text-lg mb-3">Categories</h3>
+                  <Tabs defaultValue={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
+                    <TabsList className="w-full overflow-x-auto flex flex-nowrap pb-2">
+                      <TabsTrigger value="all">All</TabsTrigger>
+                      {categories.map(category => (
+                        <TabsTrigger key={category} value={category}>{category}</TabsTrigger>
+                      ))}
+                    </TabsList>
+                  </Tabs>
+                </div>
+                
+                {/* Brands */}
+                <div>
+                  <h3 className="font-semibold text-lg mb-3">Brands</h3>
+                  <div className="space-y-2 max-h-72 overflow-y-auto">
+                    {brands.map(brand => (
+                      <div key={brand} className="flex items-center space-x-2">
+                        <Checkbox 
+                          id={brand}
+                          checked={selectedBrands.includes(brand)}
+                          onCheckedChange={() => toggleBrand(brand)}
+                        />
+                        <label 
+                          htmlFor={brand} 
+                          className="flex-1 cursor-pointer text-sm"
+                        >
+                          {brand}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex justify-between mt-4">
+                <Button 
+                  variant="outline" 
+                  onClick={clearFilters}
+                  disabled={selectedBrands.length === 0 && selectedCategory === 'all'}
+                >
+                  Clear All
+                </Button>
+                <Button onClick={applyFilters}>Apply Filters</Button>
+              </div>
+            </DialogContent>
+          </Dialog>
+          
+          {/* View Mode Toggle */}
+          <div className="flex gap-2 ml-auto">
+            <Button 
+              variant={viewMode === 'grid' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setViewMode('grid')}
+            >
+              Grid
+            </Button>
+            <Button 
+              variant={viewMode === 'table' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setViewMode('table')}
+            >
+              Table
+            </Button>
+          </div>
+        </div>
+        
+        {/* Filter Applied Indicators */}
+        {(selectedBrands.length > 0 || selectedCategory !== 'all') && (
+          <div className="flex flex-wrap gap-2 mt-3">
+            {selectedCategory !== 'all' && (
+              <div className="bg-accent/20 text-sm px-3 py-1 rounded-full flex items-center gap-1">
+                <span>Category: {selectedCategory}</span>
+                <button 
+                  onClick={() => setSelectedCategory('all')}
+                  className="hover:bg-accent/10 rounded-full p-1"
+                >
+                  <X size={14} />
+                </button>
+              </div>
+            )}
+            {selectedBrands.map(brand => (
+              <div key={brand} className="bg-accent/20 text-sm px-3 py-1 rounded-full flex items-center gap-1">
+                <span>{brand}</span>
+                <button 
+                  onClick={() => toggleBrand(brand)}
+                  className="hover:bg-accent/10 rounded-full p-1"
+                >
+                  <X size={14} />
+                </button>
+              </div>
+            ))}
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={clearFilters} 
+              className="text-sm"
+            >
+              Clear All
+            </Button>
+          </div>
+        )}
       </div>
 
-      <section className="py-8 md:py-16">
+      {/* Products Grid/Table */}
+      <section className="py-8">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Sidebar Filters - conditionally visible on mobile */}
-            <div className={`${showMobileFilters ? 'block' : 'hidden'} md:block`}>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="font-semibold text-lg">Filter by Category</h3>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="md:hidden"
-                    onClick={() => setShowMobileFilters(false)}
-                  >
-                    <X size={18} />
-                  </Button>
-                </div>
-
-                <Tabs defaultValue="all" onValueChange={setSelectedCategory} className="w-full mb-6">
-                  <TabsList className="w-full overflow-x-auto flex flex-nowrap pb-2">
-                    <TabsTrigger value="all">All</TabsTrigger>
-                    {categories.map(category => (
-                      <TabsTrigger key={category} value={category}>{category}</TabsTrigger>
-                    ))}
-                  </TabsList>
-                </Tabs>
-                
-                <h3 className="font-semibold text-lg mb-4">Filter by Brand</h3>
-                <div className="space-y-2 max-h-72 overflow-y-auto">
-                  {brands.map(brand => (
-                    <div key={brand} className="flex items-center">
-                      <input 
-                        type="checkbox" 
-                        id={brand}
-                        checked={selectedBrands.includes(brand)}
-                        onChange={() => toggleBrand(brand)}
-                        className="mr-2"
-                      />
-                      <label htmlFor={brand} className="flex-1 cursor-pointer">{brand}</label>
-                    </div>
-                  ))}
-                </div>
-                
-                {(selectedBrands.length > 0 || selectedCategory !== 'all') && (
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    onClick={() => {
-                      setSelectedBrands([]);
-                      setSelectedCategory('all');
-                    }}
-                    className="mt-4 w-full"
-                  >
-                    Clear All Filters
-                  </Button>
-                )}
-              </div>
-
-              {/* View Mode Toggle */}
-              <div className="bg-white p-4 rounded-lg shadow-sm mt-4">
-                <h3 className="font-semibold text-lg mb-4">View Mode</h3>
-                <div className="flex gap-2">
-                  <Button 
-                    variant={viewMode === 'grid' ? 'default' : 'outline'}
-                    size="sm"
-                    className="flex-1"
-                    onClick={() => setViewMode('grid')}
-                  >
-                    Grid
-                  </Button>
-                  <Button 
-                    variant={viewMode === 'table' ? 'default' : 'outline'}
-                    size="sm"
-                    className="flex-1"
-                    onClick={() => setViewMode('table')}
-                  >
-                    Table
-                  </Button>
-                </div>
-              </div>
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-12 border rounded-lg">
+              <p className="text-lg text-gray-500">No products found with the selected filters.</p>
+              <Button 
+                variant="outline" 
+                onClick={clearFilters}
+                className="mt-4"
+              >
+                Clear All Filters
+              </Button>
             </div>
-
-            {/* Products Grid/Table */}
-            <div className="lg:col-span-3">
-              {filteredProducts.length === 0 ? (
-                <div className="text-center py-12 border rounded-lg">
-                  <p className="text-lg text-gray-500">No products found with the selected filters.</p>
-                  <Button 
-                    variant="outline" 
-                    onClick={() => {
-                      setSelectedCategory('all');
-                      setSelectedBrands([]);
-                      setSearchTerm('');
-                    }}
-                    className="mt-4"
-                  >
-                    Clear All Filters
-                  </Button>
-                </div>
-              ) : viewMode === 'grid' ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          ) : viewMode === 'grid' ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {filteredProducts.map(product => (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  name={product.name}
+                  brand={product.brand}
+                  imageUrl={product.imageUrl}
+                  category={product.category}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Image</TableHead>
+                    <TableHead>Product</TableHead>
+                    <TableHead>Brand</TableHead>
+                    <TableHead>Category</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
                   {filteredProducts.map(product => (
-                    <ProductCard
-                      key={product.id}
-                      id={product.id}
-                      name={product.name}
-                      brand={product.brand}
-                      imageUrl={product.imageUrl}
-                      category={product.category}
-                    />
-                  ))}
-                </div>
-              ) : (
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Image</TableHead>
-                      <TableHead>Product</TableHead>
-                      <TableHead>Brand</TableHead>
-                      <TableHead>Category</TableHead>
+                    <TableRow key={product.id}>
+                      <TableCell>
+                        <img 
+                          src={product.imageUrl} 
+                          alt={product.name} 
+                          className="w-16 h-16 object-cover rounded-md" 
+                        />
+                      </TableCell>
+                      <TableCell className="font-medium">{product.name}</TableCell>
+                      <TableCell>{product.brand}</TableCell>
+                      <TableCell>{product.category}</TableCell>
                     </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {filteredProducts.map(product => (
-                      <TableRow key={product.id}>
-                        <TableCell>
-                          <img 
-                            src={product.imageUrl} 
-                            alt={product.name} 
-                            className="w-16 h-16 object-cover rounded-md" 
-                          />
-                        </TableCell>
-                        <TableCell className="font-medium">{product.name}</TableCell>
-                        <TableCell>{product.brand}</TableCell>
-                        <TableCell>{product.category}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              )}
+                  ))}
+                </TableBody>
+              </Table>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
