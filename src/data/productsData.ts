@@ -9,7 +9,7 @@ export interface SubItem {
 /* ──────────────────────────────────────────────
    1) نوع المنتج
 ────────────────────────────────────────────── */
-export interfaceunsplash.com/seed Product {
+export interface Product {
   id: string;
   name: string;
   brand: string;
@@ -42,18 +42,20 @@ export const brandSubs: Record<
       { sub: 'Fashion', img: 'https://drive.google.com/file/d/1B2XwrOz3QQu28GWdf03POOSovD-xTAYh/view?usp=sharing' },
     ],
     
+    
   },
   Noon:      {
     women: [
       { sub: 'Electronics',  img: 'https://drive.google.com/file/d/13uwMJ1FuYi4qIcnVNhNx5mFjonEnlAd5/view?usp=sharing' },
-      { sub: 'Beauty',       img: 'https://drive.google.com/file/d/1tdaBrl0b1GKhTDJGGhnRJ92SMqU573kX/view?usp=sharing' },
-      { sub: 'Fashion', img: 'https://drive.google.com/file/d/18FFG123zaz32yU63Uu06foU9zM_YzxRs/view?usp=sharing' },
-    ],
-    men: [
-      { sub: 'Electronics',  img: 'https://drive.google.com/file/d/13uwMJ1FuYi4qIcnVNhNx5mFjonEnlAd5/view?usp=sharing' },
       { sub: 'Beauty',       img: 'https://drive.google.com/file/d/1hRTRuWBJ-mWAyB-NCkPgDYHhPtp91fAY/view?usp=sharing' },
       { sub: 'Fashion', img: 'https://drive.google.com/file/d/15MbBckikjz6OgrK7q_Ah_PNFIcNyMYMM/view?usp=sharing' },
     ],
+    men: [
+      { sub: 'Electronics',  img: 'https://drive.google.com/file/d/13uwMJ1FuYi4qIcnVNhNx5mFjonEnlAd5/view?usp=sharing' },
+      { sub: 'Beauty',       img: 'https://drive.google.com/file/d/1tdaBrl0b1GKhTDJGGhnRJ92SMqU573kX/view?usp=sharing' },
+      { sub: 'Fashion', img: 'https://drive.google.com/file/d/18FFG123zaz32yU63Uu06foU9zM_YzxRs/view?usp=sharing' },
+    ],
+    
   },
   Talabat:   {
     women: [
@@ -70,278 +72,205 @@ export const brandSubs: Record<
   Carrefour: {
     women: [
       { sub: 'Groceries',  img: 'https://drive.google.com/file/d/1eeu2fCuNbdIBogyrdoMUDQ6YaIICKBug/view?usp=sharing' },
-      { sub: 'Groceries',       img: 'https://drive.google.com/file/d/1hZACFqnqRnJ3f84-edF5xq4Q27xUfYeA/view?usp=sharing' },
-      { sub: 'Electronics', img: 'https://drive.google.com/file/d/1LoswWXHGaZgBII0iO2TqL7PYVeIkGBWC/view?usp=sharing' },
+      { sub: 'Appliances',       img: 'https://drive.google.com/file/d/1vAL05s89fo0tn0c_qFqed22sauqtwEB4/view?usp=sharing' },
+      { sub: 'Electronics', img: 'https://drive.google.com/file/d/1EC523TzllbaZnUhp_7JPnjckiSD4HQI2/view?usp=sharing' },
     ],
     men: [
       { sub: 'Groceries',  img: 'https://drive.google.com/file/d/1eeu2fCuNbdIBogyrdoMUDQ6YaIICKBug/view?usp=sharing' },
-      { sub: 'Appliances',       img: 'https://drive.google.com/file/d/1hZACFqnqRnJ3f84-edF5xq4Q27xUfYeA/view?usp=sharing' },
-      { sub: 'Electronics', img: 'https://drive.google.com/file/d/1LoswWXHGaZgBII0iO2TqL7PYVeIkGBWC/view?usp=sharing' },
+      { sub: 'Appliances',       img: 'https://drive.google.com/file/d/1vAL05s89fo0tn0c_qFqed22sauqtwEB4/view?usp=sharing' },
+      { sub: 'Electronics', img: 'https://drive.google.com/file/d/1EC523TzllbaZnUhp_7JPnjckiSD4HQI2/view?usp=sharing' },
     ],
   },
   Namshi:    {
-    women: ['Fashion', 'Shoes', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Namshi')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Namshi ' + sub
-      )}`,
-    })),
-    men: ['Fashion', 'Shoes', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Namshi')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Namshi ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Fashion',  img: 'https://drive.google.com/file/d/1VvgZUAtQ2ihsVaZnFObw2GHoQf7LiclL/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/1d8zI6wra1dqBu0GNfTAsAy4cM6xRzUsR/view?usp=sharing' },
+      { sub: 'Accessories', img: 'https://drive.google.com/file/d/1r8xQKvFGQ5NfS2wZvgRNV7tIzcZ9Muhh/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Fashion',  img: 'https://drive.google.com/file/d/1x_6wDZFHeMTVabwuFsiJB5jUy25sp5T3/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/1d8zI6wra1dqBu0GNfTAsAy4cM6xRzUsR/view?usp=sharing' },
+      { sub: 'Accessories', img: 'https://drive.google.com/file/d/1r8xQKvFGQ5NfS2wZvgRNV7tIzcZ9Muhh/view?usp=sharing' },
+    ],
+    
   },
 
   /* ========= Sportswear ========= */
   Nike:     {
     women: [
-      { sub: 'Sportswear',  img: 'https://images.unsplash.com/photo-S5_t6VIMClE' },
-      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/12kygA8xI64fOwE9rmfV2G_mL0YYESKN5/view?usp=drive_link' },
-      { sub: 'Accessories', img: 'https://images.unsplash.com/photo-aCtb_RTwuM' },
+      { sub: 'Sportswear',  img: 'https://drive.google.com/file/d/1axLP_yO-X-mJiTcf076n26Haazqqdd03/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/1DiDybhB2Emk4fnuldTEGbxSm1emiLHT4/view?usp=sharing' },
+      { sub: 'Accessories', img: 'https://drive.google.com/file/d/1VgjCAiwrdjdlWWKdnXhKIM-3avdUBCzI/view?usp=sharing' },
     ],
     men: [
-      { sub: 'Sportswear',  img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772' },
-      { sub: 'Shoes',       img: 'https://images.unsplash.com/photo-1603346203721-35f610d0b4be' },
-      { sub: 'Accessories', img: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c' },
+      { sub: 'Sportswear',  img: 'https://drive.google.com/file/d/1aZe2kcoqnsQjOhdtI8Bzlc_feNegdNrc/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/1DiDybhB2Emk4fnuldTEGbxSm1emiLHT4/view?usp=sharing' },
+      { sub: 'Accessories', img: 'https://drive.google.com/file/d/1VgjCAiwrdjdlWWKdnXhKIM-3avdUBCzI/view?usp=sharing' },
     ],
   },
   Adidas:   {
-    women: ['Sportswear', 'Shoes', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Adidas')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Adidas ' + sub
-      )}`,
-    })),
-    men: ['Sportswear', 'Shoes', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Adidas')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Adidas ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Sportswear',  img: 'https://drive.google.com/file/d/1bPQaMXJDQDAaSugsOE2pP42ymmsRcsA6/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/1GmPdCDJT69BdgWD4sYMMjLnP5Ehre92z/view?usp=sharing' },
+      { sub: 'Accessories', img: 'https://drive.google.com/file/d/1VgjCAiwrdjdlWWKdnXhKIM-3avdUBCzI/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Sportswear',  img: 'https://drive.google.com/file/d/1bPQaMXJDQDAaSugsOE2pP42ymmsRcsA6/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/1GmPdCDJT69BdgWD4sYMMjLnP5Ehre92z/view?usp=sharing' },
+      { sub: 'Accessories', img: 'https://drive.google.com/file/d/1VgjCAiwrdjdlWWKdnXhKIM-3avdUBCzI/view?usp=sharing' },
+    ],
+
   },
   Puma:     {
-    women: ['Sportswear', 'Shoes', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Puma')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Puma ' + sub
-      )}`,
-    })),
-    men: ['Sportswear', 'Shoes', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Puma')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Puma ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Sportswear',  img: 'https://drive.google.com/file/d/1_t9JEPHSep6bmdZHRxuLgTtu-AWx6dvL/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/1VuXWlgKdkm8PybUfqP2eSiKNEyIUFPKr/view?usp=sharing' },
+      { sub: 'Accessories', img: 'https://drive.google.com/file/d/1BDknosfS0qUaqtE0Rni0fhi15Fyh-ymT/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Sportswear',  img: 'https://drive.google.com/file/d/1_t9JEPHSep6bmdZHRxuLgTtu-AWx6dvL/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/1VuXWlgKdkm8PybUfqP2eSiKNEyIUFPKr/view?usp=sharing' },
+      { sub: 'Accessories', img: 'https://drive.google.com/file/d/1BDknosfS0qUaqtE0Rni0fhi15Fyh-ymT/view?usp=sharing' },
+    ],
   },
   Skechers: {
-    women: ['Shoes', 'Sportswear', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Skechers')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Skechers ' + sub
-      )}`,
-    })),
-    men: ['Shoes', 'Sportswear', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Skechers')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Skechers ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Foamies',  img: 'https://drive.google.com/file/d/1VOYgu-3IIerStkuz-V8fw2QObCRbCPBc/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/1_YVrQPZ2tsMumbrJM66_nt8bPINtlYOF/view?usp=sharing' },
+      { sub: 'Accessories', img: 'https://drive.google.com/file/d/1KQ4H7NYS7ZENeG511Se3AJXEBD72_xCc/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Foamies',  img: 'https://drive.google.com/file/d/1VOYgu-3IIerStkuz-V8fw2QObCRbCPBc/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/1_YVrQPZ2tsMumbrJM66_nt8bPINtlYOF/view?usp=sharing' },
+      { sub: 'Accessories', img: 'https://drive.google.com/file/d/1KQ4H7NYS7ZENeG511Se3AJXEBD72_xCc/view?usp=sharing' },
+    ],
   },
-  Ecco:     {
-    women: ['Shoes', 'Accessories', 'Leather-Goods'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Ecco')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Ecco ' + sub
-      )}`,
-    })),
-    men: ['Shoes', 'Accessories', 'Leather-Goods'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Ecco')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Ecco ' + sub
-      )}`,
-    })),
+  Ecco:{
+    women: [
+      { sub: 'Leather-Goods',  img: 'https://drive.google.com/file/d/18p-ldx1dkA_qipM6NU2zc0dgDwAzKE-c/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/14e-_xw4Arn1wkqZv9VFNxxB_Hhg8s5jg/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Leather-Goods',  img: 'https://drive.google.com/file/d/18p-ldx1dkA_qipM6NU2zc0dgDwAzKE-c/view?usp=sharing' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/14e-_xw4Arn1wkqZv9VFNxxB_Hhg8s5jg/view?usp=sharing' },
+    ],
   },
 
   /* ========= Fashion Mass ========= */
-  'Calvin Klein': {
-    women: ['Underwear', 'Denim', 'Fragrance'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Calvin Klein')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Calvin Klein ' + sub
-      )}`,
-    })),
-    men: ['Underwear', 'Denim', 'Fragrance'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Calvin Klein')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Calvin Klein ' + sub
-      )}`,
-    })),
-  },
-  Zara:           {
-    women: ['Dresses', 'Jackets', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Zara')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Zara ' + sub
-      )}`,
-    })),
-    men: ['Shirts', 'Pants', 'Jackets'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Zara')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Zara ' + sub
-      )}`,
-    })),
+  Zara:{
+    women: [
+      { sub: 'Dresses',  img: 'https://drive.google.com/file/d/19DovRReybTwj6PQOG4oDHZGgXcsIHw-N/view?usp=sharing' },
+      { sub: 'Jackets',       img: 'https://drive.google.com/file/d/1A8FRf0jb1pBMFjbV4_D_tdyYDyo6NUH4/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Shirts',  img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+    ],
   },
   'H&M':          {
-    women: ['Tops', 'Pants', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('H&M')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'H&M ' + sub
-      )}`,
-    })),
-    men: ['T-shirts', 'Pants', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('H&M')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'H&M ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Tops',  img: 'https://drive.google.com/file/d/1yy0TNTOMTZzEztda15mf0oyG7MvnLf9k/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1A8FRf0jb1pBMFjbV4_D_tdyYDyo6NUH4/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Shirts',  img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+    ],
   },
   Mango:          {
-    women: ['Dresses', 'Bags', 'Shoes'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Mango')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Mango ' + sub
-      )}`,
-    })),
-    men: ['Shirts', 'Shoes', 'Bags'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Mango')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Mango ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Tops',  img: 'https://drive.google.com/file/d/1yy0TNTOMTZzEztda15mf0oyG7MvnLf9k/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1A8FRf0jb1pBMFjbV4_D_tdyYDyo6NUH4/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Shirts',  img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+    ],
   },
   'Forever 21':   {
-    women: ['Dresses', 'Tops', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Forever 21')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Forever 21 ' + sub
-      )}`,
-    })),
-    men: ['T-shirts', 'Accessories', 'Pants'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Forever 21')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Forever 21 ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Tops',  img: 'https://drive.google.com/file/d/1yy0TNTOMTZzEztda15mf0oyG7MvnLf9k/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1A8FRf0jb1pBMFjbV4_D_tdyYDyo6NUH4/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Shirts',  img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+    ],
   },
   'Tommy Hilfiger':{
-    women: ['Tops', 'Jackets', 'Bags'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug(
-        'Tommy Hilfiger'
-      )}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Tommy Hilfiger ' + sub
-      )}`,
-    })),
-    men: ['Shirts', 'Watches', 'Jackets'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed(${slug(
-        'Tommy Hilfiger'
-      )}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Tommy Hilfiger ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Tops',  img: 'https://drive.google.com/file/d/1yy0TNTOMTZzEztda15mf0oyG7MvnLf9k/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1A8FRf0jb1pBMFjbV4_D_tdyYDyo6NUH4/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Shirts',  img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+    ],
   },
   "Levi's":       {
-    women: ['Denim', 'Jackets', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug("Levi's")}-${slug(sub)}/600x600?${encodeURIComponent(
-        "Levi's " + sub
-      )}`,
-    })),
-    men: ['Denim', 'Jackets', 'Accessories'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug("Levi's")}-${slug(sub)}/600x600?${encodeURIComponent(
-        "Levi's " + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Tops',  img: 'https://drive.google.com/file/d/1yy0TNTOMTZzEztda15mf0oyG7MvnLf9k/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1A8FRf0jb1pBMFjbV4_D_tdyYDyo6NUH4/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Shirts',  img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+    ],
   },
   Diesel:         {
-    women: ['Denim', 'Jackets', 'Shoes'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Diesel')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Diesel ' + sub
-      )}`,
-    })),
-    men: ['Denim', 'Jackets', 'Shoes'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Diesel')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Diesel ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Tops',  img: 'https://drive.google.com/file/d/1yy0TNTOMTZzEztda15mf0oyG7MvnLf9k/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1A8FRf0jb1pBMFjbV4_D_tdyYDyo6NUH4/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Shirts',  img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+    ],
   },
 
   /* ========= Luxury ========= */
   Gucci: {
-    women: ['Bags', 'Shoes', 'Fragrance'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Gucci')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Gucci ' + sub
-      )}`,
-    })),
-    men: ['Shoes', 'Bags', 'Fragrance'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed(${slug('Gucci')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Gucci ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Tops',  img: 'https://drive.google.com/file/d/1yy0TNTOMTZzEztda15mf0oyG7MvnLf9k/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1A8FRf0jb1pBMFjbV4_D_tdyYDyo6NUH4/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Shirts',  img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+    ],
   },
   Prada: {
-    women: ['Bags', 'Shoes', 'Fragrance'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Prada')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Prada ' + sub
-      )}`,
-    })),
-    men: ['Shoes', 'Bags', 'Fragrance'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed(${slug('Prada')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Prada ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Tops',  img: 'https://drive.google.com/file/d/1yy0TNTOMTZzEztda15mf0oyG7MvnLf9k/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1A8FRf0jb1pBMFjbV4_D_tdyYDyo6NUH4/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Shirts',  img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
+    ],
   },
 
   /* ========= Beauty ========= */
   'Huda Beauty': {
-    women: ['Makeup', 'Fragrance', 'Tools'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Huda Beauty')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Huda Beauty ' + sub
-      )}`,
-    })),
-    men: ['Fragrance', 'Tools', 'Skincare'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed(${slug('Huda Beauty')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Huda Beauty ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Makeup',  img: 'https://drive.google.com/file/d/1FGvVgf5j0AhKk6HHS5QuEPjjj_rr1LOU/view?usp=sharing' },
+      { sub: 'Fragrance',       img: 'https://drive.google.com/file/d/1izKOHnKTCc2FJfvm7MOqwpjPz9nYLR_J/view?usp=sharing' },
+    ],
+    men: [
+      
+    ],
   },
 
   /* ========= Home ========= */
   IKEA: {
-    women: ['Furniture', 'Décor', 'Kitchenware'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('IKEA')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'IKEA ' + sub
-      )}`,
-    })),
-    men: ['Furniture', 'Décor', 'Kitchenware'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed(${slug('IKEA')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'IKEA ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Furniture',  img: 'https://drive.google.com/file/d/11aoVPnYl4O9z77CGXEIVC0PrPlAfB7VR/view?usp=sharing' },
+      { sub: 'Sofás',       img: 'https://drive.google.com/file/d/1cm33RASefXrUeqn7_nJpA1o8HYauzlLw/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Furniture',  img: 'https://drive.google.com/file/d/11aoVPnYl4O9z77CGXEIVC0PrPlAfB7VR/view?usp=sharing' },
+      { sub: 'Sofás',       img: 'https://drive.google.com/file/d/1cm33RASefXrUeqn7_nJpA1o8HYauzlLw/view?usp=sharing' },
+    ],
   },
 };
 
@@ -385,7 +314,6 @@ const categorizedBrands = {
   marketplace: ['Amazon', 'Noon', 'Talabat', 'Carrefour', 'Namshi'],
   sportswear: ['Nike', 'Adidas', 'Puma', 'Skechers', 'Ecco'],
   fashionMass: [
-    'Calvin Klein',
     'Zara',
     'H&M',
     'Mango',
