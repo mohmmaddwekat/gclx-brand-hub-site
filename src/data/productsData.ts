@@ -9,7 +9,7 @@ export interface SubItem {
 /* ──────────────────────────────────────────────
    1) نوع المنتج
 ────────────────────────────────────────────── */
-export interface Product {
+export interfaceunsplash.com/seed Product {
   id: string;
   name: string;
   brand: string;
@@ -33,7 +33,7 @@ export const brandSubs: Record<
   Amazon:    {
     women: ['Electronics', 'Home', 'Fashion'].map((sub) => ({
       sub,
-      img: `https://source.unsplash.com/seed/${slug('Amazon')}-${slug(sub)}/600x600?${encodeURIComponent(
+      img: `https://source./${slug('Amazon')}-${slug(sub)}/600x600?${encodeURIComponent(
         'Amazon ' + sub
       )}`,
     })),
@@ -105,7 +105,7 @@ export const brandSubs: Record<
   Nike:     {
     women: [
       { sub: 'Sportswear',  img: 'https://images.unsplash.com/photo-S5_t6VIMClE' },
-      { sub: 'Shoes',       img: 'https://images.unsplash.com/photo-164_6wVEHfI' },
+      { sub: 'Shoes',       img: 'https://drive.google.com/file/d/12kygA8xI64fOwE9rmfV2G_mL0YYESKN5/view?usp=drive_link' },
       { sub: 'Accessories', img: 'https://images.unsplash.com/photo-aCtb_RTwuM' },
     ],
     men: [
