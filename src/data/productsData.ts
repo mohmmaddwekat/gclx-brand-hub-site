@@ -31,60 +31,53 @@ export const brandSubs: Record<
 > = {
   /* ========= Marketplace ========= */
   Amazon:    {
-    women: ['Electronics', 'Home', 'Fashion'].map((sub) => ({
-      sub,
-      img: `https://source./${slug('Amazon')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Amazon ' + sub
-      )}`,
-    })),
-    men: ['Electronics', 'Home', 'Fashion'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Amazon')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Amazon ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Electronics',  img: 'https://drive.google.com/file/d/1FFDoC9BefolaLPuJhsO1N8vG5GhBwE_F/view?usp=drive_link' },
+      { sub: 'Home',       img: 'https://drive.google.com/file/d/12kygA8xI64fOwE9rmfV2G_mL0YYESKN5/view?usp=drive_link' },
+      { sub: 'Fashion', img: 'https://drive.google.com/file/d/1B2XwrOz3QQu28GWdf03POOSovD-xTAYh/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Electronics',  img: 'https://drive.google.com/file/d/1FFDoC9BefolaLPuJhsO1N8vG5GhBwE_F/view?usp=drive_link' },
+      { sub: 'Home',       img: 'https://drive.google.com/file/d/12kygA8xI64fOwE9rmfV2G_mL0YYESKN5/view?usp=drive_link' },
+      { sub: 'Fashion', img: 'https://drive.google.com/file/d/1B2XwrOz3QQu28GWdf03POOSovD-xTAYh/view?usp=sharing' },
+    ],
+    
   },
   Noon:      {
-    women: ['Electronics', 'Beauty', 'Fashion'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Noon')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Noon ' + sub
-      )}`,
-    })),
-    men: ['Electronics', 'Beauty', 'Fashion'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Noon')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Noon ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Electronics',  img: 'https://drive.google.com/file/d/13uwMJ1FuYi4qIcnVNhNx5mFjonEnlAd5/view?usp=sharing' },
+      { sub: 'Beauty',       img: 'https://drive.google.com/file/d/1tdaBrl0b1GKhTDJGGhnRJ92SMqU573kX/view?usp=sharing' },
+      { sub: 'Fashion', img: 'https://drive.google.com/file/d/18FFG123zaz32yU63Uu06foU9zM_YzxRs/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Electronics',  img: 'https://drive.google.com/file/d/13uwMJ1FuYi4qIcnVNhNx5mFjonEnlAd5/view?usp=sharing' },
+      { sub: 'Beauty',       img: 'https://drive.google.com/file/d/1hRTRuWBJ-mWAyB-NCkPgDYHhPtp91fAY/view?usp=sharing' },
+      { sub: 'Fashion', img: 'https://drive.google.com/file/d/15MbBckikjz6OgrK7q_Ah_PNFIcNyMYMM/view?usp=sharing' },
+    ],
   },
   Talabat:   {
-    women: ['Food-Delivery', 'Groceries', 'Essentials'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Talabat')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Talabat ' + sub
-      )}`,
-    })),
-    men: ['Food-Delivery', 'Groceries', 'Essentials'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Talabat')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Talabat ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Food-Delivery',  img: 'https://drive.google.com/file/d/17ahTxLNYqIUQeb6EdINeBDiEmPkkJmMc/view?usp=sharing' },
+      { sub: 'Groceries',       img: 'https://drive.google.com/file/d/1hZACFqnqRnJ3f84-edF5xq4Q27xUfYeA/view?usp=sharing' },
+      { sub: 'Essentials', img: 'https://drive.google.com/file/d/1LoswWXHGaZgBII0iO2TqL7PYVeIkGBWC/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Food-Delivery',  img: 'https://drive.google.com/file/d/17ahTxLNYqIUQeb6EdINeBDiEmPkkJmMc/view?usp=sharing' },
+      { sub: 'Groceries',       img: 'https://drive.google.com/file/d/1hZACFqnqRnJ3f84-edF5xq4Q27xUfYeA/view?usp=sharing' },
+      { sub: 'Essentials', img: 'https://drive.google.com/file/d/1LoswWXHGaZgBII0iO2TqL7PYVeIkGBWC/view?usp=sharing' },
+    ],
   },
   Carrefour: {
-    women: ['Groceries', 'Appliances', 'Electronics'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Carrefour')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Carrefour ' + sub
-      )}`,
-    })),
-    men: ['Groceries', 'Appliances', 'Electronics'].map((sub) => ({
-      sub,
-      img: `https://source.unsplash.com/seed/${slug('Carrefour')}-${slug(sub)}/600x600?${encodeURIComponent(
-        'Carrefour ' + sub
-      )}`,
-    })),
+    women: [
+      { sub: 'Groceries',  img: 'https://drive.google.com/file/d/1eeu2fCuNbdIBogyrdoMUDQ6YaIICKBug/view?usp=sharing' },
+      { sub: 'Groceries',       img: 'https://drive.google.com/file/d/1hZACFqnqRnJ3f84-edF5xq4Q27xUfYeA/view?usp=sharing' },
+      { sub: 'Electronics', img: 'https://drive.google.com/file/d/1LoswWXHGaZgBII0iO2TqL7PYVeIkGBWC/view?usp=sharing' },
+    ],
+    men: [
+      { sub: 'Groceries',  img: 'https://drive.google.com/file/d/1eeu2fCuNbdIBogyrdoMUDQ6YaIICKBug/view?usp=sharing' },
+      { sub: 'Appliances',       img: 'https://drive.google.com/file/d/1hZACFqnqRnJ3f84-edF5xq4Q27xUfYeA/view?usp=sharing' },
+      { sub: 'Electronics', img: 'https://drive.google.com/file/d/1LoswWXHGaZgBII0iO2TqL7PYVeIkGBWC/view?usp=sharing' },
+    ],
   },
   Namshi:    {
     women: ['Fashion', 'Shoes', 'Accessories'].map((sub) => ({
