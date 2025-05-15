@@ -16,19 +16,19 @@ const ProductCard: React.FC<ProductCardProps> = ({
   imageUrl
 }) => {
   return (
-    <Card className="overflow-hidden card-shadow h-full">
+    <Card className="overflow-hidden card-shadow h-full hover:shadow-lg transition-all duration-300">
       <div>
         <img 
           src={imageUrl} 
           alt={name} 
-          className="w-full h-64 object-cover"
+          className="w-full h-56 sm:h-64 object-cover"
         />
       </div>
       <CardContent className="p-4">
         <div className="mb-2">
           <span className="text-sm font-semibold text-gclx-navy bg-gray-100 px-2 py-1 rounded-sm">{brand}</span>
         </div>
-        <h3 className="font-semibold text-gclx-navy">{name}</h3>
+        <h3 className="font-semibold text-gclx-navy line-clamp-2">{name}</h3>
       </CardContent>
     </Card>
   );
