@@ -2,7 +2,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { useQueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
@@ -15,7 +15,7 @@ import CollectionDetail from "./pages/CollectionDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
-const queryClient = useQueryClient();
+const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -34,9 +34,9 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/collections" element={<Collections />} />
-          {/* <Route path="/collections/women" element={<CollectionDetail />} /> */}
-          {/* <Route path="/collections/men" element={<CollectionDetail />} /> */}
-          <Route  path="/collections/:gender(women|men)" element={<CollectionDetail />} />
+          {/* <Route path="/collections/women" element={<CollectionDetail />} />
+          <Route path="/collections/men" element={<CollectionDetail />} /> */}
+          <Route  path="/collections/:gender(women|men)"   element={<CollectionDetail />} />
           <Route path="/contact" element={<Contact />} />
           
           {/* 404 route redirects to home */}
