@@ -48,12 +48,6 @@ const DestinationDetail: React.FC<DestinationDetailProps> = ({ destination }) =>
             <AttractionCard key={index} attraction={attraction} />
           ))}
         </div>
-        
-        <div className="mt-6">
-          <div className="inline-block bg-gclx-gold text-white px-4 py-2 rounded shadow">
-            {isRTL ? "معلومات سياحية فقط" : "Information Only"}
-          </div>
-        </div>
       </div>
     </div>
   );
