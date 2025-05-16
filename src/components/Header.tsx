@@ -6,10 +6,12 @@ import { Button } from '@/components/ui/button';
 import Logo from './Logo';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t, isRTL } = useLanguage();
+  const isMobile = useIsMobile();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -52,12 +54,12 @@ const Header: React.FC = () => {
           </nav>
           
           <div className="flex items-center space-x-2">
-            {/* Language Switcher */}
+            {/* Desktop Language Switcher */}
             <div className="hidden md:block">
               <LanguageSwitcher />
             </div>
             
-            {/* Mobile Menu Button - Moved to the right */}
+            {/* Mobile Menu Button */}
             <Button 
               variant="ghost" 
               size="sm" 
@@ -85,7 +87,9 @@ const Header: React.FC = () => {
                   {link.name}
                 </NavLink>
               ))}
-              <div className="pt-2">
+              
+              {/* Mobile Language Switcher - Positioned prominently with proper alignment */}
+              <div className={`flex ${isRTL ? 'justify-end' : 'justify-start'} pt-4`}>
                 <LanguageSwitcher />
               </div>
             </div>
