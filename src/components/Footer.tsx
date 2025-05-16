@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
       <div className="container-custom py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
-          <div>
+          <div className={isRTL ? 'text-right' : 'text-left'}>
             <Logo className="mb-4 bg-white p-2 rounded-md inline-block" />
             <p className="mt-4 text-sm text-gray-300">
               {t('companyDescription')}
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className={isRTL ? 'text-right' : 'text-left'}>
             <h3 className="text-lg font-semibold mb-4 text-gclx-gold">{t('quickLinks')}</h3>
             <ul className="space-y-2">
               {quickLinks.map(link => (
@@ -48,16 +48,16 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Social Links */}
-          <div>
+          <div className={isRTL ? 'text-right' : 'text-left'}>
             <h3 className="text-lg font-semibold mb-4 text-gclx-gold">{t('connectWithUs')}</h3>
-            <div className="flex space-x-4 mb-4">
+            <div className={`flex mb-4 ${isRTL ? 'justify-end space-x-reverse' : ''} space-x-4`}>
               {socialLinks.map(social => (
                 <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-gclx-gold transition-colors duration-200" aria-label={social.name}>
                   {social.icon}
                 </a>
               ))}
             </div>
-            <address className="not-italic text-sm text-gray-300">
+            <address className={`not-italic text-sm text-gray-300 ${isRTL ? 'text-right' : 'text-left'}`}>
               <p>{t('address')}</p>
               <p>{t('email')}</p>
             </address>
