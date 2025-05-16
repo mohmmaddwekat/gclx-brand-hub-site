@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,6 +7,7 @@ import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Using the same brands array from Collections page
 const brands = [{
@@ -921,14 +923,10 @@ const translations = {
     store: "."
   }
 };
+
 const BrandDetail: React.FC = () => {
-  const {
-    brandSlug
-  } = useParams<{
-    brandSlug: string;
-  }>();
-  const [language, setLanguage] = useState<"en" | "ar">("en");
-  const t = translations[language];
+  const { brandSlug } = useParams<{ brandSlug: string; }>();
+  const { language, t, isRTL } = useLanguage();
 
   // Find the brand based on the slug from URL
   const brand = brands.find(b => b.slug === brandSlug);
@@ -942,36 +940,49 @@ const BrandDetail: React.FC = () => {
   const products = brandProducts[brandSlug as keyof typeof brandProducts] || [];
 
   // If no products are defined for this brand, generate generic ones
-  const displayProducts = products.length > 0 ? products : Array.from({
-    length: 5
-  }, (_, index) => ({
+  const displayProducts = products.length > 0 ? products : Array.from({ length: 5 }, (_, index) => ({
     id: `${brandSlug}-${index + 1}`,
     title: `Sample ${brand.name} Item ${index + 1}`,
     img: `https://picsum.photos/seed/${brandSlug}-${index + 1}/600/600`,
     link: `https://www.${brandSlug === 'hm' ? 'hm' : brandSlug.replace('-', '')}.com`
   }));
-  return <PageLayout title={`${brand.name} – Featured Items`} description={`Click any item to open the official ${brand.name} store.`}>
+
+  // Get the translations based on current language
+  const tr = translations[language];
+
+  return (
+    <PageLayout 
+      title={`${brand.name} – ${tr.featuredItems}`} 
+      description={`${tr.clickToOpen} ${brand.name} ${tr.store}`}
+    >
       {/* Language Selector and Back Button */}
       <div className="container-custom mt-6 flex justify-between items-center">
-        <Link to="/collections" className="text-gclx-navy hover:underline mb-4 inline-flex items-center font-medium" aria-label="Back to all brands">
+        <Link 
+          to="/collections" 
+          className="text-gclx-navy hover:underline mb-4 inline-flex items-center font-medium text-center" 
+          aria-label={tr.backToAllBrands}
+        >
           <ChevronLeft size={20} />
-          <span>{t.backToAllBrands}</span>
+          <span>{tr.backToAllBrands}</span>
         </Link>
-        
-        
       </div>
 
       {/* Hero Banner */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-8 md:py-16">
         <div className="container-custom text-center text-white">
           <div className="mb-4">
-            <img src={brand.logo} alt={brand.name} onError={e => {
-            (e.target as HTMLImageElement).src = `https://via.placeholder.com/140x60?text=${brand.name}`;
-          }} className="max-h-16 mx-auto bg-white p-2 rounded-lg" />
+            <img 
+              src={brand.logo} 
+              alt={brand.name} 
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = `https://via.placeholder.com/140x60?text=${brand.name}`;
+              }} 
+              className="max-h-16 mx-auto bg-white p-2 rounded-lg"
+            />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{brand.name} – {t.featuredItems}</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            {t.clickToOpen} {brand.name} {t.store}
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">{brand.name} – {tr.featuredItems}</h1>
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-center">
+            {tr.clickToOpen} {brand.name} {tr.store}
           </p>
         </div>
       </section>
@@ -980,24 +991,39 @@ const BrandDetail: React.FC = () => {
       <section className="py-16 md:py-20">
         <div className="container-custom">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {displayProducts.map(product => <a key={product.id} href={product.link} target="_blank" rel="noopener noreferrer" className="block">
+            {displayProducts.map(product => (
+              <a 
+                key={product.id} 
+                href={product.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="block"
+              >
                 <Card className="overflow-hidden h-full hover:opacity-90 transition-opacity duration-300 rounded-lg shadow-md hover:shadow-xl">
                   <div className="aspect-square overflow-hidden">
-                    <img src={product.img} alt={product.title} onError={e => {
-                  (e.target as HTMLImageElement).src = `https://via.placeholder.com/400x400?text=${encodeURIComponent(product.title)}`;
-                }} className="w-full h-full object-contain" />
+                    <img 
+                      src={product.img} 
+                      alt={product.title} 
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = `https://via.placeholder.com/400x400?text=${encodeURIComponent(product.title)}`;
+                      }} 
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <CardContent className="p-4">
-                    <h3 className="font-medium text-sm md:text-base line-clamp-2">{product.title}</h3>
+                    <h3 className="font-medium text-sm md:text-base line-clamp-2 text-center">{product.title}</h3>
                   </CardContent>
                 </Card>
-              </a>)}
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Newsletter Signup */}
       <NewsletterSignup />
-    </PageLayout>;
+    </PageLayout>
+  );
 };
+
 export default BrandDetail;
