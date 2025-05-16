@@ -25,8 +25,8 @@ const InfoSection: React.FC = () => {
         </div>
         <p className="mb-8 max-w-2xl mx-auto">
           {isRTL ? 
-            "هذه الصفحة للعرض فقط وتقدم معلومات سياحية عن الإمارات العربية المتحدة." : 
-            "This is a display-only page providing tourism information about the United Arab Emirates."}
+            "نقدم لكم تجربة سياحية فريدة في الإمارات العربية المتحدة، حيث تلتقي الأصالة بالحداثة في واحدة من أكثر الوجهات تميزاً في العالم." : 
+            "We offer a unique tourism experience in the United Arab Emirates, where authenticity meets modernity in one of the world's most distinguished destinations."}
         </p>
         <Button asChild variant="highlight" size="lg" className="shadow-lg transform hover:scale-105 transition-all">
           <Link to="/">
