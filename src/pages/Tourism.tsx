@@ -276,7 +276,7 @@ const Tourism: React.FC = () => {
       id: 6,
       name: 'Ras Al Khaimah',
       nameAr: 'رأس الخيمة',
-      image: "https://images.unsplash.com/photo-1691640800740-0f3423e062ab?q=80&w=800&auto=format&fit=crop",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOmsI980OYdHMFvtPLjCU_2tEqhIb1N2_5Vw&s",
       description: "Experience the northernmost emirate with its mountains, beaches, and adventure activities.",
       descriptionAr: "استمتع بالإمارة الشمالية بجبالها وشواطئها وأنشطتها المغامرة.",
       attractions: [
@@ -317,9 +317,9 @@ const Tourism: React.FC = () => {
         }
       ],
       gallery: [
-        "https://images.unsplash.com/photo-1634215756898-b405c350921f?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1578895101408-1a6398d10ed7?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1559628233-100c798642d4?q=80&w=800&auto=format&fit=crop"
+        "https://cdn2.wingie.com/uploads/f_webp,s_500x300,q_60,fit_cover/flamingo_beach_ras_al_khaimah_43049_f5b5302eed.jpeg",
+        "https://cdn2.wingie.com/uploads/f_webp,s_500x300,q_60,fit_cover/national_museum_of_ras_al_khaimah_44239_9d04c3b36b.jpeg",
+        "https://cdn2.wingie.com/uploads/f_webp,s_500x300,q_60,fit_cover/manar_mall_44349_425006b204.jpeg"
       ]
     }
   ];
