@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -205,7 +204,7 @@ const Tourism: React.FC = () => {
         {
           name: "Al Zorah Nature Reserve",
           nameAr: "محمية الزورا الطبيعية",
-          icon: <PalmTree />,
+          icon: <TreePalm />,
           description: "Mangrove forests with rich biodiversity and bird watching.",
           descriptionAr: "غابات المانغروف مع تنوع بيولوجي غني ومراقبة الطيور."
         },
@@ -452,7 +451,7 @@ const Tourism: React.FC = () => {
           </h2>
           <p className="mb-8 max-w-2xl mx-auto">
             {isRTL ? 
-              "دعنا نساعدك في تخطيط رحلتك المثالية في الإمارات العربية المتحدة. اتصل بنا اليوم!" : 
+              "دعنا نساعدك في تخطيط رحلتك المثالية في الإمارا�� العربية المتحدة. اتصل بنا اليوم!" : 
               "Let us help you plan your perfect UAE journey. Contact us today!"}
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
