@@ -958,16 +958,7 @@ const BrandDetail: React.FC = () => {
           <span>{t.backToAllBrands}</span>
         </Link>
         
-        <Select value={language} onValueChange={value => setLanguage(value as "en" | "ar")}>
-          <SelectTrigger className="w-[150px]">
-            <Globe size={16} className="mr-2" />
-            <SelectValue placeholder="Language" />
-          </SelectTrigger>
-          <SelectContent className="object-cover">
-            <SelectItem value="en">English</SelectItem>
-            <SelectItem value="ar">العربية</SelectItem>
-          </SelectContent>
-        </Select>
+        
       </div>
 
       {/* Hero Banner */}
