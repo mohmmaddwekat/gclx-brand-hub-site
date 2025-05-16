@@ -1,11 +1,10 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShieldCheck, TicketPercent, CreditCard } from 'lucide-react';
+import { ShieldCheck, TicketPercent, CreditCard, Building, Landmark, Navigation } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -75,6 +74,34 @@ const Home: React.FC = () => {
     icon: <CreditCard className="h-6 w-6" />
   }];
 
+  // UAE Tourism destinations
+  const tourismDestinations = [
+    {
+      id: 1,
+      name: t('dubai'),
+      nameAr: 'دبي',
+      image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=500&auto=format&fit=crop",
+      description: t('dubaiDesc'),
+      descriptionAr: 'اكتشف روعة دبي، مدينة السحاب والشواطئ الرائعة'
+    },
+    {
+      id: 2,
+      name: t('abuDhabi'),
+      nameAr: 'أبو ظبي',
+      image: "https://images.unsplash.com/photo-1526495124232-a04e1849168c?q=80&w=500&auto=format&fit=crop",
+      description: t('abuDhabiDesc'),
+      descriptionAr: 'استكشف عاصمة الإمارات الثقافية الغنية بالتراث'
+    },
+    {
+      id: 3,
+      name: t('sharjah'),
+      nameAr: 'الشارقة',
+      image: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?q=80&w=500&auto=format&fit=crop",
+      description: t('sharjahDesc'),
+      descriptionAr: 'استمتع بالثقافة والفن في عاصمة الإمارات الثقافية'
+    }
+  ];
+
   return <PageLayout title={t('home')} description={t('shopAuthentic')}>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 text-white py-16 md:py-24 w-full">
@@ -106,7 +133,60 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Brands Carousel - Updated with logos and names */}
+      {/* UAE Tourism Section */}
+      <section className="py-16 bg-white w-full">
+        <div className="container-custom">
+          <h2 className="section-title mb-8 text-center text-2xl md:text-3xl font-bold text-gclx-navy">
+            {isRTL ? 'استكشف الإمارات العربية المتحدة' : 'Explore UAE Tourism'}
+          </h2>
+          <p className="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
+            {isRTL ? 
+              'اكتشف روعة الإمارات العربية المتحدة مع رحلاتنا السياحية ا��مميزة. تجارب لا تُنسى وأماكن مذهلة تنتظرك!' : 
+              'Discover the beauty of the UAE with our curated tourism packages. Unforgettable experiences and amazing destinations await!'}
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {tourismDestinations.map((destination) => (
+              <Card key={destination.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={destination.image} 
+                    alt={isRTL ? destination.nameAr : destination.name} 
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Landmark className="h-5 w-5 text-gclx-gold" />
+                    <h3 className="text-xl font-semibold text-gclx-navy">
+                      {isRTL ? destination.nameAr : destination.name}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">
+                    {isRTL ? destination.descriptionAr : destination.description}
+                  </p>
+                  <Button asChild variant="outline" className="w-full border-gclx-gold text-gclx-navy hover:bg-gclx-gold hover:text-white">
+                    <Link to="/tourism">
+                      <Navigation className="mr-1" size={18} />
+                      {isRTL ? 'اكتشف المزيد' : 'Discover More'}
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="flex justify-center mt-10">
+            <Button asChild className="bg-gclx-navy hover:bg-blue-900 text-white">
+              <Link to="/tourism">
+                {isRTL ? 'عرض جميع الوجهات السياحية' : 'View All Tourism Destinations'}
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Brands Carousel */}
       <section className="py-12 bg-white w-full">
         <div className="container-custom">
           <h2 className="section-title mb-8 text-center">{t('featuredBrands')}</h2>

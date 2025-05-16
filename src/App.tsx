@@ -14,6 +14,7 @@ import Services from "./pages/Services";
 import Collections from "./pages/Collections";
 import BrandDetail from "./pages/BrandDetail";
 import Contact from "./pages/Contact";
+import Tourism from "./pages/Tourism";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,7 +26,7 @@ const App = () => (
         <Helmet>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="GCLX General Trading - Authentic global brands at 20-50% off" />
-          <meta name="keywords" content="GCLX, trading, fashion, discounts, dubai, uae, brands, wholesale" />
+          <meta name="keywords" content="GCLX, trading, fashion, discounts, dubai, uae, brands, wholesale, tourism" />
         </Helmet>
         
         <Toaster />
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/collections" element={<Collections />} />
             <Route path="/collections/:brandSlug" element={<BrandDetail />} />
+            <Route path="/tourism" element={<Tourism />} />
             <Route path="/contact" element={<Contact />} />
             
             {/* 404 route redirects to home */}
