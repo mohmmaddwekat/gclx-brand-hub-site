@@ -34,8 +34,8 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div className={isRTL ? 'text-right' : 'text-left'}>
-            <h3 className="text-lg font-semibold mb-4 text-gclx-gold">{t('quickLinks')}</h3>
+          <div className={isRTL ? 'text-right' : ''}>
+            <h3 className={`text-lg font-semibold mb-4 text-gclx-gold ${isRTL ? 'text-right' : ''}`}>{t('quickLinks')}</h3>
             <ul className="space-y-2">
               {quickLinks.map(link => (
                 <li key={link.path}>
