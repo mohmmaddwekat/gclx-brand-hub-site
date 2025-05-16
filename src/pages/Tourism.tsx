@@ -124,9 +124,9 @@ const Tourism: React.FC = () => {
         }
       ],
       gallery: [
-        "https://images.unsplash.com/photo-1516690541958-2bd02d315a51?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1528706869306-82087a3c1320?q=80&w=800&auto=format&fit=crop"
+        "https://www.urtrips.com/wp-content/uploads/2017/07/hotels-in-abu-dhabi.jpg",
+        "https://www.urtrips.com/wp-content/uploads/2018/11/abu-dhabi-beaches.jpg",
+        "https://www.urtrips.com/wp-content/uploads/2017/07/Emirates-Heritage-Club.jpg"
       ]
     },
     {
