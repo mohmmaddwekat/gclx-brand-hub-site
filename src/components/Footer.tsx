@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
       <div className="container-custom py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
-          <div className={isRTL ? 'text-center' : 'text-center'}>
+          <div className="text-center">
             <Logo className="mb-4 bg-white p-2 rounded-md inline-block" />
             <p className="mt-4 text-sm text-gray-300">
               {t('companyDescription')}
@@ -34,11 +34,11 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div className={isRTL ? 'text-center' : ''}>
-            <h3 className={`text-lg font-semibold mb-4 text-gclx-gold ${isRTL ? 'text-center' : ''}`}>{t('quickLinks')}</h3>
+          <div className="text-center">
+            <h3 className="text-lg font-semibold mb-4 text-gclx-gold">{t('quickLinks')}</h3>
             <ul className="space-y-2">
               {quickLinks.map(link => (
-                <li key={link.path}>
+                <li key={link.path} className="flex justify-center">
                   <Link to={link.path} className="text-gray-300 hover:text-gclx-gold transition-colors duration-200">
                     {link.name}
                   </Link>
@@ -48,16 +48,16 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Social Links */}
-          <div className={isRTL ? 'text-center' : 'text-center'}>
+          <div className="text-center">
             <h3 className="text-lg font-semibold mb-4 text-gclx-gold">{t('connectWithUs')}</h3>
-            <div className={`flex mb-4 ${isRTL ? 'justify-end space-x-reverse' : ''} space-x-4`}>
+            <div className="flex justify-center space-x-4 mb-4">
               {socialLinks.map(social => (
                 <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-gclx-gold transition-colors duration-200" aria-label={social.name}>
                   {social.icon}
                 </a>
               ))}
             </div>
-            <address className={`not-italic text-sm text-gray-300 ${isRTL ? 'text-right' : 'text-left'}`}>
+            <address className="not-italic text-sm text-gray-300">
               <p>{t('address')}</p>
               <p>{t('email')}</p>
             </address>
