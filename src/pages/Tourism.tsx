@@ -159,7 +159,7 @@ const Tourism: React.FC = () => {
       nameAr: 'رأس الخيمة',
       image: "https://images.unsplash.com/photo-1691640800740-0f3423e062ab?q=80&w=800&auto=format&fit=crop",
       description: "Experience the northernmost emirate with its mountains, beaches, and adventure activities.",
-      descriptionAr: "استمتع بالإمارة الشمال��ة بجبالها وشواطئها وأنشطتها المغامرة.",
+      descriptionAr: "استمتع بالإمارة الشمالية بجبالها وشواطئها وأنشطتها المغامرة.",
       attractions: [
         {
           name: "Jebel Jais",
@@ -178,57 +178,6 @@ const Tourism: React.FC = () => {
       ]
     }
   ];
-  
-  const tourPackages = [
-    {
-      id: 1,
-      name: "Dubai City Tour",
-      nameAr: "جولة مدينة دبي",
-      duration: "1 day",
-      durationAr: "يوم واحد",
-      price: "FREE",
-      priceAr: "مجاناً",
-      icon: <MapPin />,
-      description: "Explore the highlights of Dubai including Burj Khalifa, Dubai Mall, and traditional souks.",
-      descriptionAr: "استكشف معالم دبي بما في ذلك برج خليفة ودبي مول والأسواق التقليدية."
-    },
-    {
-      id: 2,
-      name: "Abu Dhabi Cultural Tour",
-      nameAr: "جولة أبوظبي الثقافية",
-      duration: "1 day",
-      durationAr: "يوم واحد",
-      price: "FREE",
-      priceAr: "مجاناً",
-      icon: <Landmark />,
-      description: "Visit the Sheikh Zayed Grand Mosque, Louvre Abu Dhabi, and the Presidential Palace.",
-      descriptionAr: "زيارة مسجد الشيخ زايد الكبير واللوفر أبوظبي والقصر الرئاسي."
-    },
-    {
-      id: 3,
-      name: "Desert Safari Adventure",
-      nameAr: "مغامرة سفاري الصحراء",
-      duration: "Half day",
-      durationAr: "نصف يوم",
-      price: "FREE",
-      priceAr: "مجاناً",
-      icon: <Tent />,
-      description: "Experience dune bashing, camel riding, and traditional entertainment in the desert.",
-      descriptionAr: "استمتع بقيادة الكثبان الرملية وركوب الجمال والترفيه التقليدي في الصحراء."
-    },
-    {
-      id: 4,
-      name: "UAE East Coast Tour",
-      nameAr: "جولة الساحل الشرقي للإمارات",
-      duration: "1 day",
-      durationAr: "يوم واحد",
-      price: "FREE",
-      priceAr: "مجاناً",
-      icon: <Navigation />,
-      description: "Visit Fujairah and Khor Fakkan to experience mountains, beaches, and historic sites.",
-      descriptionAr: "زيارة الفجيرة وخور فكان لتجربة الجبال والشواطئ والمواقع التاريخية."
-    }
-  ];
 
   return (
     <PageLayout 
@@ -243,75 +192,9 @@ const Tourism: React.FC = () => {
           </h1>
           <p className="text-lg md:text-xl mb-6 max-w-3xl mx-auto text-center">
             {isRTL ? 
-              "رحلات سياحية مميزة داخل الإمارات العربية المتحدة. تجارب لا تُنسى ومعالم مذهلة تنتظرك!" : 
-              "Discover exceptional tourism experiences within the United Arab Emirates. Unforgettable adventures and amazing landmarks await you!"}
+              "اكتشف المعالم المذهلة في الإمارات العربية المتحدة من المدن الحديثة إلى التراث الغني والمناظر الطبيعية الخلابة." : 
+              "Discover the amazing landmarks in the United Arab Emirates from modern cities to rich heritage and stunning landscapes."}
           </p>
-          
-          {/* Free Tours Banner */}
-          <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-lg p-4 max-w-2xl mx-auto mb-8 transform rotate-1 shadow-lg">
-            <div className="transform -rotate-1 flex items-center justify-center">
-              <Ticket className="h-7 w-7 mr-2 text-yellow-300 animate-pulse" />
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
-                {isRTL ? "جميع الرحلات مجانية تماماً! لا حجز مطلوب" : "ALL TOURS ARE COMPLETELY FREE! NO BOOKING REQUIRED"}
-              </h2>
-              <Star className="h-7 w-7 ml-2 text-yellow-300 animate-pulse" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tour Packages Section */}
-      <section className="py-16 bg-white w-full">
-        <div className="container-custom">
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <Ticket className="h-6 w-6 text-red-500" />
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-gclx-navy">
-              {isRTL ? "باقات سياحية مميزة - مجاناً" : "Featured Tour Packages - FREE"}
-            </h2>
-            <Ticket className="h-6 w-6 text-red-500" />
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {tourPackages.map((tourPackage) => (
-              <Card key={tourPackage.id} className="hover:shadow-lg transition-shadow duration-300 border-2 border-transparent hover:border-gclx-navy relative overflow-hidden">
-                {/* FREE Badge */}
-                <div className="absolute -top-1 -right-12 bg-red-500 text-white font-bold py-1 px-10 transform rotate-45 shadow-md">
-                  {isRTL ? "مجاناً" : "FREE"}
-                </div>
-                
-                <CardContent className="p-6 pt-8">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="p-2 bg-gclx-navy rounded-full text-white">{tourPackage.icon}</div>
-                    <h3 className="text-lg font-semibold text-gclx-navy">
-                      {isRTL ? tourPackage.nameAr : tourPackage.name}
-                    </h3>
-                  </div>
-                  <div className="flex justify-between mb-2 text-sm text-gray-600">
-                    <span className="flex items-center gap-1">
-                      <Hotel className="h-4 w-4" />
-                      {isRTL ? tourPackage.durationAr : tourPackage.duration}
-                    </span>
-                    <span className="font-bold text-red-500 flex items-center">
-                      <Ticket className="h-4 w-4 mr-1" />
-                      {isRTL ? tourPackage.priceAr : tourPackage.price}
-                    </span>
-                  </div>
-                  <p className="text-gray-600 text-sm mt-3">
-                    {isRTL ? tourPackage.descriptionAr : tourPackage.description}
-                  </p>
-                  <Button className="w-full mt-4 bg-gclx-navy hover:bg-blue-900">
-                    {isRTL ? "انضم للرحلة - مجاناً" : "Join Tour - FREE"}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          
-          <div className="text-center mt-10">
-            <Button variant="outline" className="border-gclx-navy text-gclx-navy hover:bg-gclx-navy hover:text-white">
-              {isRTL ? "عرض جميع الباقات" : "View All Packages"}
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -341,10 +224,6 @@ const Tourism: React.FC = () => {
                         alt={isRTL ? destination.nameAr : destination.name} 
                         className="w-full h-[300px] lg:h-full object-cover rounded-lg shadow-md"
                       />
-                      <div className="absolute -top-3 -right-3 bg-red-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg flex items-center">
-                        <Ticket className="mr-1" />
-                        {isRTL ? "رحلات مجانية" : "FREE TOURS"}
-                      </div>
                     </div>
                   </div>
                   <div className="lg:col-span-3">
@@ -394,13 +273,6 @@ const Tourism: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             {isRTL ? "جاهز لاستكشاف الإمارات؟" : "Ready to Explore the UAE?"}
           </h2>
-          <div className="bg-red-500 rounded-lg py-3 px-6 inline-flex items-center justify-center mb-6">
-            <Star className="h-5 w-5 mr-2" />
-            <span className="font-bold text-xl">
-              {isRTL ? "انضم لرحلتك المجانية الآن! لا حجز مطلوب" : "Join Your FREE Trip Now! NO BOOKING REQUIRED"}
-            </span>
-            <Star className="h-5 w-5 ml-2" />
-          </div>
           <p className="mb-8 max-w-2xl mx-auto">
             {isRTL ? 
               "دعنا نساعدك في تخطيط رحلتك المثالية في الإمارات العربية المتحدة. اتصل بنا اليوم!" : 
