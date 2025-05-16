@@ -431,9 +431,9 @@ const Tourism: React.FC = () => {
                     </div>
                     
                     <div className="mt-6">
-                      <Button className="bg-gclx-gold text-white hover:bg-yellow-500">
-                        {isRTL ? "استكشف المزيد" : "Explore More"}
-                      </Button>
+                      <div className="inline-block bg-gclx-gold text-white px-4 py-2 rounded shadow">
+                        {isRTL ? "معلومات سياحية فقط" : "Information Only"}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -443,23 +443,18 @@ const Tourism: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Information Section - Replacing CTA */}
       <section className="py-16 bg-gclx-navy text-white w-full">
         <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            {isRTL ? "جاهز لاستكشاف الإمارات؟" : "Ready to Explore the UAE?"}
+            {isRTL ? "معلومات سياحية عن الإمارات" : "UAE Tourism Information"}
           </h2>
           <p className="mb-8 max-w-2xl mx-auto">
             {isRTL ? 
-              "دعنا نساعدك في تخطيط رحلتك المثالية في الإمارا�� العربية المتحدة. اتصل بنا اليوم!" : 
-              "Let us help you plan your perfect UAE journey. Contact us today!"}
+              "هذه الصفحة للعرض فقط وتقدم معلومات سياحية عن الإمارات العربية المتحدة." : 
+              "This is a display-only page providing tourism information about the United Arab Emirates."}
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Button asChild className="bg-white text-gclx-navy hover:bg-gray-100 font-bold">
-              <Link to="/contact">
-                {isRTL ? "تواصل معنا" : "Contact Us"}
-              </Link>
-            </Button>
             <Button asChild variant="highlight" size="lg" className="shadow-lg transform hover:scale-105 transition-all">
               <Link to="/">
                 {isRTL ? "العودة إلى الرئيسية" : "Back to Home"}
