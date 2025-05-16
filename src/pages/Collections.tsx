@@ -8,22 +8,20 @@ import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import SearchBar from '@/components/SearchBar';
 
-// Brand data structure as provided - with Dareen removed
+// Brand data structure as provided - keeping only the specified brands
 const brands = [
+  { name: "Nike", slug: "nike", logo: "https://logo.clearbit.com/nike.com" },
   { name: "Amazon", slug: "amazon", logo: "https://logo.clearbit.com/amazon.com" },
   { name: "Noon", slug: "noon", logo: "https://logo.clearbit.com/noon.com" },
   { name: "Talabat", slug: "talabat", logo: "https://logo.clearbit.com/talabat.com" },
   { name: "Carrefour", slug: "carrefour", logo: "https://logo.clearbit.com/carrefour.com" },
   { name: "Namshi", slug: "namshi", logo: "https://logo.clearbit.com/namshi.com" },
-  { name: "Adidas", slug: "adidas", logo: "https://logo.clearbit.com/adidas.com" },
   { name: "IKEA", slug: "ikea", logo: "https://logo.clearbit.com/ikea.com" },
-  { name: "Nike", slug: "nike", logo: "https://logo.clearbit.com/nike.com" },
   { name: "Puma", slug: "puma", logo: "https://logo.clearbit.com/puma.com" },
   { name: "Steve Madden", slug: "steve-madden", logo: "https://logo.clearbit.com/stevemadden.com" },
   { name: "Charles & Keith", slug: "charles-keith", logo: "https://logo.clearbit.com/charleskeith.com" },
   { name: "Jimmy Choo", slug: "jimmy-choo", logo: "https://logo.clearbit.com/jimmychoo.com" },
   { name: "Christian Louboutin", slug: "christian-louboutin", logo: "https://logo.clearbit.com/christianlouboutin.com" },
-  { name: "Skechers", slug: "skechers", logo: "https://logo.clearbit.com/skechers.com" },
   { name: "Ecco", slug: "ecco", logo: "https://logo.clearbit.com/ecco.com" },
   { name: "Calvin Klein", slug: "calvin-klein", logo: "https://logo.clearbit.com/calvinklein.com" },
   { name: "Zara", slug: "zara", logo: "https://logo.clearbit.com/zara.com" },
@@ -40,23 +38,6 @@ const brands = [
   { name: "Valentino", slug: "valentino", logo: "https://logo.clearbit.com/valentino.com" },
   { name: "Fendi", slug: "fendi", logo: "https://logo.clearbit.com/fendi.com" },
   { name: "Ralph Lauren", slug: "ralph-lauren", logo: "https://logo.clearbit.com/ralphlauren.com" },
-  { name: "Hugo Boss", slug: "hugo-boss", logo: "https://logo.clearbit.com/hugoboss.com" },
-  { name: "Dior", slug: "dior", logo: "https://logo.clearbit.com/dior.com" },
-  { name: "Chloé", slug: "chloe", logo: "https://logo.clearbit.com/chloe.com" },
-  { name: "Self-Portrait", slug: "self-portrait", logo: "https://logo.clearbit.com/self-portrait.com" },
-  { name: "Reformation", slug: "reformation", logo: "https://logo.clearbit.com/thereformation.com" },
-  { name: "Levi's", slug: "levis", logo: "https://logo.clearbit.com/levis.com" },
-  { name: "Diesel", slug: "diesel", logo: "https://logo.clearbit.com/diesel.com" },
-  { name: "Prada", slug: "prada", logo: "https://logo.clearbit.com/prada.com" },
-  { name: "Huda Beauty", slug: "huda-beauty", logo: "https://logo.clearbit.com/hudabeauty.com" },
-  { name: "Charlotte Tilbury", slug: "charlotte-tilbury", logo: "https://logo.clearbit.com/charlottetilbury.com" },
-  { name: "Fenty Beauty", slug: "fenty-beauty", logo: "https://logo.clearbit.com/fentybeauty.com" },
-  { name: "MAC", slug: "mac", logo: "https://logo.clearbit.com/maccosmetics.com" },
-  { name: "Estée Lauder", slug: "estee-lauder", logo: "https://logo.clearbit.com/esteelauder.com" },
-  { name: "Lancôme", slug: "lancome", logo: "https://logo.clearbit.com/lancome.com" },
-  { name: "The Ordinary", slug: "the-ordinary", logo: "https://logo.clearbit.com/deciem.com" },
-  { name: "La Roche-Posay", slug: "la-roche-posay", logo: "https://logo.clearbit.com/laroche-posay.com" },
-  { name: "NARS", slug: "nars", logo: "https://logo.clearbit.com/narscosmetics.com" },
 ];
 
 const Collections: React.FC = () => {

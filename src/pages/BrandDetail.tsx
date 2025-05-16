@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,196 +7,37 @@ import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { Button } from '@/components/ui/button';
 
-// Using the same brands array from Collections page - with Dareen removed
-const brands = [{
-  name: "Amazon",
-  slug: "amazon",
-  logo: "https://logo.clearbit.com/amazon.com"
-}, {
-  name: "Noon",
-  slug: "noon",
-  logo: "https://logo.clearbit.com/noon.com"
-}, {
-  name: "Talabat",
-  slug: "talabat",
-  logo: "https://logo.clearbit.com/talabat.com"
-}, {
-  name: "Carrefour",
-  slug: "carrefour",
-  logo: "https://logo.clearbit.com/carrefour.com"
-}, {
-  name: "Namshi",
-  slug: "namshi",
-  logo: "https://logo.clearbit.com/namshi.com"
-}, {
-  name: "Adidas",
-  slug: "adidas",
-  logo: "https://logo.clearbit.com/adidas.com"
-}, {
-  name: "IKEA",
-  slug: "ikea",
-  logo: "https://logo.clearbit.com/ikea.com"
-}, {
-  name: "Nike",
-  slug: "nike",
-  logo: "https://logo.clearbit.com/nike.com"
-}, {
-  name: "Puma",
-  slug: "puma",
-  logo: "https://logo.clearbit.com/puma.com"
-}, {
-  name: "Steve Madden",
-  slug: "steve-madden",
-  logo: "https://logo.clearbit.com/stevemadden.com"
-}, {
-  name: "Charles & Keith",
-  slug: "charles-keith",
-  logo: "https://logo.clearbit.com/charleskeith.com"
-}, {
-  name: "Jimmy Choo",
-  slug: "jimmy-choo",
-  logo: "https://logo.clearbit.com/jimmychoo.com"
-}, {
-  name: "Christian Louboutin",
-  slug: "christian-louboutin",
-  logo: "https://logo.clearbit.com/christianlouboutin.com"
-}, {
-  name: "Skechers",
-  slug: "skechers",
-  logo: "https://logo.clearbit.com/skechers.com"
-}, {
-  name: "Ecco",
-  slug: "ecco",
-  logo: "https://logo.clearbit.com/ecco.com"
-}, {
-  name: "Calvin Klein",
-  slug: "calvin-klein",
-  logo: "https://logo.clearbit.com/calvinklein.com"
-}, {
-  name: "Zara",
-  slug: "zara",
-  logo: "https://logo.clearbit.com/zara.com"
-}, {
-  name: "H&M",
-  slug: "hm",
-  logo: "https://logo.clearbit.com/hm.com"
-}, {
-  name: "Mango",
-  slug: "mango",
-  logo: "https://logo.clearbit.com/mango.com"
-}, {
-  name: "Forever 21",
-  slug: "forever-21",
-  logo: "https://logo.clearbit.com/forever21.com"
-}, {
-  name: "Tommy Hilfiger",
-  slug: "tommy-hilfiger",
-  logo: "https://logo.clearbit.com/tommy.com"
-}, {
-  name: "Dolce & Gabbana",
-  slug: "dolce-gabbana",
-  logo: "https://logo.clearbit.com/dolcegabbana.com"
-}, {
-  name: "Gucci",
-  slug: "gucci",
-  logo: "https://logo.clearbit.com/gucci.com"
-}, {
-  name: "Louis Vuitton",
-  slug: "louis-vuitton",
-  logo: "https://logo.clearbit.com/louisvuitton.com"
-}, {
-  name: "Chanel",
-  slug: "chanel",
-  logo: "https://logo.clearbit.com/chanel.com"
-}, {
-  name: "Versace",
-  slug: "versace",
-  logo: "https://logo.clearbit.com/versace.com"
-}, {
-  name: "Balenciaga",
-  slug: "balenciaga",
-  logo: "https://logo.clearbit.com/balenciaga.com"
-}, {
-  name: "Valentino",
-  slug: "valentino",
-  logo: "https://logo.clearbit.com/valentino.com"
-}, {
-  name: "Fendi",
-  slug: "fendi",
-  logo: "https://logo.clearbit.com/fendi.com"
-}, {
-  name: "Ralph Lauren",
-  slug: "ralph-lauren",
-  logo: "https://logo.clearbit.com/ralphlauren.com"
-}, {
-  name: "Hugo Boss",
-  slug: "hugo-boss",
-  logo: "https://logo.clearbit.com/hugoboss.com"
-}, {
-  name: "Dior",
-  slug: "dior",
-  logo: "https://logo.clearbit.com/dior.com"
-}, {
-  name: "Chloé",
-  slug: "chloe",
-  logo: "https://logo.clearbit.com/chloe.com"
-}, {
-  name: "Self-Portrait",
-  slug: "self-portrait",
-  logo: "https://logo.clearbit.com/self-portrait.com"
-}, {
-  name: "Reformation",
-  slug: "reformation",
-  logo: "https://logo.clearbit.com/thereformation.com"
-}, {
-  name: "Levi's",
-  slug: "levis",
-  logo: "https://logo.clearbit.com/levis.com"
-}, {
-  name: "Diesel",
-  slug: "diesel",
-  logo: "https://logo.clearbit.com/diesel.com"
-}, {
-  name: "Prada",
-  slug: "prada",
-  logo: "https://logo.clearbit.com/prada.com"
-}, {
-  name: "Huda Beauty",
-  slug: "huda-beauty",
-  logo: "https://logo.clearbit.com/hudabeauty.com"
-}, {
-  name: "Charlotte Tilbury",
-  slug: "charlotte-tilbury",
-  logo: "https://logo.clearbit.com/charlottetilbury.com"
-}, {
-  name: "Fenty Beauty",
-  slug: "fenty-beauty",
-  logo: "https://logo.clearbit.com/fentybeauty.com"
-}, {
-  name: "MAC",
-  slug: "mac",
-  logo: "https://logo.clearbit.com/maccosmetics.com"
-}, {
-  name: "Estée Lauder",
-  slug: "estee-lauder",
-  logo: "https://logo.clearbit.com/esteelauder.com"
-}, {
-  name: "Lancôme",
-  slug: "lancome",
-  logo: "https://logo.clearbit.com/lancome.com"
-}, {
-  name: "The Ordinary",
-  slug: "the-ordinary",
-  logo: "https://logo.clearbit.com/deciem.com"
-}, {
-  name: "La Roche-Posay",
-  slug: "la-roche-posay",
-  logo: "https://logo.clearbit.com/laroche-posay.com"
-}, {
-  name: "NARS",
-  slug: "nars",
-  logo: "https://logo.clearbit.com/narscosmetics.com"
-}];
+// Using the same brands array from Collections page
+const brands = [
+  { name: "Nike", slug: "nike", logo: "https://logo.clearbit.com/nike.com" },
+  { name: "Amazon", slug: "amazon", logo: "https://logo.clearbit.com/amazon.com" },
+  { name: "Noon", slug: "noon", logo: "https://logo.clearbit.com/noon.com" },
+  { name: "Talabat", slug: "talabat", logo: "https://logo.clearbit.com/talabat.com" },
+  { name: "Carrefour", slug: "carrefour", logo: "https://logo.clearbit.com/carrefour.com" },
+  { name: "Namshi", slug: "namshi", logo: "https://logo.clearbit.com/namshi.com" },
+  { name: "IKEA", slug: "ikea", logo: "https://logo.clearbit.com/ikea.com" },
+  { name: "Puma", slug: "puma", logo: "https://logo.clearbit.com/puma.com" },
+  { name: "Steve Madden", slug: "steve-madden", logo: "https://logo.clearbit.com/stevemadden.com" },
+  { name: "Charles & Keith", slug: "charles-keith", logo: "https://logo.clearbit.com/charleskeith.com" },
+  { name: "Jimmy Choo", slug: "jimmy-choo", logo: "https://logo.clearbit.com/jimmychoo.com" },
+  { name: "Christian Louboutin", slug: "christian-louboutin", logo: "https://logo.clearbit.com/christianlouboutin.com" },
+  { name: "Ecco", slug: "ecco", logo: "https://logo.clearbit.com/ecco.com" },
+  { name: "Calvin Klein", slug: "calvin-klein", logo: "https://logo.clearbit.com/calvinklein.com" },
+  { name: "Zara", slug: "zara", logo: "https://logo.clearbit.com/zara.com" },
+  { name: "H&M", slug: "hm", logo: "https://logo.clearbit.com/hm.com" },
+  { name: "Mango", slug: "mango", logo: "https://logo.clearbit.com/mango.com" },
+  { name: "Forever 21", slug: "forever-21", logo: "https://logo.clearbit.com/forever21.com" },
+  { name: "Tommy Hilfiger", slug: "tommy-hilfiger", logo: "https://logo.clearbit.com/tommy.com" },
+  { name: "Dolce & Gabbana", slug: "dolce-gabbana", logo: "https://logo.clearbit.com/dolcegabbana.com" },
+  { name: "Gucci", slug: "gucci", logo: "https://logo.clearbit.com/gucci.com" },
+  { name: "Louis Vuitton", slug: "louis-vuitton", logo: "https://logo.clearbit.com/louisvuitton.com" },
+  { name: "Chanel", slug: "chanel", logo: "https://logo.clearbit.com/chanel.com" },
+  { name: "Versace", slug: "versace", logo: "https://logo.clearbit.com/versace.com" },
+  { name: "Balenciaga", slug: "balenciaga", logo: "https://logo.clearbit.com/balenciaga.com" },
+  { name: "Valentino", slug: "valentino", logo: "https://logo.clearbit.com/valentino.com" },
+  { name: "Fendi", slug: "fendi", logo: "https://logo.clearbit.com/fendi.com" },
+  { name: "Ralph Lauren", slug: "ralph-lauren", logo: "https://logo.clearbit.com/ralphlauren.com" },
+];
 
 // Special product data for Nike
 const nikeProducts = [{
@@ -224,12 +66,9 @@ const nikeProducts = [{
   img: "https://picsum.photos/seed/nike-bag/600/600",
   link: "https://www.nike.com/t/brasilia-training-backpack-24l"
 }];
+
 const BrandDetail: React.FC = () => {
-  const {
-    brandSlug
-  } = useParams<{
-    brandSlug: string;
-  }>();
+  const { brandSlug } = useParams<{ brandSlug: string; }>();
 
   // Find the brand based on the slug from URL
   const brand = brands.find(b => b.slug === brandSlug);
@@ -245,16 +84,19 @@ const BrandDetail: React.FC = () => {
     brandProducts = nikeProducts;
   } else {
     // Generate 5 dummy products for other brands
-    brandProducts = Array.from({
-      length: 5
-    }, (_, index) => ({
+    brandProducts = Array.from({ length: 5 }, (_, index) => ({
       id: `${brand.slug}-${index + 1}`,
       title: `Sample ${brand.name} Item ${index + 1}`,
       img: `https://picsum.photos/seed/${brand.slug}-${index + 1}/600/600`,
       link: `https://www.${brand.slug === 'hm' ? 'hm' : brand.slug.replace('-', '')}.com`
     }));
   }
-  return <PageLayout title={`${brand.name} – Featured Items`} description={`Click any item to open the official ${brand.name} store.`}>
+
+  return (
+    <PageLayout 
+      title={`${brand.name} – Featured Items`} 
+      description={`Click any item to open the official ${brand.name} store.`}
+    >
       {/* Back Button - Now more prominent */}
       <div className="container-custom mt-6">
         <Link to="/collections" className="text-gclx-navy hover:underline mb-4 inline-flex items-center font-medium" aria-label="Back to all brands">
@@ -310,6 +152,7 @@ const BrandDetail: React.FC = () => {
 
       {/* Newsletter Signup */}
       <NewsletterSignup />
-    </PageLayout>;
+    </PageLayout>
+  );
 };
 export default BrandDetail;
