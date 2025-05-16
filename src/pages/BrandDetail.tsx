@@ -185,7 +185,7 @@ const BrandDetail: React.FC = () => {
             ))}
           </div>
           
-          {/* Additional Back Button at the bottom */}
+          {/* Arabic Back Button at the bottom */}
           <div className="flex justify-center mt-8">
             <Link to="/collections">
               <Button 
