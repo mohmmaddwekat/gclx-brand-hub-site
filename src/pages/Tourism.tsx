@@ -4,9 +4,20 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { MapPin, Building, Landmark, Navigation, Hotel, Tent, Star, Ticket } from 'lucide-react';
+import { 
+  MapPin, Building, Landmark, Navigation, Hotel, Tent, 
+  Star, Ticket, Coffee, Utensils, ShoppingBag, PalmTree, 
+  Sailboat, Mountain, Camera 
+} from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel';
 
 const Tourism: React.FC = () => {
   const { t, isRTL } = useLanguage();
@@ -40,7 +51,33 @@ const Tourism: React.FC = () => {
           icon: <Building />,
           description: "One of the largest shopping malls in the world.",
           descriptionAr: "أحد أكبر مراكز التسوق في العالم."
+        },
+        {
+          name: "Dubai Marina",
+          nameAr: "مرسى دبي",
+          icon: <Sailboat />,
+          description: "Artificial canal city with luxury lifestyle.",
+          descriptionAr: "مدينة قناة اصطناعية مع أسلوب حياة فاخر."
+        },
+        {
+          name: "Dubai Miracle Garden",
+          nameAr: "حديقة دبي المعجزة",
+          icon: <PalmTree />,
+          description: "The world's largest natural flower garden.",
+          descriptionAr: "أكبر حديقة زهور طبيعية في العالم."
+        },
+        {
+          name: "Dubai Frame",
+          nameAr: "برواز دبي",
+          icon: <Camera />,
+          description: "Iconic structure offering views of old and new Dubai.",
+          descriptionAr: "هيكل أيقوني يوفر إطلالات على دبي القديمة والجديدة."
         }
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1526495124232-a04e1849168c?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1546412414-e1885259563a?q=80&w=800&auto=format&fit=crop"
       ]
     },
     {
@@ -71,7 +108,26 @@ const Tourism: React.FC = () => {
           icon: <MapPin />,
           description: "Entertainment destination with theme parks and attractions.",
           descriptionAr: "وجهة ترفيهية تضم حدائق ومعالم جذب."
+        },
+        {
+          name: "Emirates Palace",
+          nameAr: "قصر الإمارات",
+          icon: <Hotel />,
+          description: "Luxurious hotel featuring gold, marble and crystals.",
+          descriptionAr: "فندق فاخر يضم الذهب والرخام والكريستال."
+        },
+        {
+          name: "Ferrari World",
+          nameAr: "عالم فيراري",
+          icon: <Ticket />,
+          description: "World's first Ferrari-branded theme park.",
+          descriptionAr: "أول مدينة ملاهي تحمل العلامة التجارية فيراري في العالم."
         }
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1516690541958-2bd02d315a51?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1528706869306-82087a3c1320?q=80&w=800&auto=format&fit=crop"
       ]
     },
     {
@@ -102,7 +158,26 @@ const Tourism: React.FC = () => {
           icon: <MapPin />,
           description: "Historic district showcasing traditional Gulf architecture.",
           descriptionAr: "حي تاريخي يعرض العمارة الخليجية التقليدية."
+        },
+        {
+          name: "Sharjah Arts Museum",
+          nameAr: "متحف الشارقة للفنون",
+          icon: <Camera />,
+          description: "Largest art museum in the UAE with diverse collections.",
+          descriptionAr: "أكبر متحف للفنون في الإمارات مع مجموعات متنوعة."
+        },
+        {
+          name: "Al Majaz Waterfront",
+          nameAr: "واجهة المجاز المائية",
+          icon: <Sailboat />,
+          description: "Stunning waterfront with fountain shows and activities.",
+          descriptionAr: "واجهة مائية مذهلة مع عروض نافورة وأنشطة."
         }
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1578895101408-1a6398d10ed7?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1583778176476-2461ae56641a?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1576605996271-155bf0d733c4?q=80&w=800&auto=format&fit=crop"
       ]
     },
     {
@@ -126,7 +201,26 @@ const Tourism: React.FC = () => {
           icon: <Building />,
           description: "Former fort showcasing local heritage and history.",
           descriptionAr: "حصن سابق يعرض التراث والتاريخ المحلي."
+        },
+        {
+          name: "Al Zorah Nature Reserve",
+          nameAr: "محمية الزورا الطبيعية",
+          icon: <PalmTree />,
+          description: "Mangrove forests with rich biodiversity and bird watching.",
+          descriptionAr: "غابات المانغروف مع تنوع بيولوجي غني ومراقبة الطيور."
+        },
+        {
+          name: "Ajman Corniche",
+          nameAr: "كورنيش عجمان",
+          icon: <Navigation />,
+          description: "Picturesque waterfront promenade with shops and cafes.",
+          descriptionAr: "ممشى مائي خلاب مع المحلات والمقاهي."
         }
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1576401141838-35d722833e69?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?q=80&w=800&auto=format&fit=crop"
       ]
     },
     {
@@ -150,7 +244,33 @@ const Tourism: React.FC = () => {
           icon: <Building />,
           description: "Historic fort offering insights into the region's past.",
           descriptionAr: "قلعة تاريخية تقدم نظرة على ماضي المنطقة."
+        },
+        {
+          name: "Snoopy Island",
+          nameAr: "جزيرة سنوبي",
+          icon: <Navigation />,
+          description: "Famous spot for snorkeling and diving with marine life.",
+          descriptionAr: "مكان مشهور للغوص والغطس مع الحياة البحرية."
+        },
+        {
+          name: "Hajar Mountains",
+          nameAr: "جبال الحجر",
+          icon: <Mountain />,
+          description: "Stunning mountain range with hiking trails and wadis.",
+          descriptionAr: "سلسلة جبال مذهلة مع مسارات للمشي والوديان."
+        },
+        {
+          name: "Al Aqah Beach",
+          nameAr: "شاطئ العقة",
+          icon: <Navigation />,
+          description: "Beautiful sandy beach with crystal-clear waters.",
+          descriptionAr: "شاطئ رملي جميل بمياه صافية كالكريستال."
         }
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1572931207882-ec8628645985?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1576605996271-155bf0d733c4?q=80&w=800&auto=format&fit=crop"
       ]
     },
     {
@@ -164,7 +284,7 @@ const Tourism: React.FC = () => {
         {
           name: "Jebel Jais",
           nameAr: "جبل جيس",
-          icon: <Tent />,
+          icon: <Mountain />,
           description: "UAE's highest mountain offering hiking and the world's longest zipline.",
           descriptionAr: "أعلى جبل في الإمارات يوفر المشي لمسافات طويلة وأطول خط انزلاق في العالم."
         },
@@ -174,7 +294,33 @@ const Tourism: React.FC = () => {
           icon: <Building />,
           description: "Abandoned 'ghost town' showcasing traditional architecture.",
           descriptionAr: "مدينة أشباح مهجورة تعرض العمارة التقليدية."
+        },
+        {
+          name: "Dhayah Fort",
+          nameAr: "قلعة ضايا",
+          icon: <Landmark />,
+          description: "Historic 18th-century fortress with panoramic views.",
+          descriptionAr: "قلعة تاريخية من القرن الثامن عشر مع إطلالات بانورامية."
+        },
+        {
+          name: "Al Marjan Island",
+          nameAr: "جزيرة المرجان",
+          icon: <Sailboat />,
+          description: "Man-made island with luxury resorts and beaches.",
+          descriptionAr: "جزيرة من صنع الإنسان مع منتجعات فاخرة وشواطئ."
+        },
+        {
+          name: "Khatt Springs",
+          nameAr: "عيون الخط",
+          icon: <Utensils />,
+          description: "Natural hot springs with therapeutic properties.",
+          descriptionAr: "ينابيع ساخنة طبيعية ذات خصائص علاجية."
         }
+      ],
+      gallery: [
+        "https://images.unsplash.com/photo-1634215756898-b405c350921f?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1578895101408-1a6398d10ed7?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1559628233-100c798642d4?q=80&w=800&auto=format&fit=crop"
       ]
     }
   ];
@@ -218,14 +364,45 @@ const Tourism: React.FC = () => {
               <TabsContent key={destination.id} value={destination.name.toLowerCase().replace(' ', '-')}>
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
                   <div className="lg:col-span-2">
-                    <div className="relative">
-                      <img 
-                        src={destination.image} 
-                        alt={isRTL ? destination.nameAr : destination.name} 
-                        className="w-full h-[300px] lg:h-full object-cover rounded-lg shadow-md"
-                      />
+                    <div className="space-y-6">
+                      <div className="relative">
+                        <img 
+                          src={destination.image} 
+                          alt={isRTL ? destination.nameAr : destination.name} 
+                          className="w-full h-[300px] object-cover rounded-lg shadow-md"
+                        />
+                      </div>
+                      
+                      {/* Image Gallery */}
+                      <div className="mt-4">
+                        <h4 className="text-lg font-semibold mb-3 text-gclx-navy">
+                          {isRTL ? "معرض الصور" : "Image Gallery"}
+                        </h4>
+                        <Carousel className="w-full">
+                          <CarouselContent>
+                            {destination.gallery.map((image, index) => (
+                              <CarouselItem key={index} className="md:basis-1/2">
+                                <div className="p-1">
+                                  <Card>
+                                    <CardContent className="flex items-center justify-center p-2">
+                                      <img 
+                                        src={image}
+                                        alt={`${destination.name} scene ${index + 1}`}
+                                        className="w-full h-[150px] object-cover rounded-md"
+                                      />
+                                    </CardContent>
+                                  </Card>
+                                </div>
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                          <CarouselPrevious className={isRTL ? "right-0" : "left-0"} />
+                          <CarouselNext className={isRTL ? "left-0" : "right-0"} />
+                        </Carousel>
+                      </div>
                     </div>
                   </div>
+                  
                   <div className="lg:col-span-3">
                     <h3 className="text-2xl font-bold mb-4 text-gclx-navy">
                       {isRTL ? destination.nameAr : destination.name}
@@ -240,7 +417,7 @@ const Tourism: React.FC = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {destination.attractions.map((attraction, index) => (
-                        <div key={index} className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm">
+                        <div key={index} className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
                           <div className="mt-1 text-gclx-gold">{attraction.icon}</div>
                           <div>
                             <h5 className="font-medium text-gclx-navy">
