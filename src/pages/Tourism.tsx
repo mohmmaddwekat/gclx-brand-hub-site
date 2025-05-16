@@ -183,7 +183,7 @@ const Tourism: React.FC = () => {
       id: 4,
       name: 'Ajman',
       nameAr: 'عجمان',
-      image: "https://images.unsplash.com/photo-1608483047539-0291e3cbd0ed?q=80&w=800&auto=format&fit=crop",
+      image: "https://cdn.al-ain.com/images/2021/1/14/143-105018-most-beautiful-tourist-places-ajman_700x400.jpg",
       description: "Enjoy the smallest emirate with its beautiful beaches and relaxed atmosphere.",
       descriptionAr: "استمتع بأصغر إمارة بشواطئها الجميلة وأجوائها الهادئة.",
       attractions: [
@@ -217,9 +217,9 @@ const Tourism: React.FC = () => {
         }
       ],
       gallery: [
-        "https://images.unsplash.com/photo-1576401141838-35d722833e69?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?q=80&w=800&auto=format&fit=crop"
+        "https://cdn2.wingie.com/uploads/f_webp,s_500x300,q_60,fit_cover/ajman_museum_43043_3286bd3d71.jpeg",
+        "https://cdn2.wingie.com/uploads/f_webp,s_500x300,q_60,fit_cover/hamidiya_park_43042_61abdb8ff3.jpeg",
+        "https://cdn2.wingie.com/uploads/f_webp,s_500x300,q_60,fit_cover/ajman_museum_43043_3286bd3d71.jpeg"
       ]
     },
     {
@@ -235,7 +235,7 @@ const Tourism: React.FC = () => {
           nameAr: "مسجد البدية",
           icon: <Landmark />,
           description: "UAE's oldest mosque dating back to the 15th century.",
-          descriptionAr: "أقدم مسجد في الإمارات يعود تاريخه إلى القرن الخامس عشر."
+          descriptionAr: "أقدم مسجد في الإمار��ت يعود تاريخه إلى القرن الخامس عشر."
         },
         {
           name: "Fujairah Fort",
