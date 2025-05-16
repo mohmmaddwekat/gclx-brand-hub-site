@@ -49,8 +49,8 @@ const Services: React.FC = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-16">
         <div className="container-custom text-center text-white">
-          <h1 className="text-4xl font-bold mb-4">Our Services</h1>
-          <p className="text-xl max-w-2xl mx-auto">Premium shopping experience with unbeatable prices</p>
+          <h1 className="text-4xl font-bold mb-4 text-center">Our Services</h1>
+          <p className="text-xl max-w-2xl mx-auto text-center">Premium shopping experience with unbeatable prices</p>
         </div>
       </section>
 
@@ -59,14 +59,16 @@ const Services: React.FC = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {services.map((service) => (
-              <Card key={service.id} className={`card-shadow ${service.highlight ? 'border-2 border-gclx-gold' : ''}`}>
+              <Card key={service.id} className={`card-shadow text-center ${service.highlight ? 'border-2 border-gclx-gold' : ''}`}>
                 <CardContent className="p-6">
-                  <div className="text-4xl mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold text-gclx-navy mb-2">{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.shortDesc}</p>
-                  <Button asChild variant="outline">
-                    <a href={`#${service.id}`}>Learn More</a>
-                  </Button>
+                  <div className="text-4xl mb-4 text-center">{service.icon}</div>
+                  <h3 className="text-xl font-semibold text-gclx-navy mb-2 text-center">{service.title}</h3>
+                  <p className="text-gray-600 mb-4 text-center">{service.shortDesc}</p>
+                  <div className="flex justify-center">
+                    <Button asChild variant="outline">
+                      <a href={`#${service.id}`}>Learn More</a>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -77,7 +79,7 @@ const Services: React.FC = () => {
       {/* Detailed Service Sections */}
       {services.map((service) => (
         <section key={service.id} id={service.id} className="py-16 scroll-mt-20 even:bg-gray-50">
-          <div className="container-custom">
+          <div className="container-custom text-center">
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="md:w-1/3 flex justify-center">
                 <div className={`text-8xl p-8 rounded-full ${service.highlight ? 'bg-gclx-gold text-gclx-navy' : 'bg-gray-100'}`}>
@@ -85,12 +87,12 @@ const Services: React.FC = () => {
                 </div>
               </div>
               <div className="md:w-2/3">
-                <h2 className="section-title mb-6">{service.title}</h2>
+                <h2 className="section-title mb-6 text-center">{service.title}</h2>
                 {service.fullDesc.map((paragraph, i) => (
-                  <p key={i} className="mb-4 text-gray-700">{paragraph}</p>
+                  <p key={i} className="mb-4 text-gray-700 text-center">{paragraph}</p>
                 ))}
                 {service.highlight && (
-                  <div className="mt-6">
+                  <div className="mt-6 flex justify-center">
                     <Button asChild className="bg-gclx-gold text-gclx-navy hover:bg-yellow-400">
                       <Link to="/collections">Explore Our Collections</Link>
                     </Button>
