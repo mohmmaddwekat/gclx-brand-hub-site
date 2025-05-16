@@ -89,7 +89,7 @@ const Home: React.FC = () => {
       {/* Brands Carousel - Fixed for Arabic */}
       <section className="py-12 bg-white w-full">
         <div className="container-custom">
-          <h2 className="section-title text-center mb-8">{t('featuredBrands')}</h2>
+          <h2 className="section-title mb-8 text-center">{t('featuredBrands')}</h2>
           <div className="relative max-w-4xl mx-auto">
             <Carousel className="w-full" setApi={setCarouselApi} opts={{
             align: "start",
