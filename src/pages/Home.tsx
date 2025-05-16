@@ -72,14 +72,14 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 text-white py-16 md:py-24 w-full">
         <div className="container-custom">
-          <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center !important">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
             {t('unlockDiscounts')}
           </h1>
-          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-center !important">
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-center">
             {t('shopAuthentic')}
           </p>
           <div className="flex justify-center">
-            <Button asChild className="bg-gclx-gold text-gclx-navy hover:bg-yellow-400 text-lg px-8 py-6 h-auto mx-auto">
+            <Button asChild className="bg-gclx-gold text-gclx-navy hover:bg-yellow-400 text-lg px-8 py-6 h-auto" alignment="center">
               <Link to="/collections" className="">{t('exploreCollections')}</Link>
             </Button>
           </div>
@@ -92,9 +92,9 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {trustBadges.map((badge, index) => (
               <div key={index} className="bg-white rounded-lg p-6 text-center shadow-sm">
-                <div className="text-4xl mb-4 flex justify-center">{badge.icon}</div>
-                <h3 className="text-xl font-semibold text-gclx-navy mb-2 text-center !important">{badge.title}</h3>
-                <p className="text-gray-600 text-center !important">{badge.description}</p>
+                <div className="flex justify-center mb-4">{badge.icon}</div>
+                <h3 className="text-xl font-semibold text-gclx-navy mb-2 text-center">{badge.title}</h3>
+                <p className="text-gray-600 text-center">{badge.description}</p>
               </div>
             ))}
           </div>
@@ -104,10 +104,10 @@ const Home: React.FC = () => {
       {/* Brands Carousel - Fixed for Arabic */}
       <section className="py-12 bg-white w-full">
         <div className="container-custom">
-          <h2 className="section-title mb-8 text-center !important">{t('featuredBrands')}</h2>
+          <h2 className="section-title mb-8 text-center">{t('featuredBrands')}</h2>
           <div className="relative max-w-4xl mx-auto">
             <Carousel className="w-full" setApi={setCarouselApi} opts={{
-              align: "start",
+              align: "center",
               loop: true,
               direction: isRTL ? "rtl" : "ltr"
             }}>
@@ -126,8 +126,8 @@ const Home: React.FC = () => {
               </CarouselContent>
               {!isMobile && (
                 <>
-                  <CarouselPrevious className={`absolute ${isRTL ? '-right-12' : '-left-12'} top-1/2 -translate-y-1/2`} />
-                  <CarouselNext className={`absolute ${isRTL ? '-left-12' : '-right-12'} top-1/2 -translate-y-1/2`} />
+                  <CarouselPrevious className={`absolute ${isRTL ? 'right-0' : 'left-0'} -translate-x-[-100%] top-1/2 -translate-y-1/2`} />
+                  <CarouselNext className={`absolute ${isRTL ? 'left-0' : 'right-0'} translate-x-[100%] top-1/2 -translate-y-1/2`} />
                 </>
               )}
             </Carousel>
@@ -138,15 +138,15 @@ const Home: React.FC = () => {
       {/* How it Works */}
       <section className="py-16 bg-gray-50 w-full">
         <div className="container-custom">
-          <h2 className="section-title mb-12 text-center !important">{t('howItWorks')}</h2>
+          <h2 className="section-title mb-12 text-center">{t('howItWorks')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
               <div key={index} className="text-center">
                 <div className="bg-white w-20 h-20 mx-auto rounded-full flex items-center justify-center text-4xl shadow-md mb-4">
                   {step.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gclx-navy mb-2 text-center !important">{step.title}</h3>
-                <p className="text-gray-600 text-center !important">{step.description}</p>
+                <h3 className="text-xl font-semibold text-gclx-navy mb-2 text-center">{step.title}</h3>
+                <p className="text-gray-600 text-center">{step.description}</p>
                 {index < steps.length - 1 && (
                   <div className={`hidden md:block absolute ${isRTL ? 'left-0 rtl-flip' : 'right-0'} top-1/2 transform -translate-y-1/2`}>
                     →

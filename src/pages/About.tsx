@@ -31,8 +31,8 @@ const About: React.FC = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-16">
         <div className="container-custom text-center text-white">
-          <h1 className="text-4xl font-bold mb-4 text-center !important">{t('aboutGCLX')}</h1>
-          <p className="text-xl max-w-2xl mx-auto text-center !important">{t('trustedPartner')}</p>
+          <h1 className="text-4xl font-bold mb-4 text-center">{t('aboutGCLX')}</h1>
+          <p className="text-xl max-w-2xl mx-auto text-center">{t('trustedPartner')}</p>
         </div>
       </section>
 
@@ -40,11 +40,11 @@ const About: React.FC = () => {
       <section className="py-16">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="section-title mb-6 text-center !important">{t('ourMission')}</h2>
-            <p className="text-lg mb-8 text-center !important">
+            <h2 className="section-title mb-6 text-center">{t('ourMission')}</h2>
+            <p className="text-lg mb-8 text-center">
               {t('missionText1')}
             </p>
-            <p className="text-lg text-center !important">
+            <p className="text-lg text-center">
               {t('missionText2')}
             </p>
           </div>
@@ -54,12 +54,12 @@ const About: React.FC = () => {
       {/* Our Promise */}
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
-          <h2 className="section-title mb-8 text-center !important">{t('ourPromise')}</h2>
+          <h2 className="section-title mb-8 text-center">{t('ourPromise')}</h2>
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg mb-8 text-center !important">
+            <p className="text-lg mb-8 text-center">
               {t('promiseText1')}
             </p>
-            <p className="text-lg text-center !important">
+            <p className="text-lg text-center">
               {t('promiseText2')}
             </p>
           </div>
@@ -69,14 +69,14 @@ const About: React.FC = () => {
       {/* Values Section */}
       <section className="py-16">
         <div className="container-custom">
-          <h2 className="section-title mb-12 text-center !important">{t('ourValues')}</h2>
+          <h2 className="section-title mb-12 text-center">{t('ourValues')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <Card key={index} className="card-shadow">
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-4 flex justify-center">{value.icon}</div>
-                  <h3 className="text-xl font-semibold text-gclx-navy mb-2 text-center !important">{value.title}</h3>
-                  <p className="text-gray-600 text-center !important">{value.description}</p>
+                  <h3 className="text-xl font-semibold text-gclx-navy mb-2 text-center">{value.title}</h3>
+                  <p className="text-gray-600 text-center">{value.description}</p>
                 </CardContent>
               </Card>
             ))}
