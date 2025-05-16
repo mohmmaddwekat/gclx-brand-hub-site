@@ -133,7 +133,7 @@ const translations = {
     // Footer Content
     companyDescription: "GCLX General Trading brings global brands to local shoppers at unbeatable discounts. Shop authentic fashion, beauty and lifestyle products from 40+ world-class brands.",
     address: "Business Bay, Dubai, UAE",
-    email: "Email: info@gclx-trading.com",
+    email: "Email: info@gclxgt.com",
     copyright: "© 2025 GCLX General Trading — Instant Coupon Redemption",
     
     // General
