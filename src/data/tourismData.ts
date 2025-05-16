@@ -25,6 +25,15 @@ export interface Destination {
   gallery: string[];
 }
 
+// Helper function to create icon elements
+const createIcon = (Icon: typeof Building | typeof Landmark | typeof MapPin | 
+                          typeof Navigation | typeof Hotel | typeof Tent | 
+                          typeof Star | typeof Ticket | typeof Coffee | 
+                          typeof Utensils | typeof ShoppingBag | typeof TreePalm | 
+                          typeof Sailboat | typeof Mountain | typeof Camera) => {
+  return React.createElement(Icon);
+};
+
 export const destinations: Destination[] = [
   {
     id: 1,
@@ -37,42 +46,42 @@ export const destinations: Destination[] = [
       {
         name: "Burj Khalifa",
         nameAr: "برج خليفة",
-        icon: <Building />,
+        icon: createIcon(Building),
         description: "The world's tallest building offering spectacular views.",
         descriptionAr: "أطول مبنى في العالم يوفر إطلالات رائعة."
       },
       {
         name: "Palm Jumeirah",
         nameAr: "نخلة جميرا",
-        icon: <Landmark />,
+        icon: createIcon(Landmark),
         description: "Artificial archipelago with luxury hotels and residences.",
         descriptionAr: "أرخبيل اصطناعي مع فنادق ومساكن فاخرة."
       },
       {
         name: "Dubai Mall",
         nameAr: "دبي مول",
-        icon: <Building />,
+        icon: createIcon(Building),
         description: "One of the largest shopping malls in the world.",
         descriptionAr: "أحد أكبر مراكز التسوق في العالم."
       },
       {
         name: "Dubai Marina",
         nameAr: "مرسى دبي",
-        icon: <Sailboat />,
+        icon: createIcon(Sailboat),
         description: "Artificial canal city with luxury lifestyle.",
         descriptionAr: "مدينة قناة اصطناعية مع أسلوب حياة فاخر."
       },
       {
         name: "Dubai Miracle Garden",
         nameAr: "حديقة دبي المعجزة",
-        icon: <TreePalm />,
+        icon: createIcon(TreePalm),
         description: "The world's largest natural flower garden.",
         descriptionAr: "أكبر حديقة زهور طبيعية في العالم."
       },
       {
         name: "Dubai Frame",
         nameAr: "برواز دبي",
-        icon: <Camera />,
+        icon: createIcon(Camera),
         description: "Iconic structure offering views of old and new Dubai.",
         descriptionAr: "هيكل أيقوني يوفر إطلالات على دبي القديمة والجديدة."
       }
@@ -94,35 +103,35 @@ export const destinations: Destination[] = [
       {
         name: "Sheikh Zayed Grand Mosque",
         nameAr: "جامع الشيخ زايد الكبير",
-        icon: <Landmark />,
+        icon: createIcon(Landmark),
         description: "One of the largest mosques in the world with incredible architecture.",
         descriptionAr: "أحد أكبر المساجد في العالم بهندسة معمارية مذهلة."
       },
       {
         name: "Louvre Abu Dhabi",
         nameAr: "اللوفر أبوظبي",
-        icon: <Building />,
+        icon: createIcon(Building),
         description: "A universal museum showcasing art from around the world.",
         descriptionAr: "متحف عالمي يعرض الفن من جميع أنحاء العالم."
       },
       {
         name: "Yas Island",
         nameAr: "جزيرة ياس",
-        icon: <MapPin />,
+        icon: createIcon(MapPin),
         description: "Entertainment destination with theme parks and attractions.",
         descriptionAr: "وجهة ترفيهية تضم حدائق ومعالم جذب."
       },
       {
         name: "Emirates Palace",
         nameAr: "قصر الإمارات",
-        icon: <Hotel />,
+        icon: createIcon(Hotel),
         description: "Luxurious hotel featuring gold, marble and crystals.",
         descriptionAr: "فندق فاخر يضم الذهب والرخام والكريستال."
       },
       {
         name: "Ferrari World",
         nameAr: "عالم فيراري",
-        icon: <Ticket />,
+        icon: createIcon(Ticket),
         description: "World's first Ferrari-branded theme park.",
         descriptionAr: "أول مدينة ملاهي تحمل العلامة التجارية فيراري في العالم."
       }
@@ -144,35 +153,35 @@ export const destinations: Destination[] = [
       {
         name: "Sharjah Museum of Islamic Civilization",
         nameAr: "متحف الشارقة للحضارة الإسلامية",
-        icon: <Building />,
+        icon: createIcon(Building),
         description: "Showcasing Islamic art, culture, and scientific achievements.",
         descriptionAr: "يعرض الفن والثقافة والإنجازات العلمية الإسلامية."
       },
       {
         name: "Al Noor Mosque",
         nameAr: "مسجد النور",
-        icon: <Landmark />,
+        icon: createIcon(Landmark),
         description: "Beautiful mosque with stunning Ottoman architecture.",
         descriptionAr: "مسجد جميل بهندسة معمارية عثمانية رائعة."
       },
       {
         name: "Heart of Sharjah",
         nameAr: "قلب الشارقة",
-        icon: <MapPin />,
+        icon: createIcon(MapPin),
         description: "Historic district showcasing traditional Gulf architecture.",
         descriptionAr: "حي تاريخي يعرض العمارة الخليجية التقليدية."
       },
       {
         name: "Sharjah Arts Museum",
         nameAr: "متحف الشارقة للفنون",
-        icon: <Camera />,
+        icon: createIcon(Camera),
         description: "Largest art museum in the UAE with diverse collections.",
         descriptionAr: "أكبر متحف للفنون في الإمارات مع مجموعات متنوعة."
       },
       {
         name: "Al Majaz Waterfront",
         nameAr: "واجهة المجاز المائية",
-        icon: <Sailboat />,
+        icon: createIcon(Sailboat),
         description: "Stunning waterfront with fountain shows and activities.",
         descriptionAr: "واجهة مائية مذهلة مع عروض نافورة وأنشطة."
       }
@@ -194,28 +203,28 @@ export const destinations: Destination[] = [
       {
         name: "Ajman Beach",
         nameAr: "شاطئ عجمان",
-        icon: <Navigation />,
+        icon: createIcon(Navigation),
         description: "Beautiful public beach with white sand and clear water.",
         descriptionAr: "شاطئ عام جميل برمال بيضاء ومياه صافية."
       },
       {
         name: "Ajman Museum",
         nameAr: "متحف عجمان",
-        icon: <Building />,
+        icon: createIcon(Building),
         description: "Former fort showcasing local heritage and history.",
         descriptionAr: "حصن سابق يعرض التراث والتاريخ المحلي."
       },
       {
         name: "Al Zorah Nature Reserve",
         nameAr: "محمية الزورا الطبيعية",
-        icon: <TreePalm />,
+        icon: createIcon(TreePalm),
         description: "Mangrove forests with rich biodiversity and bird watching.",
         descriptionAr: "غابات المانغروف مع تنوع بيولوجي غني ومراقبة الطيور."
       },
       {
         name: "Ajman Corniche",
         nameAr: "كورنيش عجمان",
-        icon: <Navigation />,
+        icon: createIcon(Navigation),
         description: "Picturesque waterfront promenade with shops and cafes.",
         descriptionAr: "ممشى مائي خلاب مع المحلات والمقاهي."
       }
@@ -237,35 +246,35 @@ export const destinations: Destination[] = [
       {
         name: "Al Bidyah Mosque",
         nameAr: "مسجد البدية",
-        icon: <Landmark />,
+        icon: createIcon(Landmark),
         description: "UAE's oldest mosque dating back to the 15th century.",
         descriptionAr: "أقدم مسجد في الإمارات يعود تاريخه إلى القرن الخامس عشر."
       },
       {
         name: "Fujairah Fort",
         nameAr: "قلعة الفجيرة",
-        icon: <Building />,
+        icon: createIcon(Building),
         description: "Historic fort offering insights into the region's past.",
         descriptionAr: "قلعة تاريخية تقدم نظرة على ماضي المنطقة."
       },
       {
         name: "Snoopy Island",
         nameAr: "جزيرة سنوبي",
-        icon: <Navigation />,
+        icon: createIcon(Navigation),
         description: "Famous spot for snorkeling and diving with marine life.",
         descriptionAr: "مكان مشهور للغوص والغطس مع الحياة البحرية."
       },
       {
         name: "Hajar Mountains",
         nameAr: "جبال الحجر",
-        icon: <Mountain />,
+        icon: createIcon(Mountain),
         description: "Stunning mountain range with hiking trails and wadis.",
         descriptionAr: "سلسلة جبال مذهلة مع مسارات للمشي والوديان."
       },
       {
         name: "Al Aqah Beach",
         nameAr: "شاطئ العقة",
-        icon: <Navigation />,
+        icon: createIcon(Navigation),
         description: "Beautiful sandy beach with crystal-clear waters.",
         descriptionAr: "شاطئ رملي جميل بمياه صافية كالكريستال."
       }
@@ -287,35 +296,35 @@ export const destinations: Destination[] = [
       {
         name: "Jebel Jais",
         nameAr: "جبل جيس",
-        icon: <Mountain />,
+        icon: createIcon(Mountain),
         description: "UAE's highest mountain offering hiking and the world's longest zipline.",
         descriptionAr: "أعلى جبل في الإمارات يوفر المشي لمسافات طويلة وأطول خط انزلاق في العالم."
       },
       {
         name: "Al Jazirah Al Hamra",
         nameAr: "الجزيرة الحمراء",
-        icon: <Building />,
+        icon: createIcon(Building),
         description: "Abandoned 'ghost town' showcasing traditional architecture.",
         descriptionAr: "مدينة أشباح مهجورة تعرض العمارة التقليدية."
       },
       {
         name: "Dhayah Fort",
         nameAr: "قلعة ضايا",
-        icon: <Landmark />,
+        icon: createIcon(Landmark),
         description: "Historic 18th-century fortress with panoramic views.",
         descriptionAr: "قلعة تاريخية من القرن الثامن عشر مع إطلالات بانورامية."
       },
       {
         name: "Al Marjan Island",
         nameAr: "جزيرة المرجان",
-        icon: <Sailboat />,
+        icon: createIcon(Sailboat),
         description: "Man-made island with luxury resorts and beaches.",
         descriptionAr: "جزيرة من صنع الإنسان مع منتجعات فاخرة وشواطئ."
       },
       {
         name: "Khatt Springs",
         nameAr: "عيون الخط",
-        icon: <Utensils />,
+        icon: createIcon(Utensils),
         description: "Natural hot springs with therapeutic properties.",
         descriptionAr: "ينابيع ساخنة طبيعية ذات خصائص علاجية."
       }
