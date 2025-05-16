@@ -119,7 +119,7 @@ const Home: React.FC = () => {
       {/* How it Works */}
       <section className="py-16 bg-gray-50 w-full">
         <div className="container-custom">
-          <h2 className="section-title text-center mb-12">{t('howItWorks')}</h2>
+          <h2 className="section-title mb-12 text-center">{t('howItWorks')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {steps.map((step, index) => <div key={index} className="text-center">
                 <div className="bg-white w-20 h-20 mx-auto rounded-full flex items-center justify-center text-4xl shadow-md mb-4">
