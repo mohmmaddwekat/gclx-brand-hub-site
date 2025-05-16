@@ -24,7 +24,7 @@ const LanguageSwitcher: React.FC = () => {
         <SelectTrigger 
           className={`w-[120px] bg-white/80 border-none focus:ring-1 focus:ring-gclx-navy ${
             isRTL ? 'text-right' : 'text-left'
-          } ${isMobile ? 'text-base' : ''}`}
+          } ${isMobile ? 'text-base rounded-full' : ''}`}
         >
           <div className={`flex items-center ${isRTL ? 'flex-row-reverse' : ''}`}>
             <Globe className={isRTL ? 'ml-2 h-4 w-4' : 'mr-2 h-4 w-4'} />

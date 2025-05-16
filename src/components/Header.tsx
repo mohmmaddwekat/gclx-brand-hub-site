@@ -88,8 +88,8 @@ const Header: React.FC = () => {
                 </NavLink>
               ))}
               
-              {/* Mobile Language Switcher - Positioned prominently with proper alignment */}
-              <div className={`flex ${isRTL ? 'justify-end' : 'justify-start'} pt-4`}>
+              {/* Mobile Language Switcher - Centered and aligned properly */}
+              <div className="flex justify-center pt-4">
                 <LanguageSwitcher />
               </div>
             </div>
