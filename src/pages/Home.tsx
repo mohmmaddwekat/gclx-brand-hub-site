@@ -60,7 +60,7 @@ const Home: React.FC = () => {
   return (
     <PageLayout title="Home" description="Shop authentic fashion, beauty and lifestyle products from 40+ world-class brands at 20-50% off.">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gclx-navy to-blue-950 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-gclx-navy to-blue-950 text-white py-16 md:py-24 w-full">
         <div className="container-custom text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-6">
             Unlock <span className="text-gclx-gold">20-50% OFF</span> on Top Global Brands — Instant Coupon Redemption
@@ -75,7 +75,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-50 w-full">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {trustBadges.map((badge, index) => (
@@ -90,7 +90,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Brands Carousel */}
-      <section className="py-12">
+      <section className="py-12 w-full">
         <div className="container-custom">
           <h2 className="section-title text-center mb-8">Featured Brands</h2>
           <Carousel className="max-w-4xl mx-auto">
@@ -114,7 +114,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* How it Works */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 w-full">
         <div className="container-custom">
           <h2 className="section-title text-center mb-12">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

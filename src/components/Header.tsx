@@ -30,7 +30,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+    <header className="sticky top-0 bg-white/95 backdrop-blur-sm z-50 shadow-sm w-full">
       <div className="container-custom py-4">
         <div className="flex items-center justify-between">
           <Logo />

@@ -7,4 +7,10 @@ import './index.css'
 document.documentElement.setAttribute('lang', 'en');
 document.documentElement.classList.add('antialiased');
 
+// Reset any potential body margin/padding
+document.body.style.margin = '0';
+document.body.style.padding = '0';
+document.body.style.width = '100%';
+document.body.style.overflowX = 'hidden';
+
 createRoot(document.getElementById("root")!).render(<App />);

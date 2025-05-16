@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gclx-navy text-white">
+    <footer className="bg-gclx-navy text-white w-full">
       <div className="container-custom py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
