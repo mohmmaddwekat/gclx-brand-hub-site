@@ -174,9 +174,9 @@ const Tourism: React.FC = () => {
         }
       ],
       gallery: [
-        "https://images.unsplash.com/photo-1578895101408-1a6398d10ed7?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1583778176476-2461ae56641a?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1576605996271-155bf0d733c4?q=80&w=800&auto=format&fit=crop"
+        "https://cdn.al-ain.com/lg/images/2022/7/14/143-154627-most-beautiful-tourist-places-sharjah-2.jpeg",
+        "https://cdn.al-ain.com/lg/images/2022/7/14/143-154627-most-beautiful-tourist-places-sharjah-3.jpeg",
+        "https://cdn.al-ain.com/lg/images/2022/7/14/143-154628-most-beautiful-tourist-places-sharjah-4.jpeg"
       ]
     },
     {
