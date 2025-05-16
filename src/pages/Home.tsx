@@ -126,7 +126,7 @@ const Home: React.FC = () => {
                   {step.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-gclx-navy mb-2 text-center">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
+                <p className="text-gray-600 text-center">{step.description}</p>
                 {index < steps.length - 1 && <div className={`hidden md:block absolute ${isRTL ? 'left-0 rtl-flip' : 'right-0'} top-1/2 transform -translate-y-1/2`}>
                     →
                   </div>}
