@@ -269,7 +269,7 @@ const BrandDetail: React.FC = () => {
           <div className="mb-4">
             <img src={brand.logo} alt={brand.name} onError={e => {
             (e.target as HTMLImageElement).src = `https://via.placeholder.com/140x60?text=${brand.name}`;
-          }} className="h-16 mx-auto bg-white p-2 rounded-lg object-none" />
+          }} className="max-h-16 mx-auto bg-white p-2 rounded-lg" />
           </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{brand.name} – Featured Items</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
