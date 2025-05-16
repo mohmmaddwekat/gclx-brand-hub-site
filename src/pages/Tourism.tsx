@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -242,7 +243,7 @@ const Tourism: React.FC = () => {
           </h1>
           <p className="text-lg md:text-xl mb-6 max-w-3xl mx-auto text-center">
             {isRTL ? 
-              "رحلات سياحية ممي��ة داخل الإمارات العربية المتحدة. تجارب لا تُنسى ومعالم مذهلة تنتظرك!" : 
+              "رحلات سياحية مميزة داخل الإمارات العربية المتحدة. تجارب لا تُنسى ومعالم مذهلة تنتظرك!" : 
               "Discover exceptional tourism experiences within the United Arab Emirates. Unforgettable adventures and amazing landmarks await you!"}
           </p>
           
@@ -393,7 +394,7 @@ const Tourism: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             {isRTL ? "جاهز لاستكشاف الإمارات؟" : "Ready to Explore the UAE?"}
           </h2>
-          <div className="bg-red-500 rounded-lg py-2 px-4 inline-flex items-center justify-center mb-6">
+          <div className="bg-red-500 rounded-lg py-3 px-6 inline-flex items-center justify-center mb-6">
             <Star className="h-5 w-5 mr-2" />
             <span className="font-bold text-xl">
               {isRTL ? "انضم لرحلتك المجانية الآن! لا حجز مطلوب" : "Join Your FREE Trip Now! NO BOOKING REQUIRED"}
@@ -406,12 +407,12 @@ const Tourism: React.FC = () => {
               "Let us help you plan your perfect UAE journey. Contact us today!"}
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Button asChild className="bg-white text-gclx-navy hover:bg-gray-100">
+            <Button asChild className="bg-white text-gclx-navy hover:bg-gray-100 font-bold">
               <Link to="/contact">
                 {isRTL ? "تواصل معنا" : "Contact Us"}
               </Link>
             </Button>
-            <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 transition-all">
+            <Button asChild variant="highlight" size="lg" className="shadow-lg transform hover:scale-105 transition-all">
               <Link to="/">
                 {isRTL ? "العودة إلى الرئيسية" : "Back to Home"}
               </Link>
