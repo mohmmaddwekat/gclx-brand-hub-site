@@ -217,17 +217,6 @@ export const brandSubs: Record<
       { sub: 'Pants',       img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
     ],
   },
-  Diesel:         {
-    women: [
-      { sub: 'Tops',  img: 'https://drive.google.com/file/d/1yy0TNTOMTZzEztda15mf0oyG7MvnLf9k/view?usp=sharing' },
-      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1A8FRf0jb1pBMFjbV4_D_tdyYDyo6NUH4/view?usp=sharing' },
-    ],
-    men: [
-      { sub: 'Shirts',  img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
-      { sub: 'Pants',       img: 'https://drive.google.com/file/d/1x5kp--ZMkGPL82pWF7JfYH21VGmBMbKQ/view?usp=sharing' },
-    ],
-  },
-
   /* ========= Luxury ========= */
   Gucci: {
     women: [
