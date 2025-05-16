@@ -1,8 +1,10 @@
+
 import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
+
 const NewsletterSignup: React.FC = () => {
   const [email, setEmail] = useState('');
   const {
@@ -12,6 +14,7 @@ const NewsletterSignup: React.FC = () => {
     t,
     isRTL
   } = useLanguage();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -35,6 +38,7 @@ const NewsletterSignup: React.FC = () => {
     // Reset form
     setEmail('');
   };
+
   return <section className="bg-gclx-navy text-white py-12">
       <div className="container-custom text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">{t('stayUpdated')}</h2>
@@ -42,7 +46,7 @@ const NewsletterSignup: React.FC = () => {
           {t('subscribeText')}
         </p>
         
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 justify-center">
           <Input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder={t('emailAddress')} className={`flex-grow bg-white/10 border-white/20 text-white placeholder:text-gray-300 ${isRTL ? 'text-right' : 'text-left'}`} required />
           <Button type="submit" className="bg-gclx-gold text-gclx-navy hover:bg-yellow-500">
             {t('subscribe')}
@@ -51,4 +55,5 @@ const NewsletterSignup: React.FC = () => {
       </div>
     </section>;
 };
+
 export default NewsletterSignup;

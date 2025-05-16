@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -9,6 +10,7 @@ import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
+
 const Home: React.FC = () => {
   const {
     t,
@@ -31,6 +33,7 @@ const Home: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [carouselApi]);
+
   const steps = [{
     title: t('chooseProduct'),
     description: t('chooseProductDesc'),
@@ -44,6 +47,7 @@ const Home: React.FC = () => {
     description: t('enjoySavingsDesc'),
     icon: "💰"
   }];
+
   const trustBadges = [{
     title: t('genuineBrands'),
     description: t('genuineBrandsDesc'),
@@ -57,6 +61,7 @@ const Home: React.FC = () => {
     description: t('cashPaymentDesc'),
     icon: <CreditCard className="h-6 w-6" />
   }];
+
   return <PageLayout title={t('home')} description={t('shopAuthentic')}>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 text-white py-16 md:py-24 w-full">
@@ -67,9 +72,11 @@ const Home: React.FC = () => {
           <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-center">
             {t('shopAuthentic')}
           </p>
-          <Button asChild className="bg-gclx-gold text-gclx-navy hover:bg-yellow-400 text-lg px-8 py-6 h-auto">
-            <Link to="/collections" className="">{t('exploreCollections')}</Link>
-          </Button>
+          <div className="flex justify-center">
+            <Button asChild className="bg-gclx-gold text-gclx-navy hover:bg-yellow-400 text-lg px-8 py-6 h-auto">
+              <Link to="/collections" className="">{t('exploreCollections')}</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -139,4 +146,5 @@ const Home: React.FC = () => {
       <NewsletterSignup />
     </PageLayout>;
 };
+
 export default Home;
