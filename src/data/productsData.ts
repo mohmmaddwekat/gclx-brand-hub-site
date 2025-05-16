@@ -18,7 +18,7 @@ export interface Product {
   gender: 'women' | 'men';
 }
 
-/* أداة مساعدة لتحويل نص إلى “slug” يصلح للـseed */
+/* أداة مساعدة لتحويل نص إلى "slug" يصلح للـseed */
 const slug = (s: string) =>
   s.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
 

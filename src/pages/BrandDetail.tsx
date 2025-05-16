@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,7 +5,7 @@ import { ChevronLeft } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
-// Using the same brands array from Collections page
+// Using the same brands array from Collections page - with Dareen removed
 const brands = [
   { name: "Amazon", slug: "amazon", logo: "https://logo.clearbit.com/amazon.com" },
   { name: "Noon", slug: "noon", logo: "https://logo.clearbit.com/noon.com" },
@@ -46,7 +45,6 @@ const brands = [
   { name: "Levi's", slug: "levis", logo: "https://logo.clearbit.com/levis.com" },
   { name: "Diesel", slug: "diesel", logo: "https://logo.clearbit.com/diesel.com" },
   { name: "Prada", slug: "prada", logo: "https://logo.clearbit.com/prada.com" },
-  { name: "Dareen", slug: "dareen", logo: "https://via.placeholder.com/140x60?text=Dareen" },
   { name: "Huda Beauty", slug: "huda-beauty", logo: "https://logo.clearbit.com/hudabeauty.com" },
   { name: "Charlotte Tilbury", slug: "charlotte-tilbury", logo: "https://logo.clearbit.com/charlottetilbury.com" },
   { name: "Fenty Beauty", slug: "fenty-beauty", logo: "https://logo.clearbit.com/fentybeauty.com" },
