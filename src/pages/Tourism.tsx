@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -243,7 +242,7 @@ const Tourism: React.FC = () => {
           </h1>
           <p className="text-lg md:text-xl mb-6 max-w-3xl mx-auto text-center">
             {isRTL ? 
-              "رحلات سياحية مميزة داخل الإمارات العربية المتحدة. تجارب لا تُنسى ومعالم مذهلة تنتظرك!" : 
+              "رحلات سياحية ممي��ة داخل الإمارات العربية المتحدة. تجارب لا تُنسى ومعالم مذهلة تنتظرك!" : 
               "Discover exceptional tourism experiences within the United Arab Emirates. Unforgettable adventures and amazing landmarks await you!"}
           </p>
           
@@ -412,9 +411,9 @@ const Tourism: React.FC = () => {
                 {isRTL ? "تواصل معنا" : "Contact Us"}
               </Link>
             </Button>
-            <Button asChild variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 transition-all">
               <Link to="/">
-                {isRTL ? "عودة إلى الرئيسية" : "Back to Home"}
+                {isRTL ? "العودة إلى الرئيسية" : "Back to Home"}
               </Link>
             </Button>
           </div>

@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 
 type Language = 'en' | 'ar';
@@ -286,7 +287,8 @@ const translations = {
     sharjahDesc: "استمتع بالثقافة والفن في عاصمة الإمارات الثقافية",
     joinTour: "انضم للرحلة - مجاناً",
     noBooking: "لا حجز مطلوب",
-    joinFreeTrip: "انضم لرحلتك المجانية الآن! لا حجز مطلوب"
+    joinFreeTrip: "انضم لرحلتك المجانية الآن! لا حجز مطلوب",
+    backToHome: "العودة إلى الرئيسية"
   }
 };
 
