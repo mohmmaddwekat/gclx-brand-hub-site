@@ -127,7 +127,7 @@
 /* RTL Support */
 .rtl {
   direction: rtl;
-  text-align: right;
+  text-align: center !important;
 }
 
 /* Fix for Arabic text alignment in various components */
@@ -141,7 +141,7 @@
 .rtl input,
 .rtl textarea,
 .rtl select {
-  text-align: right;
+  text-align: center !important;
 }
 
 .rtl .flex-row {
@@ -166,4 +166,27 @@
 .rtl .md\:space-x-8 > * + * {
   margin-right: 2rem;
   margin-left: 0;
+}
+
+/* Add this to ensure all newsletter content is centered in both languages */
+#root .bg-gclx-navy h2,
+#root .bg-gclx-navy p,
+#root .bg-gclx-navy form {
+  text-align: center !important;
+}
+
+/* Ensure section headers and content are centered in both languages */
+.container-custom h1,
+.container-custom h2,
+.container-custom h3,
+.container-custom p,
+.container-custom .text-center {
+  text-align: center !important;
+}
+
+/* Fix alignment for grid cards */
+.card p, 
+.card h3,
+.card-content {
+  text-align: center !important;
 }
