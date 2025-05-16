@@ -51,21 +51,23 @@ const Header: React.FC = () => {
             </div>
           </nav>
           
-          {/* Language Switcher */}
-          <div className="hidden md:block">
-            <LanguageSwitcher />
+          <div className="flex items-center space-x-2">
+            {/* Language Switcher */}
+            <div className="hidden md:block">
+              <LanguageSwitcher />
+            </div>
+            
+            {/* Mobile Menu Button - Moved to the right */}
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={toggleMenu}
+              className="md:hidden"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
           </div>
-          
-          {/* Mobile Menu Button */}
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={toggleMenu}
-            className="block md:hidden"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
         </div>
 
         {/* Mobile Navigation */}
