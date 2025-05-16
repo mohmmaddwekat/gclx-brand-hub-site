@@ -5,52 +5,55 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Services: React.FC = () => {
+  const { t } = useLanguage();
+  
   const services = [
     {
       id: "bulk-sourcing",
-      title: "Bulk Sourcing & Procurement",
-      shortDesc: "Direct relationships with global brands for product procurement",
+      title: t("bulkSourcing"),
+      shortDesc: t("bulkSourcingShort"),
       icon: "📦",
       fullDesc: [
-        "GCLX has established direct relationships with over 40 global brands, allowing us to source products directly from official channels. Our procurement capabilities enable us to secure the best possible prices, which we pass on to our customers.",
-        "Our procurement team constantly negotiates with suppliers to ensure we have access to the latest products across fashion, beauty, lifestyle, and more. This direct approach eliminates middlemen and significantly reduces costs without compromising on authenticity or quality."
+        t("bulkSourcingDesc1"),
+        t("bulkSourcingDesc2")
       ]
     },
     {
       id: "retail-experience",
-      title: "Premium Retail Experience",
-      shortDesc: "One-stop shop for multiple premium global brands",
+      title: t("retailExperience"),
+      shortDesc: t("retailExperienceShort"),
       icon: "🏬",
       fullDesc: [
-        "As a multi-brand retailer, GCLX offers customers the convenience of shopping for products from dozens of premium global brands in one place. Our carefully curated collections span men's and women's fashion, accessories, beauty products, and lifestyle items.",
-        "Our store provides a comfortable and luxurious shopping environment where customers can explore our collection at their leisure. Our knowledgeable staff are always ready to provide guidance and assistance to ensure you find exactly what you're looking for."
+        t("retailExperienceDesc1"),
+        t("retailExperienceDesc2")
       ]
     },
     {
       id: "coupon-program",
-      title: "Exclusive Coupon Programme",
-      shortDesc: "Save 20-50% with our unique discount system",
+      title: t("couponProgram"),
+      shortDesc: t("couponProgramShort"),
       icon: "🏷️",
       highlight: true,
       fullDesc: [
-        "Our signature Exclusive Coupon Programme is what sets GCLX apart from other retailers. Through this innovative initiative, customers can access premium products at discounts of 20-50% off regular retail prices.",
-        "These substantial savings are made possible through our direct sourcing model, strategic partnerships with brands, and our commitment to operating with efficient margins. The result is authentic, high-quality products at prices that our competitors simply cannot match."
+        t("couponProgramDesc1"),
+        t("couponProgramDesc2")
       ]
     }
   ];
 
   return (
     <PageLayout 
-      title="Our Services" 
-      description="Explore GCLX General Trading's services including bulk sourcing, retail experience, and exclusive coupon program with 20-50% discounts."
+      title={t("ourServices")}
+      description={t("premiumExperience")}
     >
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-16">
         <div className="container-custom text-center text-white">
-          <h1 className="text-4xl font-bold mb-4 text-center">Our Services</h1>
-          <p className="text-xl max-w-2xl mx-auto text-center">Premium shopping experience with unbeatable prices</p>
+          <h1 className="text-4xl font-bold mb-4 text-center">{t("ourServices")}</h1>
+          <p className="text-xl max-w-2xl mx-auto text-center">{t("premiumExperience")}</p>
         </div>
       </section>
 
@@ -66,7 +69,7 @@ const Services: React.FC = () => {
                   <p className="text-gray-600 mb-4 text-center">{service.shortDesc}</p>
                   <div className="flex justify-center">
                     <Button asChild variant="outline">
-                      <a href={`#${service.id}`}>Learn More</a>
+                      <a href={`#${service.id}`}>{t("learnMore")}</a>
                     </Button>
                   </div>
                 </CardContent>
@@ -86,7 +89,7 @@ const Services: React.FC = () => {
                   {service.icon}
                 </div>
               </div>
-              <div className="md:w-2/3">
+              <div className="md:w-2/3 text-center">
                 <h2 className="section-title mb-6 text-center">{service.title}</h2>
                 {service.fullDesc.map((paragraph, i) => (
                   <p key={i} className="mb-4 text-gray-700 text-center">{paragraph}</p>
@@ -94,7 +97,7 @@ const Services: React.FC = () => {
                 {service.highlight && (
                   <div className="mt-6 flex justify-center">
                     <Button asChild className="bg-gclx-gold text-gclx-navy hover:bg-yellow-400">
-                      <Link to="/collections">Explore Our Collections</Link>
+                      <Link to="/collections">{t("exploreCollections")}</Link>
                     </Button>
                   </div>
                 )}
