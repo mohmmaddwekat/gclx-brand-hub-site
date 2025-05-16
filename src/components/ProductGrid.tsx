@@ -36,7 +36,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, viewMode, clearFilt
           name={product.name}
           brand={product.brand}
           imageUrl={product.imageUrl}
-          category={product.category}
+          subCategory={product.subCategory}
         />
       ))}
     </div>
@@ -63,7 +63,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, viewMode, clearFilt
               </TableCell>
               <TableCell className="font-medium">{product.name}</TableCell>
               <TableCell>{product.brand}</TableCell>
-              <TableCell>{product.category}</TableCell>
+              <TableCell>{product.subCategory}</TableCell>
             </TableRow>
           ))}
         </TableBody>

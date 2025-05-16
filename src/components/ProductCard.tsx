@@ -7,13 +7,14 @@ interface ProductCardProps {
   name: string;
   brand: string;
   imageUrl: string;
-  category?: string;
+  subCategory?: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
   name,
   brand,
-  imageUrl
+  imageUrl,
+  subCategory
 }) => {
   return (
     <Card className="overflow-hidden card-shadow h-full hover:shadow-lg transition-all duration-300">
@@ -29,6 +30,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <span className="text-sm font-semibold text-gclx-navy bg-gray-100 px-2 py-1 rounded-sm">{brand}</span>
         </div>
         <h3 className="font-semibold text-gclx-navy line-clamp-2">{name}</h3>
+        {subCategory && <p className="text-sm text-gray-500 mt-1">{subCategory}</p>}
       </CardContent>
     </Card>
   );
