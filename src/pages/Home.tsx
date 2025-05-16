@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -10,7 +9,6 @@ import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Home: React.FC = () => {
   const {
     t,
@@ -33,7 +31,6 @@ const Home: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [carouselApi]);
-
   const steps = [{
     title: t('chooseProduct'),
     description: t('chooseProductDesc'),
@@ -47,7 +44,6 @@ const Home: React.FC = () => {
     description: t('enjoySavingsDesc'),
     icon: "💰"
   }];
-
   const trustBadges = [{
     title: t('genuineBrands'),
     description: t('genuineBrandsDesc'),
@@ -61,7 +57,6 @@ const Home: React.FC = () => {
     description: t('cashPaymentDesc'),
     icon: <CreditCard className="h-6 w-6" />
   }];
-
   return <PageLayout title={t('home')} description={t('shopAuthentic')}>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 text-white py-16 md:py-24 w-full">
@@ -146,5 +141,4 @@ const Home: React.FC = () => {
       <NewsletterSignup />
     </PageLayout>;
 };
-
 export default Home;
