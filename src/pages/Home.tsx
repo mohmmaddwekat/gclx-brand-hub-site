@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShieldCheck, TicketPercent, CreditCard, Building, Landmark, Navigation } from 'lucide-react';
+import { ShieldCheck, TicketPercent, CreditCard, Building, Landmark, Navigation, Star, Ticket } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -136,18 +136,36 @@ const Home: React.FC = () => {
       {/* UAE Tourism Section */}
       <section className="py-16 bg-white w-full">
         <div className="container-custom">
-          <h2 className="section-title mb-8 text-center text-2xl md:text-3xl font-bold text-gclx-navy">
+          <h2 className="section-title mb-4 text-center text-2xl md:text-3xl font-bold text-gclx-navy">
             {isRTL ? 'استكشف الإمارات العربية المتحدة' : 'Explore UAE Tourism'}
           </h2>
+          
+          {/* Free Tours Banner */}
+          <div className="bg-red-500 rounded-lg p-3 max-w-xl mx-auto mb-8 transform rotate-1 shadow-lg">
+            <div className="transform -rotate-1 flex items-center justify-center">
+              <Ticket className="h-5 w-5 mr-2 text-yellow-300" />
+              <span className="text-xl md:text-2xl font-bold text-white">
+                {isRTL ? "جميع الرحلات مجانية!" : "ALL TOURS ARE FREE!"}
+              </span>
+              <Star className="h-5 w-5 ml-2 text-yellow-300" />
+            </div>
+          </div>
+          
           <p className="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
             {isRTL ? 
-              'اكتشف روعة الإمارات العربية المتحدة مع رحلاتنا السياحية ا��مميزة. تجارب لا تُنسى وأماكن مذهلة تنتظرك!' : 
+              'اكتشف روعة الإمارات العربية المتحدة مع رحلاتنا السياحية المميزة. ��جارب لا تُنسى وأماكن مذهلة تنتظرك!' : 
               'Discover the beauty of the UAE with our curated tourism packages. Unforgettable experiences and amazing destinations await!'}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {tourismDestinations.map((destination) => (
-              <Card key={destination.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <Card key={destination.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 relative">
+                {/* Free Badge */}
+                <div className="absolute top-3 right-3 bg-red-500 text-white font-bold py-1 px-3 rounded-full shadow-md flex items-center">
+                  <Ticket className="h-4 w-4 mr-1" />
+                  {isRTL ? "مجاناً" : "FREE"}
+                </div>
+                
                 <div className="h-48 overflow-hidden">
                   <img 
                     src={destination.image} 
@@ -177,9 +195,9 @@ const Home: React.FC = () => {
           </div>
           
           <div className="flex justify-center mt-10">
-            <Button asChild className="bg-gclx-navy hover:bg-blue-900 text-white">
+            <Button asChild className="bg-red-500 hover:bg-red-600 text-white font-bold">
               <Link to="/tourism">
-                {isRTL ? 'عرض جميع الوجهات السياحية' : 'View All Tourism Destinations'}
+                {isRTL ? 'عرض جميع الرحلات المجانية' : 'View All FREE Tourism Trips'}
               </Link>
             </Button>
           </div>

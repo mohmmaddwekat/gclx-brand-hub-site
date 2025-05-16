@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { MapPin, Building, Landmark, Navigation, Hotel, Tent } from 'lucide-react';
+import { MapPin, Building, Landmark, Navigation, Hotel, Tent, Star, Ticket } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -159,7 +158,7 @@ const Tourism: React.FC = () => {
       nameAr: 'رأس الخيمة',
       image: "https://images.unsplash.com/photo-1691640800740-0f3423e062ab?q=80&w=800&auto=format&fit=crop",
       description: "Experience the northernmost emirate with its mountains, beaches, and adventure activities.",
-      descriptionAr: "استمتع بالإمارة الشمالية بجبالها وشواطئها وأنشطتها المغامرة.",
+      descriptionAr: "استمتع بالإمارة الشمال��ة بجبالها وشواطئها وأنشطتها المغامرة.",
       attractions: [
         {
           name: "Jebel Jais",
@@ -186,8 +185,8 @@ const Tourism: React.FC = () => {
       nameAr: "جولة مدينة دبي",
       duration: "1 day",
       durationAr: "يوم واحد",
-      price: "AED 350",
-      priceAr: "350 درهم",
+      price: "FREE",
+      priceAr: "مجاناً",
       icon: <MapPin />,
       description: "Explore the highlights of Dubai including Burj Khalifa, Dubai Mall, and traditional souks.",
       descriptionAr: "استكشف معالم دبي بما في ذلك برج خليفة ودبي مول والأسواق التقليدية."
@@ -198,8 +197,8 @@ const Tourism: React.FC = () => {
       nameAr: "جولة أبوظبي الثقافية",
       duration: "1 day",
       durationAr: "يوم واحد",
-      price: "AED 400",
-      priceAr: "400 درهم",
+      price: "FREE",
+      priceAr: "مجاناً",
       icon: <Landmark />,
       description: "Visit the Sheikh Zayed Grand Mosque, Louvre Abu Dhabi, and the Presidential Palace.",
       descriptionAr: "زيارة مسجد الشيخ زايد الكبير واللوفر أبوظبي والقصر الرئاسي."
@@ -210,8 +209,8 @@ const Tourism: React.FC = () => {
       nameAr: "مغامرة سفاري الصحراء",
       duration: "Half day",
       durationAr: "نصف يوم",
-      price: "AED 250",
-      priceAr: "250 درهم",
+      price: "FREE",
+      priceAr: "مجاناً",
       icon: <Tent />,
       description: "Experience dune bashing, camel riding, and traditional entertainment in the desert.",
       descriptionAr: "استمتع بقيادة الكثبان الرملية وركوب الجمال والترفيه التقليدي في الصحراء."
@@ -222,8 +221,8 @@ const Tourism: React.FC = () => {
       nameAr: "جولة الساحل الشرقي للإمارات",
       duration: "1 day",
       durationAr: "يوم واحد",
-      price: "AED 500",
-      priceAr: "500 درهم",
+      price: "FREE",
+      priceAr: "مجاناً",
       icon: <Navigation />,
       description: "Visit Fujairah and Khor Fakkan to experience mountains, beaches, and historic sites.",
       descriptionAr: "زيارة الفجيرة وخور فكان لتجربة الجبال والشواطئ والمواقع التاريخية."
@@ -241,25 +240,45 @@ const Tourism: React.FC = () => {
           <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
             {isRTL ? "استكشف روعة الإمارات العربية المتحدة" : "Explore the Beauty of UAE"}
           </h1>
-          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-center">
+          <p className="text-lg md:text-xl mb-6 max-w-3xl mx-auto text-center">
             {isRTL ? 
-              "رحلات سياحية مميزة داخل الإمارات العربية المتحدة. تجارب لا تُنسى ومعالم مذهلة تنتظرك!" : 
+              "رحلات سياحية مميزة داخل ال��مارات العربية المتحدة. تجارب لا تُنسى ومعالم مذهلة تنتظرك!" : 
               "Discover exceptional tourism experiences within the United Arab Emirates. Unforgettable adventures and amazing landmarks await you!"}
           </p>
+          
+          {/* Free Tours Banner */}
+          <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-lg p-4 max-w-2xl mx-auto mb-8 transform rotate-1 shadow-lg">
+            <div className="transform -rotate-1 flex items-center justify-center">
+              <Ticket className="h-7 w-7 mr-2 text-yellow-300 animate-pulse" />
+              <h2 className="text-2xl md:text-3xl font-bold text-white">
+                {isRTL ? "جميع الرحلات مجانية تماماً!" : "ALL TOURS ARE COMPLETELY FREE!"}
+              </h2>
+              <Star className="h-7 w-7 ml-2 text-yellow-300 animate-pulse" />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Tour Packages Section */}
       <section className="py-16 bg-white w-full">
         <div className="container-custom">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gclx-navy">
-            {isRTL ? "باقات سياحية مميزة" : "Featured Tour Packages"}
-          </h2>
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <Ticket className="h-6 w-6 text-red-500" />
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-gclx-navy">
+              {isRTL ? "باقات سياحية مميزة - مجاناً" : "Featured Tour Packages - FREE"}
+            </h2>
+            <Ticket className="h-6 w-6 text-red-500" />
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {tourPackages.map((tourPackage) => (
-              <Card key={tourPackage.id} className="hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
+              <Card key={tourPackage.id} className="hover:shadow-lg transition-shadow duration-300 border-2 border-transparent hover:border-gclx-navy relative overflow-hidden">
+                {/* FREE Badge */}
+                <div className="absolute -top-1 -right-12 bg-red-500 text-white font-bold py-1 px-10 transform rotate-45 shadow-md">
+                  {isRTL ? "مجاناً" : "FREE"}
+                </div>
+                
+                <CardContent className="p-6 pt-8">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="p-2 bg-gclx-navy rounded-full text-white">{tourPackage.icon}</div>
                     <h3 className="text-lg font-semibold text-gclx-navy">
@@ -271,7 +290,8 @@ const Tourism: React.FC = () => {
                       <Hotel className="h-4 w-4" />
                       {isRTL ? tourPackage.durationAr : tourPackage.duration}
                     </span>
-                    <span className="font-semibold text-gclx-gold">
+                    <span className="font-bold text-red-500 flex items-center">
+                      <Ticket className="h-4 w-4 mr-1" />
                       {isRTL ? tourPackage.priceAr : tourPackage.price}
                     </span>
                   </div>
@@ -314,11 +334,17 @@ const Tourism: React.FC = () => {
               <TabsContent key={destination.id} value={destination.name.toLowerCase().replace(' ', '-')}>
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
                   <div className="lg:col-span-2">
-                    <img 
-                      src={destination.image} 
-                      alt={isRTL ? destination.nameAr : destination.name} 
-                      className="w-full h-[300px] lg:h-full object-cover rounded-lg shadow-md"
-                    />
+                    <div className="relative">
+                      <img 
+                        src={destination.image} 
+                        alt={isRTL ? destination.nameAr : destination.name} 
+                        className="w-full h-[300px] lg:h-full object-cover rounded-lg shadow-md"
+                      />
+                      <div className="absolute -top-3 -right-3 bg-red-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg flex items-center">
+                        <Ticket className="mr-1" />
+                        {isRTL ? "رحلات مجانية" : "FREE TOURS"}
+                      </div>
+                    </div>
                   </div>
                   <div className="lg:col-span-3">
                     <h3 className="text-2xl font-bold mb-4 text-gclx-navy">
@@ -367,6 +393,13 @@ const Tourism: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             {isRTL ? "جاهز لاستكشاف الإمارات؟" : "Ready to Explore the UAE?"}
           </h2>
+          <div className="bg-red-500 rounded-lg py-2 px-4 inline-flex items-center justify-center mb-6">
+            <Star className="h-5 w-5 mr-2" />
+            <span className="font-bold text-xl">
+              {isRTL ? "احجز رحلتك المجانية الآن!" : "Book Your FREE Trip Now!"}
+            </span>
+            <Star className="h-5 w-5 ml-2" />
+          </div>
           <p className="mb-8 max-w-2xl mx-auto">
             {isRTL ? 
               "دعنا نساعدك في تخطيط رحلتك المثالية في الإمارات العربية المتحدة. اتصل بنا اليوم!" : 
