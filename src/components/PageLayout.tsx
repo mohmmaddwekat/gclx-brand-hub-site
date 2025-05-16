@@ -3,6 +3,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Header from './Header';
 import Footer from './Footer';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   title = "GCLX General Trading", 
   description = "Shop authentic fashion, beauty and lifestyle products from 40+ world-class brands at 20-50% off." 
 }) => {
+  const { t } = useLanguage();
   const fullTitle = title === "GCLX General Trading" 
     ? title 
     : `${title} | GCLX General Trading`;

@@ -2,6 +2,7 @@
 import React from 'react';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ActiveFiltersProps {
   selectedCategory: string;
@@ -18,6 +19,8 @@ const ActiveFilters: React.FC<ActiveFiltersProps> = ({
   clearFilters,
   setSelectedCategory
 }) => {
+  const { t } = useLanguage();
+  
   if (selectedBrands.length === 0 && selectedCategory === 'all') {
     return null;
   }
@@ -26,7 +29,7 @@ const ActiveFilters: React.FC<ActiveFiltersProps> = ({
     <div className="flex flex-wrap gap-2 mt-3">
       {selectedCategory !== 'all' && (
         <div className="bg-accent/20 text-sm px-3 py-1 rounded-full flex items-center gap-1">
-          <span>Category: {selectedCategory}</span>
+          <span>{t('category')}: {selectedCategory}</span>
           <button 
             onClick={() => setSelectedCategory('all')}
             className="hover:bg-accent/10 rounded-full p-1"
@@ -52,7 +55,7 @@ const ActiveFilters: React.FC<ActiveFiltersProps> = ({
         onClick={clearFilters} 
         className="text-sm"
       >
-        Clear All
+        {t('clearAll')}
       </Button>
     </div>
   );

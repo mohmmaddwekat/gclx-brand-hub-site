@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Checkbox } from "@/components/ui/checkbox";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface FilterBarProps {
   selectedCategory: string;
@@ -31,16 +32,18 @@ const FilterBar: React.FC<FilterBarProps> = ({
   filterDialogOpen,
   setFilterDialogOpen
 }) => {
+  const { t } = useLanguage();
+  
   return (
     <div className="flex items-center gap-3">
       <Select value={selectedCategory} onValueChange={onCategoryChange}>
         <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Select Category" />
+          <SelectValue placeholder={t('allCategories')} />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            <SelectLabel>Categories</SelectLabel>
-            <SelectItem value="all">All Categories</SelectItem>
+            <SelectLabel>{t('category')}</SelectLabel>
+            <SelectItem value="all">{t('allCategories')}</SelectItem>
             {categories.map(category => (
               <SelectItem key={category} value={category}>{category}</SelectItem>
             ))}
@@ -52,12 +55,12 @@ const FilterBar: React.FC<FilterBarProps> = ({
       <Dialog open={filterDialogOpen} onOpenChange={setFilterDialogOpen}>
         <DialogTrigger asChild>
           <Button variant="outline" className="flex items-center gap-2">
-            <Filter size={18} /> Brands
+            <Filter size={18} /> {t('brands')}
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Filter by Brands</DialogTitle>
+            <DialogTitle>{t('filters')}: {t('brands')}</DialogTitle>
           </DialogHeader>
           
           <div className="grid grid-cols-2 gap-4 py-4 max-h-[60vh] overflow-y-auto">
@@ -84,9 +87,9 @@ const FilterBar: React.FC<FilterBarProps> = ({
               onClick={clearFilters}
               disabled={selectedBrands.length === 0 && selectedCategory === 'all'}
             >
-              Clear All
+              {t('clearFilters')}
             </Button>
-            <Button onClick={applyFilters}>Apply Filters</Button>
+            <Button onClick={applyFilters}>{t('apply')}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
