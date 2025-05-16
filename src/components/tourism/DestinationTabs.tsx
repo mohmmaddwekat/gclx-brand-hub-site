@@ -5,7 +5,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { destinations } from '@/data/tourismData';
 import DestinationDetail from './DestinationDetail';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
 
 const DestinationTabs: React.FC = () => {
@@ -16,26 +15,24 @@ const DestinationTabs: React.FC = () => {
   return (
     <div className="w-full">
       {isMobile ? (
-        // Mobile view - vertical button list
+        // Mobile view - simple button grid
         <div className="w-full">
-          <ScrollArea className="h-[320px] w-full rounded-md border p-4">
-            <div className="flex flex-col gap-2">
-              {destinations.map((destination) => (
-                <Button
-                  key={destination.id}
-                  variant={activeTab === destination.name.toLowerCase().replace(' ', '-') ? "default" : "outline"}
-                  className={`w-full justify-start ${
-                    activeTab === destination.name.toLowerCase().replace(' ', '-')
-                      ? 'bg-gclx-navy text-white'
-                      : 'bg-white'
-                  }`}
-                  onClick={() => setActiveTab(destination.name.toLowerCase().replace(' ', '-'))}
-                >
-                  {isRTL ? destination.nameAr : destination.name}
-                </Button>
-              ))}
-            </div>
-          </ScrollArea>
+          <div className="grid grid-cols-2 gap-2 mb-6">
+            {destinations.map((destination) => (
+              <Button
+                key={destination.id}
+                variant={activeTab === destination.name.toLowerCase().replace(' ', '-') ? "default" : "outline"}
+                className={`w-full ${
+                  activeTab === destination.name.toLowerCase().replace(' ', '-')
+                    ? 'bg-gclx-navy text-white'
+                    : 'bg-white'
+                }`}
+                onClick={() => setActiveTab(destination.name.toLowerCase().replace(' ', '-'))}
+              >
+                {isRTL ? destination.nameAr : destination.name}
+              </Button>
+            ))}
+          </div>
           
           <div className="mt-6">
             {destinations.map((destination) => {

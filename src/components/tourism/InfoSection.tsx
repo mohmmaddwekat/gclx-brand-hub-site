@@ -25,22 +25,14 @@ const InfoSection: React.FC = () => {
         </div>
         <p className="mb-8 max-w-2xl mx-auto">
           {isRTL ? 
-            "هذه الصفحة للعرض فقط وتقدم معلومات سياحية عن الإمارات العربية المتحدة. اشترِ المنتجات المؤهلة للحصول على فرصة للفوز." : 
-            "This is a display-only page providing tourism information about the United Arab Emirates. Purchase eligible products to get a chance to win."}
+            "هذه الصفحة للعرض فقط وتقدم معلومات سياحية عن الإمارات العربية المتحدة." : 
+            "This is a display-only page providing tourism information about the United Arab Emirates."}
         </p>
-        <div className="flex flex-col md:flex-row gap-4 justify-center">
-          <Button asChild variant="highlight" size="lg" className="shadow-lg transform hover:scale-105 transition-all">
-            <Link to="/">
-              {isRTL ? "العودة إلى الرئيسية" : "Back to Home"}
-            </Link>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="bg-red-500 border-0 text-white hover:bg-red-600 shadow-lg transform hover:scale-105 transition-all">
-            <Link to="/collections">
-              <Gift className="mr-2" size={16} />
-              {isRTL ? "تسوق للحصول على كوبونات" : "Shop to Get Coupons"}
-            </Link>
-          </Button>
-        </div>
+        <Button asChild variant="highlight" size="lg" className="shadow-lg transform hover:scale-105 transition-all">
+          <Link to="/">
+            {isRTL ? "العودة إلى الرئيسية" : "Back to Home"}
+          </Link>
+        </Button>
       </div>
     </section>
   );
