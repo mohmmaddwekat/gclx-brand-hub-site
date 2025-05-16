@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { ChevronLeft } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import { Button } from '@/components/ui/button';
 
 // Using the same brands array from Collections page - with Dareen removed
 const brands = [
@@ -181,6 +183,19 @@ const BrandDetail: React.FC = () => {
                 </Card>
               </a>
             ))}
+          </div>
+          
+          {/* Additional Back Button at the bottom */}
+          <div className="flex justify-center mt-8">
+            <Link to="/collections">
+              <Button 
+                variant="outline" 
+                className="flex items-center gap-2 text-gclx-navy hover:bg-gclx-navy hover:text-white"
+              >
+                <ChevronLeft size={20} />
+                العودة إلى جميع الماركات
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
