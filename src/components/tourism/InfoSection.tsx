@@ -1,7 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Gift, Ticket } from 'lucide-react';
 
@@ -28,11 +26,6 @@ const InfoSection: React.FC = () => {
             "نقدم لكم تجربة سياحية فريدة في الإمارات العربية المتحدة، حيث تلتقي الأصالة بالحداثة في واحدة من أكثر الوجهات تميزاً في العالم." : 
             "We offer a unique tourism experience in the United Arab Emirates, where authenticity meets modernity in one of the world's most distinguished destinations."}
         </p>
-        <Button asChild variant="highlight" size="lg" className="shadow-lg transform hover:scale-105 transition-all">
-          <Link to="/">
-            {isRTL ? "العودة إلى الرئيسية" : "Back to Home"}
-          </Link>
-        </Button>
       </div>
     </section>
   );
