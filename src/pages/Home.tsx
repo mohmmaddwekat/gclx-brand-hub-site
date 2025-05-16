@@ -10,7 +10,6 @@ import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
-import Logo from '@/components/Logo';
 
 const Home: React.FC = () => {
   const {
@@ -67,11 +66,6 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 text-white py-16 md:py-24 w-full">
         <div className="container-custom">
-          {/* Added logo and name */}
-          <div className="flex justify-center items-center mb-8">
-            <Logo size="lg" className="bg-white p-3 rounded-lg" />
-            <h2 className="text-2xl md:text-3xl font-bold ml-4 text-gclx-gold">GCLX General Trading</h2>
-          </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
             {t('unlockDiscounts')}
           </h1>
