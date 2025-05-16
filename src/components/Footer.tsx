@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
       <div className="container-custom py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
-          <div className={isRTL ? 'text-right' : 'text-left'}>
+          <div className={isRTL ? 'text-center' : 'text-center'}>
             <Logo className="mb-4 bg-white p-2 rounded-md inline-block" />
             <p className="mt-4 text-sm text-gray-300">
               {t('companyDescription')}
