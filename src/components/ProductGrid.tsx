@@ -32,8 +32,8 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, viewMode, clearFilt
     toast({
       title: isRTL ? "عروض عيد الأضحى" : "Eid Al-Adha Promotions",
       description: isRTL 
-        ? "اشترِ أي منتج مؤهل للحصول على فرصة للفوز برحلة سياحية داخلية مجانية" 
-        : "Purchase any eligible product for a chance to win a free domestic tourism trip",
+        ? "اشترِ أي منتج مؤهل واحصل على كوبون يمكن أن يمنحك فرصة للفوز برحلة سياحية داخلية في الإمارات" 
+        : "Purchase any eligible product and get a coupon that may give you a chance to win a free domestic UAE tourism trip",
       duration: 8000,
     });
   };
@@ -65,8 +65,8 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, viewMode, clearFilt
           <Gift className="mr-2" />
           <h3 className="text-lg font-bold">
             {isRTL 
-              ? "عروض خاصة بمناسبة عيد الأضحى" 
-              : "Special Eid Al-Adha Promotion"}
+              ? "عروض خاصة بمناسبة عيد الأضحى - كوبونات للرحلات السياحية" 
+              : "Special Eid Al-Adha Promotion - Tourism Trip Coupons"}
           </h3>
         </div>
         <Button 
@@ -81,8 +81,8 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, viewMode, clearFilt
       </div>
       <p className="mt-2">
         {isRTL 
-          ? "اشترِ أي منتج مع علامة الهدية للحصول على فرصة للفوز برحلة سياحية داخلية" 
-          : "Purchase any product with a gift icon for a chance to win a domestic tourism trip"}
+          ? "اشترِ أي منتج مع علامة الهدية للحصول على كوبون قد يمنحك فرصة للفوز برحلة سياحية داخلية في الإمارات" 
+          : "Purchase any product with a gift icon to get a coupon that may give you a chance to win a domestic UAE tourism trip"}
       </p>
     </div>
   );

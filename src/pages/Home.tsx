@@ -145,7 +145,7 @@ const Home: React.FC = () => {
             <div className="transform -rotate-1 flex items-center justify-center">
               <Ticket className="h-5 w-5 mr-2 text-yellow-300" />
               <span className="text-xl md:text-2xl font-bold text-white">
-                {isRTL ? "جميع الرحلات مجانية!" : "ALL TOURS ARE FREE!"}
+                {isRTL ? "اربح رحلات سياحية عبر الكوبونات!" : "WIN TOURISM TRIPS WITH COUPONS!"}
               </span>
               <Star className="h-5 w-5 ml-2 text-yellow-300" />
             </div>
@@ -153,17 +153,17 @@ const Home: React.FC = () => {
           
           <p className="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
             {isRTL ? 
-              'اكتشف روعة الإمارات العربية المتحدة مع رحلاتنا السياحية المميزة. ��جارب لا تُنسى وأماكن مذهلة تنتظرك!' : 
-              'Discover the beauty of the UAE with our curated tourism packages. Unforgettable experiences and amazing destinations await!'}
+              'احصل على فرصة الفوز برحلات سياحية داخلية في الإمارات عبر كوبونات المشتريات الخاصة بمناسبة عيد الأضحى. تجارب لا تُنسى وأماكن مذهلة!' : 
+              'Get a chance to win internal UAE tourism trips through special Eid Al-Adha purchase coupons. Unforgettable experiences and amazing destinations await!'}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {tourismDestinations.map((destination) => (
               <Card key={destination.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 relative">
-                {/* Free Badge */}
+                {/* Win With Coupon Badge */}
                 <div className="absolute top-3 right-3 bg-red-500 text-white font-bold py-1 px-3 rounded-full shadow-md flex items-center">
                   <Ticket className="h-4 w-4 mr-1" />
-                  {isRTL ? "مجاناً" : "FREE"}
+                  {isRTL ? "اربح بالكوبونات" : "WIN WITH COUPON"}
                 </div>
                 
                 <div className="h-48 overflow-hidden">
@@ -197,7 +197,7 @@ const Home: React.FC = () => {
           <div className="flex justify-center mt-10">
             <Button asChild className="bg-red-500 hover:bg-red-600 text-white font-bold">
               <Link to="/tourism">
-                {isRTL ? 'عرض جميع الرحلات المجانية' : 'View All FREE Tourism Trips'}
+                {isRTL ? 'عرض جميع الرحلات الممكن ربحها' : 'View All Tourism Trips You Can Win'}
               </Link>
             </Button>
           </div>

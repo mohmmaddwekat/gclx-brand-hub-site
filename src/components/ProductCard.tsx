@@ -28,8 +28,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
     toast({
       title: isRTL ? "تم تفعيل الكوبون!" : "Coupon activated!",
       description: isRTL 
-        ? "تم تسجيل مشاركتك في سحب على رحلة سياحية داخلية بمناسبة عيد الأضحى" 
-        : "You're now entered into the Eid Al-Adha domestic tourism draw!",
+        ? "تم إضافة كوبون خاص إلى حسابك. قد تكون محظوظًا وتربح رحلة سياحية داخلية بمناسبة عيد الأضحى!" 
+        : "A special coupon has been added to your account. You might be lucky and win an internal UAE tourism trip for Eid Al-Adha!",
       duration: 5000,
     });
   };
@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <div 
             onClick={handlePromoClick}
             className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full cursor-pointer hover:bg-red-600 transition-colors"
-            title={isRTL ? "رحلة سياحية مجانية" : "Free tourism trip"}
+            title={isRTL ? "كوبون لربح رحلة سياحية" : "Coupon for tourism trip"}
           >
             <Gift size={16} />
           </div>
@@ -57,7 +57,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <span className="text-sm font-semibold text-gclx-navy bg-gray-100 px-2 py-1 rounded-sm">{brand}</span>
           {isPromotionEligible && (
             <span className="text-xs ml-2 bg-red-100 text-red-600 px-2 py-1 rounded-sm">
-              {isRTL ? "مؤهل للجائزة" : "Prize eligible"}
+              {isRTL ? "مؤهل للكوبون" : "Coupon eligible"}
             </span>
           )}
         </div>
