@@ -130,10 +130,40 @@
   text-align: right;
 }
 
+/* Fix for Arabic text alignment in various components */
+.rtl button,
+.rtl h1,
+.rtl h2,
+.rtl h3,
+.rtl p,
+.rtl div,
+.rtl span,
+.rtl input,
+.rtl textarea,
+.rtl select {
+  text-align: right;
+}
+
+.rtl .flex-row {
+  flex-direction: row-reverse;
+}
+
 .rtl-flip {
   transform: scaleX(-1);
 }
 
 .font-arabic {
   font-family: 'Tajawal', sans-serif;
+  letter-spacing: 0;
+}
+
+/* Fix for Arabic nav spacing */
+.rtl .space-x-8 > * + * {
+  margin-right: 2rem;
+  margin-left: 0;
+}
+
+.rtl .md\:space-x-8 > * + * {
+  margin-right: 2rem;
+  margin-left: 0;
 }

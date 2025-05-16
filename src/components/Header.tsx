@@ -36,17 +36,19 @@ const Header: React.FC = () => {
           <Logo />
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <NavLink 
-                key={link.path} 
-                to={link.path}
-                end={link.path === '/'}
-                className={getLinkStyles}
-              >
-                {link.name}
-              </NavLink>
-            ))}
+          <nav className="hidden md:flex">
+            <div className={`flex ${isRTL ? 'space-x-reverse space-x-8 mr-8' : 'space-x-8 ml-8'}`}>
+              {navLinks.map((link) => (
+                <NavLink 
+                  key={link.path} 
+                  to={link.path}
+                  end={link.path === '/'}
+                  className={getLinkStyles}
+                >
+                  {link.name}
+                </NavLink>
+              ))}
+            </div>
           </nav>
           
           {/* Language Switcher */}
