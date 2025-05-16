@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
+import { ChevronLeft } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
@@ -72,15 +73,23 @@ const BrandDetail: React.FC = () => {
   const dummyProducts = Array.from({ length: 5 }, (_, index) => ({
     id: `${brand.slug}-${index + 1}`,
     title: `Sample ${brand.name} Item ${index + 1}`,
-    img: `https://source.unsplash.com/seed/${brand.slug}-${index + 1}/600x600`,
+    img: `https://picsum.photos/seed/${brand.slug}-${index + 1}/600/600`,
     link: `https://www.${brand.slug === 'hm' ? 'hm' : brand.slug.replace('-', '')}.com`
   }));
 
   return (
     <PageLayout 
       title={`${brand.name} – Featured Items`} 
-      description="Each item opens on the official site in a new tab."
+      description={`Click any item to open the official ${brand.name} store.`}
     >
+      {/* Back Button */}
+      <div className="container-custom mt-4">
+        <Link to="/collections" className="text-gclx-navy hover:underline mb-6 inline-flex items-center">
+          <ChevronLeft size={18} />
+          <span>All Brands</span>
+        </Link>
+      </div>
+
       {/* Hero Banner */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-8 md:py-16">
         <div className="container-custom text-center text-white">
@@ -88,7 +97,7 @@ const BrandDetail: React.FC = () => {
             <img 
               src={brand.logo}
               alt={brand.name}
-              className="h-16 mx-auto object-contain"
+              className="h-16 mx-auto object-contain bg-white p-2 rounded-lg"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = `https://via.placeholder.com/140x60?text=${brand.name}`;
               }}
@@ -96,7 +105,7 @@ const BrandDetail: React.FC = () => {
           </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{brand.name} – Featured Items</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Each item opens on the official site in a new tab.
+            Click any item to open the official {brand.name} store.
           </p>
         </div>
       </section>
@@ -113,7 +122,7 @@ const BrandDetail: React.FC = () => {
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Card className="overflow-hidden h-full hover:opacity-90 transition-opacity duration-300">
+                <Card className="overflow-hidden h-full hover:opacity-90 transition-opacity duration-300 rounded-lg">
                   <div className="aspect-square overflow-hidden">
                     <img 
                       src={product.img} 

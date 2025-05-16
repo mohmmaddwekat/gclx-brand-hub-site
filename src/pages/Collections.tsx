@@ -72,15 +72,15 @@ const Collections: React.FC = () => {
 
   return (
     <PageLayout 
-      title="Browse All Brands" 
-      description="Tap a logo to see five featured items — redeem your coupon instantly."
+      title="All Brands" 
+      description="Tap a logo to see five featured items."
     >
       {/* Hero Banner */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-8 md:py-16">
         <div className="container-custom text-center text-white">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Browse All Brands</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">All Brands</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Tap a logo to see five featured items — redeem your coupon instantly.
+            Tap a logo to see five featured items.
           </p>
           
           {/* Search Bar */}
@@ -98,7 +98,7 @@ const Collections: React.FC = () => {
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 md:gap-4">
             {brands.map((brand) => (
               <Link to={`/collections/${brand.slug}`} key={brand.slug}>
-                <Card className="overflow-hidden h-full hover:shadow-lg transition-all duration-300 hover:scale-105 rounded-xl">
+                <Card className="overflow-hidden h-full hover:shadow-lg transition-all duration-300 hover:scale-105 rounded-xl bg-white" style={{ boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }}>
                   <div className="p-4 flex items-center justify-center h-24 sm:h-28">
                     <img 
                       src={brand.logo} 
