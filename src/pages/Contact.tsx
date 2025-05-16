@@ -1,43 +1,36 @@
-
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/sonner';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
-
 const formSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
-  email: z.string().email({ message: 'Please enter a valid email address' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters' }),
+  name: z.string().min(2, {
+    message: 'Name must be at least 2 characters'
+  }),
+  email: z.string().email({
+    message: 'Please enter a valid email address'
+  }),
+  message: z.string().min(10, {
+    message: 'Message must be at least 10 characters'
+  })
 });
-
 type FormValues = z.infer<typeof formSchema>;
-
 const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
       email: '',
-      message: '',
-    },
+      message: ''
+    }
   });
-
   const onSubmit = (data: FormValues) => {
     setIsSubmitting(true);
 
@@ -48,12 +41,7 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }, 1500);
   };
-
-  return (
-    <PageLayout 
-      title="Contact Us" 
-      description="Get in touch with GCLX General Trading. Contact us for inquiries about our products, discounts, or any other questions."
-    >
+  return <PageLayout title="Contact Us" description="Get in touch with GCLX General Trading. Contact us for inquiries about our products, discounts, or any other questions.">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-16">
         <div className="container-custom text-center text-white">
@@ -89,7 +77,7 @@ const Contact: React.FC = () => {
                     <div className="mr-4 text-2xl">✉️</div>
                     <div>
                       <h3 className="font-semibold">Email</h3>
-                      <p className="text-gray-600">info@gclx-trading.com</p>
+                      <p className="text-gray-600">info@gclxgt.com</p>
                     </div>
                   </div>
                 </div>
@@ -102,57 +90,37 @@ const Contact: React.FC = () => {
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
+                  <FormField control={form.control} name="name" render={({
+                  field
+                }) => <FormItem>
                         <FormLabel>Name</FormLabel>
                         <FormControl>
                           <Input placeholder="Your name" {...field} />
                         </FormControl>
                         <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                      </FormItem>} />
                   
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
+                  <FormField control={form.control} name="email" render={({
+                  field
+                }) => <FormItem>
                         <FormLabel>Email</FormLabel>
                         <FormControl>
                           <Input placeholder="Your email address" {...field} />
                         </FormControl>
                         <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                      </FormItem>} />
                   
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
+                  <FormField control={form.control} name="message" render={({
+                  field
+                }) => <FormItem>
                         <FormLabel>Message</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            placeholder="How can we help you?" 
-                            className="min-h-[150px]"
-                            {...field} 
-                          />
+                          <Textarea placeholder="How can we help you?" className="min-h-[150px]" {...field} />
                         </FormControl>
                         <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                      </FormItem>} />
                   
-                  <Button 
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gclx-navy hover:bg-gclx-navy/90"
-                  >
+                  <Button type="submit" disabled={isSubmitting} className="w-full bg-gclx-navy hover:bg-gclx-navy/90">
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
@@ -164,8 +132,6 @@ const Contact: React.FC = () => {
 
       {/* Newsletter Signup */}
       <NewsletterSignup />
-    </PageLayout>
-  );
+    </PageLayout>;
 };
-
 export default Contact;
