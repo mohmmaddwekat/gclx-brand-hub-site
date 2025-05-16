@@ -58,6 +58,40 @@ const brands = [
   { name: "NARS", slug: "nars", logo: "https://logo.clearbit.com/narscosmetics.com" },
 ];
 
+// Special product data for Nike
+const nikeProducts = [
+  {
+    id: "nike-1",
+    title: "Nike Air Force 1 '07",
+    img: "https://picsum.photos/seed/nike-af1/600/600",
+    link: "https://www.nike.com/t/air-force-1-07-mens-shoes-jBrhbr"
+  },
+  {
+    id: "nike-2",
+    title: "Nike Air Zoom Pegasus 41",
+    img: "https://picsum.photos/seed/nike-pegasus/600/600",
+    link: "https://www.nike.com/t/pegasus-41-mens-road-running-shoes"
+  },
+  {
+    id: "nike-3",
+    title: "Nike Dri-FIT One Luxe Tee",
+    img: "https://picsum.photos/seed/nike-drifit/600/600",
+    link: "https://www.nike.com/t/dri-fit-one-luxe-womens-t-shirt"
+  },
+  {
+    id: "nike-4",
+    title: "Nike Pro 3/4 Training Tights",
+    img: "https://picsum.photos/seed/nike-pro/600/600",
+    link: "https://www.nike.com/t/pro-mens-training-tights"
+  },
+  {
+    id: "nike-5",
+    title: "Nike Brasilia Backpack 24 L",
+    img: "https://picsum.photos/seed/nike-bag/600/600",
+    link: "https://www.nike.com/t/brasilia-training-backpack-24l"
+  }
+];
+
 const BrandDetail: React.FC = () => {
   const { brandSlug } = useParams<{ brandSlug: string }>();
   
@@ -69,23 +103,33 @@ const BrandDetail: React.FC = () => {
     return <Navigate to="/collections" replace />;
   }
 
-  // Generate 5 dummy products for the brand
-  const dummyProducts = Array.from({ length: 5 }, (_, index) => ({
-    id: `${brand.slug}-${index + 1}`,
-    title: `Sample ${brand.name} Item ${index + 1}`,
-    img: `https://picsum.photos/seed/${brand.slug}-${index + 1}/600/600`,
-    link: `https://www.${brand.slug === 'hm' ? 'hm' : brand.slug.replace('-', '')}.com`
-  }));
+  // Choose products based on brand
+  let brandProducts;
+  if (brand.slug === 'nike') {
+    brandProducts = nikeProducts;
+  } else {
+    // Generate 5 dummy products for other brands
+    brandProducts = Array.from({ length: 5 }, (_, index) => ({
+      id: `${brand.slug}-${index + 1}`,
+      title: `Sample ${brand.name} Item ${index + 1}`,
+      img: `https://picsum.photos/seed/${brand.slug}-${index + 1}/600/600`,
+      link: `https://www.${brand.slug === 'hm' ? 'hm' : brand.slug.replace('-', '')}.com`
+    }));
+  }
 
   return (
     <PageLayout 
       title={`${brand.name} – Featured Items`} 
       description={`Click any item to open the official ${brand.name} store.`}
     >
-      {/* Back Button */}
-      <div className="container-custom mt-4">
-        <Link to="/collections" className="text-gclx-navy hover:underline mb-6 inline-flex items-center">
-          <ChevronLeft size={18} />
+      {/* Back Button - Now more prominent */}
+      <div className="container-custom mt-6">
+        <Link 
+          to="/collections" 
+          className="text-gclx-navy hover:underline mb-4 inline-flex items-center font-medium"
+          aria-label="Back to all brands"
+        >
+          <ChevronLeft size={20} />
           <span>All Brands</span>
         </Link>
       </div>
@@ -114,7 +158,7 @@ const BrandDetail: React.FC = () => {
       <section className="py-8 md:py-16">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {dummyProducts.map(product => (
+            {brandProducts.map(product => (
               <a 
                 key={product.id} 
                 href={product.link} 
