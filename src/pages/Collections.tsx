@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import SearchBar from '@/components/SearchBar';
+import { categorizedBrands } from '@/data/productsData';
 
 const Collections: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,17 +19,61 @@ const Collections: React.FC = () => {
     console.log('Searching for:', searchTerm);
   };
 
+  // Sample brand data with logos and website URLs
+  const brandData = [
+    {
+      name: 'Nike',
+      logo: '/lovable-uploads/brands/men/amazon/Sportswear.jpg',
+      website: 'https://www.nike.com'
+    },
+    {
+      name: 'Adidas',
+      logo: '/lovable-uploads/brands/women/amazon/shoes.jpg',
+      website: 'https://www.adidas.com'
+    },
+    {
+      name: 'Zara',
+      logo: '/lovable-uploads/brands/women/amazon/tops.jpg',
+      website: 'https://www.zara.com'
+    },
+    {
+      name: 'H&M',
+      logo: '/lovable-uploads/brands/women/amazon/dresses.jpg',
+      website: 'https://www.hm.com'
+    },
+    {
+      name: 'Puma',
+      logo: '/lovable-uploads/brands/men/amazon/Shoes.jpg',
+      website: 'https://www.puma.com'
+    },
+    {
+      name: 'Tommy Hilfiger',
+      logo: '/lovable-uploads/brands/women/amazon/jackets.jpg',
+      website: 'https://www.tommy.com'
+    },
+    {
+      name: 'Gucci',
+      logo: '/lovable-uploads/brands/women/amazon/bags.jpg',
+      website: 'https://www.gucci.com'
+    },
+    {
+      name: 'Prada',
+      logo: '/lovable-uploads/brands/women/amazon/accessories.jpg',
+      website: 'https://www.prada.com'
+    }
+  ];
+
   return (
     <PageLayout 
-      title="Collections" 
-      description="Shop GCLX's exclusive collections for men and women, featuring authentic fashion, beauty and lifestyle products from top global brands at 20-50% off."
+      title="Brand Collections" 
+      description="Shop top global brands at 20-50% off through GCLX's exclusive partnerships."
     >
       {/* Hero Banner */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-8 md:py-16">
         <div className="container-custom text-center text-white">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Shop by Collection</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Shop by Brand</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Explore our extensive collection of authentic products for men and women at unbeatable prices
+            Explore authentic products from top global brands at unbeatable prices
           </p>
           
           {/* Search Bar */}
@@ -40,47 +85,40 @@ const Collections: React.FC = () => {
         </div>
       </section>
 
-      {/* Collections Grid */}
+      {/* Brands Grid */}
       <section className="py-8 md:py-16">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Women's Collection Tile */}
-            <Link to="/collections/women" className="block group">
-              <Card className="overflow-hidden card-shadow h-full">
-                <div className="aspect-[3/2]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {brandData.map((brand) => (
+              <Card key={brand.name} className="overflow-hidden card-shadow h-full">
+                <div className="aspect-[3/2] overflow-hidden">
                   <img 
-                    src="/lovable-uploads/WomenCollection.png" 
-                    alt="Women's Collection" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    src={brand.logo} 
+                    alt={`${brand.name} Collection`} 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <CardContent className="p-6 text-center">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-2 text-gclx-navy">Women's Collection</h2>
-                  <p className="text-sm md:text-lg text-gray-600">
-                    Clothing, Accessories, Beauty & More
-                  </p>
+                  <h2 className="text-xl md:text-2xl font-bold mb-2 text-gclx-navy">{brand.name}</h2>
+                  <div className="flex justify-center space-x-3 mt-4">
+                    <Link 
+                      to={`/collections/${brand.name.toLowerCase()}`} 
+                      className="bg-gclx-navy text-white px-3 py-2 rounded text-sm hover:bg-blue-700 transition-colors"
+                    >
+                      Shop Products
+                    </Link>
+                    <a 
+                      href={brand.website} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="bg-gray-100 text-gray-800 px-3 py-2 rounded text-sm hover:bg-gray-200 transition-colors"
+                    >
+                      Official Site
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
-            </Link>
-
-            {/* Men's Collection Tile */}
-            <Link to="/collections/men" className="block group">
-              <Card className="overflow-hidden card-shadow h-full">
-                <div className="aspect-[3/2]">
-                  <img 
-                    src="/lovable-uploads/MenCollection.png" 
-                    alt="Men's Collection" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <CardContent className="p-6 text-center">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-2 text-gclx-navy">Men's Collection</h2>
-                  <p className="text-sm md:text-lg text-gray-600">
-                    Apparel, Shoes, Accessories & More
-                  </p>
-                </CardContent>
-              </Card>
-            </Link>
+            ))}
           </div>
 
           <div className="mt-16 text-center">
