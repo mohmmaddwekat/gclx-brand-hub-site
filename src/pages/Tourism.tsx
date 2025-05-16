@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   MapPin, Building, Landmark, Navigation, Hotel, Tent, 
-  Star, Ticket, Coffee, Utensils, ShoppingBag, PalmTree, 
+  Star, Ticket, Coffee, Utensils, ShoppingBag, TreePalm, 
   Sailboat, Mountain, Camera 
 } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
@@ -62,7 +62,7 @@ const Tourism: React.FC = () => {
         {
           name: "Dubai Miracle Garden",
           nameAr: "حديقة دبي المعجزة",
-          icon: <PalmTree />,
+          icon: <TreePalm />,
           description: "The world's largest natural flower garden.",
           descriptionAr: "أكبر حديقة زهور طبيعية في العالم."
         },
