@@ -24,7 +24,7 @@ const About: React.FC = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-16">
         <div className="container-custom text-center text-white">
-          <h1 className="text-4xl font-bold mb-4">{t('aboutGCLX')}</h1>
+          <h1 className="text-4xl font-bold mb-4 text-center">{t('aboutGCLX')}</h1>
           <p className="text-xl max-w-2xl mx-auto">{t('trustedPartner')}</p>
         </div>
       </section>
