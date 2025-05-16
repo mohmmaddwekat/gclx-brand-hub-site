@@ -4,20 +4,23 @@ import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Logo from './Logo';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t, isRTL } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Collections', path: '/collections' },
-    { name: 'Contact', path: '/contact' },
+    { name: t('home'), path: '/' },
+    { name: t('about'), path: '/about' },
+    { name: t('services'), path: '/services' },
+    { name: t('collections'), path: '/collections' },
+    { name: t('contact'), path: '/contact' },
   ];
 
   const getLinkStyles = ({ isActive }: { isActive: boolean }): string => {
@@ -46,6 +49,11 @@ const Header: React.FC = () => {
             ))}
           </nav>
           
+          {/* Language Switcher */}
+          <div className="hidden md:block">
+            <LanguageSwitcher />
+          </div>
+          
           {/* Mobile Menu Button */}
           <Button 
             variant="ghost" 
@@ -73,6 +81,9 @@ const Header: React.FC = () => {
                   {link.name}
                 </NavLink>
               ))}
+              <div className="pt-2">
+                <LanguageSwitcher />
+              </div>
             </div>
           </nav>
         )}

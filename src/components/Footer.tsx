@@ -3,17 +3,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import { Facebook, Instagram } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const { t, isRTL } = useLanguage();
 
   const quickLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Our Services', path: '/services' },
-    { name: 'Women\'s Collections', path: '/collections/women' },
-    { name: 'Men\'s Collections', path: '/collections/men' },
-    { name: 'Contact Us', path: '/contact' },
+    { name: t('home'), path: '/' },
+    { name: t('about'), path: '/about' },
+    { name: t('services'), path: '/services' },
+    { name: "Women's Collections", path: '/collections/women' },
+    { name: "Men's Collections", path: '/collections/men' },
+    { name: t('contact'), path: '/contact' },
   ];
 
   const socialLinks = [
@@ -36,7 +38,7 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-gclx-gold">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-gclx-gold">{t('quickLinks')}</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.path}>
@@ -53,7 +55,7 @@ const Footer: React.FC = () => {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-gclx-gold">Connect With Us</h3>
+            <h3 className="text-lg font-semibold mb-4 text-gclx-gold">{t('connectWithUs')}</h3>
             <div className="flex space-x-4 mb-4">
               {socialLinks.map((social) => (
                 <a 

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import SearchBar from '@/components/SearchBar';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Brand data structure as provided - keeping only the specified brands
 const brands = [
@@ -42,6 +43,7 @@ const brands = [
 
 const Collections: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const { t, isRTL } = useLanguage();
   
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,15 +53,15 @@ const Collections: React.FC = () => {
 
   return (
     <PageLayout 
-      title="All Brands" 
-      description="Tap a logo to see five featured items."
+      title={t('allBrands')} 
+      description={t('tapToSee')}
     >
       {/* Hero Banner */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-8 md:py-16">
         <div className="container-custom text-center text-white">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">All Brands</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('allBrands')}</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Tap a logo to see five featured items.
+            {t('tapToSee')}
           </p>
           
           {/* Search Bar */}
@@ -67,6 +69,7 @@ const Collections: React.FC = () => {
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
             onSubmit={handleSearch}
+            placeholder={t('searchPlaceholder')}
           />
         </div>
       </section>
@@ -95,22 +98,22 @@ const Collections: React.FC = () => {
           </div>
 
           <div className="mt-16 text-center">
-            <h2 className="text-2xl font-bold text-gclx-navy mb-4">Why Shop with GCLX?</h2>
+            <h2 className="text-2xl font-bold text-gclx-navy mb-4">{t('whyShop')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8">
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <div className="text-4xl mb-4">🔍</div>
-                <h3 className="text-xl font-semibold text-gclx-navy mb-2">Curated Selection</h3>
-                <p className="text-gray-600">Handpicked products from over 40 premium global brands</p>
+                <h3 className="text-xl font-semibold text-gclx-navy mb-2">{t('curatedSelection')}</h3>
+                <p className="text-gray-600">{t('curatedDescription')}</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <div className="text-4xl mb-4">💰</div>
-                <h3 className="text-xl font-semibold text-gclx-navy mb-2">Unbeatable Prices</h3>
-                <p className="text-gray-600">Save 20-50% off regular retail prices with our exclusive coupons</p>
+                <h3 className="text-xl font-semibold text-gclx-navy mb-2">{t('unbeatable')}</h3>
+                <p className="text-gray-600">{t('unbeatableDescription')}</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <div className="text-4xl mb-4">✓</div>
-                <h3 className="text-xl font-semibold text-gclx-navy mb-2">100% Authentic</h3>
-                <p className="text-gray-600">All products are sourced directly through official channels</p>
+                <h3 className="text-xl font-semibold text-gclx-navy mb-2">{t('authentic')}</h3>
+                <p className="text-gray-600">{t('authenticDescription')}</p>
               </div>
             </div>
           </div>
