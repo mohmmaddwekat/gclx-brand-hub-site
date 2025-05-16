@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
-import { ChevronLeft, Globe } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { Button } from '@/components/ui/button';
@@ -950,6 +950,9 @@ const BrandDetail: React.FC = () => {
   // Get the translations based on current language
   const tr = translations[language];
 
+  // Determine which chevron icon to use based on language direction
+  const ChevronIcon = isRTL ? ChevronRight : ChevronLeft;
+
   return (
     <PageLayout 
       title={`${brand.name} – ${tr.featuredItems}`} 
@@ -959,11 +962,11 @@ const BrandDetail: React.FC = () => {
       <div className="container-custom mt-6 flex justify-between items-center">
         <Link 
           to="/collections" 
-          className="text-gclx-navy hover:underline mb-4 inline-flex items-center font-medium text-center" 
+          className={`text-gclx-navy hover:underline mb-4 inline-flex items-center font-medium text-center ${isRTL ? 'flex-row-reverse' : 'flex-row'}`} 
           aria-label={tr.backToAllBrands}
         >
-          <ChevronLeft size={20} />
-          <span>{tr.backToAllBrands}</span>
+          <ChevronIcon size={20} />
+          <span className={isRTL ? 'mr-2' : 'ml-2'}>{tr.backToAllBrands}</span>
         </Link>
       </div>
 
