@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div className={isRTL ? 'text-right' : ''}>
+          <div className={isRTL ? 'text-center' : ''}>
             <h3 className={`text-lg font-semibold mb-4 text-gclx-gold ${isRTL ? 'text-right' : ''}`}>{t('quickLinks')}</h3>
             <ul className="space-y-2">
               {quickLinks.map(link => (
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Social Links */}
-          <div className={isRTL ? 'text-right' : 'text-left'}>
+          <div className={isRTL ? 'text-center' : 'text-center'}>
             <h3 className="text-lg font-semibold mb-4 text-gclx-gold">{t('connectWithUs')}</h3>
             <div className={`flex mb-4 ${isRTL ? 'justify-end space-x-reverse' : ''} space-x-4`}>
               {socialLinks.map(social => (
