@@ -226,7 +226,7 @@ const Tourism: React.FC = () => {
       id: 5,
       name: 'Fujairah',
       nameAr: 'الفجيرة',
-      image: "https://images.unsplash.com/photo-1568506759788-0c1d6565c149?q=80&w=800&auto=format&fit=crop",
+      image: "https://www.propertyfinder.ae/blog/wp-content/uploads/2023/07/1-77.jpg",
       description: "Discover the mountainous emirate with its beautiful beaches and rich history.",
       descriptionAr: "اكتشف الإمارة الجبلية بشواطئها الجميلة وتاريخها الغني.",
       attractions: [
@@ -235,7 +235,7 @@ const Tourism: React.FC = () => {
           nameAr: "مسجد البدية",
           icon: <Landmark />,
           description: "UAE's oldest mosque dating back to the 15th century.",
-          descriptionAr: "أقدم مسجد في الإمار��ت يعود تاريخه إلى القرن الخامس عشر."
+          descriptionAr: "أقدم مسجد في الإمارات يعود تاريخه إلى القرن الخامس عشر."
         },
         {
           name: "Fujairah Fort",
@@ -267,9 +267,9 @@ const Tourism: React.FC = () => {
         }
       ],
       gallery: [
-        "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1572931207882-ec8628645985?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1576605996271-155bf0d733c4?q=80&w=800&auto=format&fit=crop"
+        "https://www.urtrips.com/wp-content/uploads/2022/09/Fujairah-Museum-13.jpg",
+        "https://www.urtrips.com/wp-content/uploads/2022/09/fujairah-museum-2-1-1024x575.jpg",
+        "https://www.urtrips.com/wp-content/uploads/2018/11/Fujairah-mall.jpg"
       ]
     },
     {
@@ -451,7 +451,7 @@ const Tourism: React.FC = () => {
           </h2>
           <p className="mb-8 max-w-2xl mx-auto">
             {isRTL ? 
-              "هذه الصفحة للعرض فقط وتقدم معلومات سياحية عن الإمارات العربية المتحدة." : 
+              "هذه الصفحة للعرض فقط وتقدم معلومات ��ياحية عن الإمارات العربية المتحدة." : 
               "This is a display-only page providing tourism information about the United Arab Emirates."}
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
