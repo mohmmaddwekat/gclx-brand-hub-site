@@ -10,6 +10,7 @@ import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
+import Logo from '@/components/Logo';
 
 const Home: React.FC = () => {
   const {
@@ -18,7 +19,19 @@ const Home: React.FC = () => {
   } = useLanguage();
   const isMobile = useIsMobile();
   const [carouselApi, setCarouselApi] = useState<any>(null);
-  const brands = ["Amazon", "Adidas", "Gucci", "Nike", "Zara", "Dior", "Calvin Klein", "H&M", "Puma", "Hugo Boss", "Ralph Lauren"];
+  const brands = [
+    { name: "Amazon", logo: "https://logo.clearbit.com/amazon.com" },
+    { name: "Adidas", logo: "https://logo.clearbit.com/adidas.com" },
+    { name: "Gucci", logo: "https://logo.clearbit.com/gucci.com" },
+    { name: "Nike", logo: "https://logo.clearbit.com/nike.com" },
+    { name: "Zara", logo: "https://logo.clearbit.com/zara.com" },
+    { name: "Dior", logo: "https://logo.clearbit.com/dior.com" },
+    { name: "Calvin Klein", logo: "https://logo.clearbit.com/calvinklein.com" },
+    { name: "H&M", logo: "https://logo.clearbit.com/hm.com" },
+    { name: "Puma", logo: "https://logo.clearbit.com/puma.com" },
+    { name: "Hugo Boss", logo: "https://logo.clearbit.com/hugoboss.com" },
+    { name: "Ralph Lauren", logo: "https://logo.clearbit.com/ralphlauren.com" }
+  ];
 
   // Auto-scroll effect for carousel
   useEffect(() => {
@@ -93,7 +106,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Brands Carousel - Fixed for Arabic */}
+      {/* Brands Carousel - Updated with logos and names */}
       <section className="py-12 bg-white w-full">
         <div className="container-custom">
           <h2 className="section-title mb-8 text-center">{t('featuredBrands')}</h2>
@@ -104,15 +117,25 @@ const Home: React.FC = () => {
             direction: isRTL ? "rtl" : "ltr"
           }}>
               <CarouselContent className="-ml-2 md:-ml-4">
-                {brands.map((brand, index) => <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
+                {brands.map((brand, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
                     <div className="p-1">
                       <Card>
-                        <CardContent className="flex items-center justify-center h-28">
-                          <span className="text-lg font-medium text-gclx-navy text-center">{brand}</span>
+                        <CardContent className="flex flex-col items-center justify-center h-36 p-4">
+                          <img
+                            src={brand.logo}
+                            alt={brand.name}
+                            className="h-16 w-auto mb-2 object-contain"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = `https://via.placeholder.com/120x60?text=${brand.name}`;
+                            }}
+                          />
+                          <span className="text-sm font-medium text-gclx-navy text-center mt-2">{brand.name}</span>
                         </CardContent>
                       </Card>
                     </div>
-                  </CarouselItem>)}
+                  </CarouselItem>
+                ))}
               </CarouselContent>
               {!isMobile && (
                 <>
