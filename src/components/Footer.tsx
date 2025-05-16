@@ -13,8 +13,6 @@ const Footer: React.FC = () => {
     { name: t('home'), path: '/' },
     { name: t('about'), path: '/about' },
     { name: t('services'), path: '/services' },
-    { name: t('womensCollections'), path: '/collections/women' },
-    { name: t('mensCollections'), path: '/collections/men' },
     { name: t('contact'), path: '/contact' },
   ];
 
@@ -31,14 +29,15 @@ const Footer: React.FC = () => {
           <div>
             <Logo className="mb-4 bg-white p-2 rounded-md inline-block" />
             <p className="mt-4 text-sm text-gray-300">
-              {t('companyDescription')}
+              GCLX General Trading brings global brands to local shoppers at unbeatable discounts.
+              Shop authentic fashion, beauty and lifestyle products from 40+ world-class brands.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gclx-gold">{t('quickLinks')}</h3>
-            <ul className={`space-y-2 ${isRTL ? 'text-right' : 'text-left'}`}>
+            <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link 
@@ -53,9 +52,9 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Social Links */}
-          <div className={isRTL ? 'text-right' : 'text-left'}>
+          <div>
             <h3 className="text-lg font-semibold mb-4 text-gclx-gold">{t('connectWithUs')}</h3>
-            <div className={`flex mb-4 ${isRTL ? 'justify-end space-x-reverse space-x-4' : 'justify-start space-x-4'}`}>
+            <div className="flex space-x-4 mb-4">
               {socialLinks.map((social) => (
                 <a 
                   key={social.name}
@@ -70,14 +69,14 @@ const Footer: React.FC = () => {
               ))}
             </div>
             <address className="not-italic text-sm text-gray-300">
-              <p>{t('address')}</p>
-              <p>{t('email')}</p>
+              <p>Business Bay, Dubai, UAE</p>
+              <p>Email: info@gclx-trading.com</p>
             </address>
           </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-700 text-sm text-gray-400 text-center">
-          <p>{t('copyright')}</p>
+          <p>© {currentYear} GCLX General Trading — Instant Coupon Redemption</p>
         </div>
       </div>
     </footer>
