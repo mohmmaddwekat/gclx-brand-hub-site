@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -15,14 +15,32 @@ import { ShieldCheck, TicketPercent, CreditCard } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Home: React.FC = () => {
   const { t, isRTL } = useLanguage();
+  const isMobile = useIsMobile();
+  const [carouselApi, setCarouselApi] = useState<any>(null);
   
   const brands = [
     "Amazon", "Adidas", "Gucci", "Nike", "Zara", "Dior",
     "Calvin Klein", "H&M", "Puma", "Hugo Boss", "Ralph Lauren"
   ];
+
+  // Auto-scroll effect for carousel
+  useEffect(() => {
+    if (!carouselApi) return;
+    
+    const interval = setInterval(() => {
+      if (carouselApi.canScrollNext()) {
+        carouselApi.scrollNext();
+      } else {
+        carouselApi.scrollTo(0);
+      }
+    }, 3000); // Scroll every 3 seconds
+    
+    return () => clearInterval(interval);
+  }, [carouselApi]);
 
   const steps = [
     {
@@ -93,13 +111,20 @@ const Home: React.FC = () => {
       </section>
 
       {/* Brands Carousel */}
-      <section className="py-12 w-full">
+      <section className="py-12 w-full overflow-hidden">
         <div className="container-custom">
           <h2 className="section-title text-center mb-8">{t('featuredBrands')}</h2>
-          <Carousel className="max-w-4xl mx-auto">
-            <CarouselContent>
+          <Carousel 
+            className="w-full max-w-4xl mx-auto" 
+            setApi={setCarouselApi}
+            opts={{
+              align: "start",
+              loop: true
+            }}
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
               {brands.map((brand, index) => (
-                <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
                   <div className="p-1">
                     <Card>
                       <CardContent className="flex items-center justify-center h-28">
@@ -110,8 +135,12 @@ const Home: React.FC = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            {!isMobile && (
+              <>
+                <CarouselPrevious className={`${isRTL ? 'left-0' : '-left-12'}`} />
+                <CarouselNext className={`${isRTL ? '-right-12' : '-right-12'}`} />
+              </>
+            )}
           </Carousel>
         </div>
       </section>
