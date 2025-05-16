@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Collections from "./pages/Collections";
-import CollectionDetail from "./pages/CollectionDetail";
+import BrandDetail from "./pages/BrandDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -34,9 +34,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/collections" element={<Collections />} />
-          {/* <Route path="/collections/women" element={<CollectionDetail />} /> */}
-          {/* <Route path="/collections/:gender men" element={<CollectionDetail />} /> */}
-          <Route  path="/collections/:gender"   element={<CollectionDetail />} />
+          <Route path="/collections/:brandSlug" element={<BrandDetail />} />
           <Route path="/contact" element={<Contact />} />
           
           {/* 404 route redirects to home */}

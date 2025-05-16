@@ -1,15 +1,11 @@
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Search } from 'lucide-react';
+import React from 'react';
+import { useParams, Navigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
-import SearchBar from '@/components/SearchBar';
 
-// Brand data structure as provided
+// Using the same brands array from Collections page
 const brands = [
   { name: "Amazon", slug: "amazon", logo: "https://logo.clearbit.com/amazon.com" },
   { name: "Noon", slug: "noon", logo: "https://logo.clearbit.com/noon.com" },
@@ -61,79 +57,79 @@ const brands = [
   { name: "NARS", slug: "nars", logo: "https://logo.clearbit.com/narscosmetics.com" },
 ];
 
-const Collections: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+const BrandDetail: React.FC = () => {
+  const { brandSlug } = useParams<{ brandSlug: string }>();
   
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real app, this would filter the brands
-    console.log('Searching for:', searchTerm);
-  };
+  // Find the brand based on the slug from URL
+  const brand = brands.find(b => b.slug === brandSlug);
+  
+  // If brand not found, redirect to collections page
+  if (!brand) {
+    return <Navigate to="/collections" replace />;
+  }
+
+  // Generate 5 dummy products for the brand
+  const dummyProducts = Array.from({ length: 5 }, (_, index) => ({
+    id: `${brand.slug}-${index + 1}`,
+    title: `Sample ${brand.name} Item ${index + 1}`,
+    img: `https://source.unsplash.com/seed/${brand.slug}-${index + 1}/600x600`,
+    link: `https://www.${brand.slug === 'hm' ? 'hm' : brand.slug.replace('-', '')}.com`
+  }));
 
   return (
     <PageLayout 
-      title="Browse All Brands" 
-      description="Tap a logo to see five featured items — redeem your coupon instantly."
+      title={`${brand.name} – Featured Items`} 
+      description="Each item opens on the official site in a new tab."
     >
       {/* Hero Banner */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-8 md:py-16">
         <div className="container-custom text-center text-white">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Browse All Brands</h1>
+          <div className="mb-4">
+            <img 
+              src={brand.logo}
+              alt={brand.name}
+              className="h-16 mx-auto object-contain"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = `https://via.placeholder.com/140x60?text=${brand.name}`;
+              }}
+            />
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">{brand.name} – Featured Items</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Tap a logo to see five featured items — redeem your coupon instantly.
+            Each item opens on the official site in a new tab.
           </p>
-          
-          {/* Search Bar */}
-          <SearchBar 
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            onSubmit={handleSearch}
-          />
         </div>
       </section>
 
-      {/* Brands Grid */}
+      {/* Featured Products Grid */}
       <section className="py-8 md:py-16">
         <div className="container-custom">
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 md:gap-4">
-            {brands.map((brand) => (
-              <Link to={`/collections/${brand.slug}`} key={brand.slug}>
-                <Card className="overflow-hidden h-full hover:shadow-lg transition-all duration-300 hover:scale-105 rounded-xl">
-                  <div className="p-4 flex items-center justify-center h-24 sm:h-28">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {dummyProducts.map(product => (
+              <a 
+                key={product.id} 
+                href={product.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="overflow-hidden h-full hover:opacity-90 transition-opacity duration-300">
+                  <div className="aspect-square overflow-hidden">
                     <img 
-                      src={brand.logo} 
-                      alt={`${brand.name} logo`}
-                      className="max-h-full max-w-full object-contain"
+                      src={product.img} 
+                      alt={product.title} 
+                      className="w-full h-full object-cover"
                       onError={(e) => {
-                        // Fallback for broken image links
-                        (e.target as HTMLImageElement).src = `https://via.placeholder.com/140x60?text=${brand.name}`;
+                        (e.target as HTMLImageElement).src = `https://via.placeholder.com/400x400?text=${product.title}`;
                       }}
                     />
                   </div>
+                  <CardContent className="p-4 text-center">
+                    <h3 className="font-medium text-sm md:text-base line-clamp-2">{product.title}</h3>
+                  </CardContent>
                 </Card>
-              </Link>
+              </a>
             ))}
-          </div>
-
-          <div className="mt-16 text-center">
-            <h2 className="text-2xl font-bold text-gclx-navy mb-4">Why Shop with GCLX?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="text-4xl mb-4">🔍</div>
-                <h3 className="text-xl font-semibold text-gclx-navy mb-2">Curated Selection</h3>
-                <p className="text-gray-600">Handpicked products from over 40 premium global brands</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="text-4xl mb-4">💰</div>
-                <h3 className="text-xl font-semibold text-gclx-navy mb-2">Unbeatable Prices</h3>
-                <p className="text-gray-600">Save 20-50% off regular retail prices with our exclusive coupons</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="text-4xl mb-4">✓</div>
-                <h3 className="text-xl font-semibold text-gclx-navy mb-2">100% Authentic</h3>
-                <p className="text-gray-600">All products are sourced directly through official channels</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -144,4 +140,4 @@ const Collections: React.FC = () => {
   );
 };
 
-export default Collections;
+export default BrandDetail;
