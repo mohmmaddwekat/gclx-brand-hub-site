@@ -1,10 +1,8 @@
-
 import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
-
 const NewsletterSignup: React.FC = () => {
   const [email, setEmail] = useState('');
   const {
@@ -14,7 +12,6 @@ const NewsletterSignup: React.FC = () => {
     t,
     isRTL
   } = useLanguage();
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -38,7 +35,6 @@ const NewsletterSignup: React.FC = () => {
     // Reset form
     setEmail('');
   };
-
   return <section className="bg-gclx-navy text-white py-12">
       <div className="container-custom text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">{t('stayUpdated')}</h2>
@@ -55,5 +51,4 @@ const NewsletterSignup: React.FC = () => {
       </div>
     </section>;
 };
-
 export default NewsletterSignup;
