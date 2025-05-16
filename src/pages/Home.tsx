@@ -79,7 +79,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {trustBadges.map((badge, index) => <div key={index} className="bg-white rounded-lg p-6 text-center shadow-sm">
                 <div className="text-4xl mb-4 flex justify-center">{badge.icon}</div>
-                <h3 className="text-xl font-semibold text-gclx-navy mb-2">{badge.title}</h3>
+                <h3 className="text-xl font-semibold text-gclx-navy mb-2 text-center">{badge.title}</h3>
                 <p className="text-gray-600">{badge.description}</p>
               </div>)}
           </div>
