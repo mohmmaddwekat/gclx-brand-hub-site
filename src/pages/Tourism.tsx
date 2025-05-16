@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -242,7 +243,7 @@ const Tourism: React.FC = () => {
           </h1>
           <p className="text-lg md:text-xl mb-6 max-w-3xl mx-auto text-center">
             {isRTL ? 
-              "رحلات سياحية مميزة داخل ال��مارات العربية المتحدة. تجارب لا تُنسى ومعالم مذهلة تنتظرك!" : 
+              "رحلات سياحية مميزة داخل الإمارات العربية المتحدة. تجارب لا تُنسى ومعالم مذهلة تنتظرك!" : 
               "Discover exceptional tourism experiences within the United Arab Emirates. Unforgettable adventures and amazing landmarks await you!"}
           </p>
           
@@ -251,7 +252,7 @@ const Tourism: React.FC = () => {
             <div className="transform -rotate-1 flex items-center justify-center">
               <Ticket className="h-7 w-7 mr-2 text-yellow-300 animate-pulse" />
               <h2 className="text-2xl md:text-3xl font-bold text-white">
-                {isRTL ? "جميع الرحلات مجانية تماماً!" : "ALL TOURS ARE COMPLETELY FREE!"}
+                {isRTL ? "جميع الرحلات مجانية تماماً! لا حجز مطلوب" : "ALL TOURS ARE COMPLETELY FREE! NO BOOKING REQUIRED"}
               </h2>
               <Star className="h-7 w-7 ml-2 text-yellow-300 animate-pulse" />
             </div>
@@ -299,7 +300,7 @@ const Tourism: React.FC = () => {
                     {isRTL ? tourPackage.descriptionAr : tourPackage.description}
                   </p>
                   <Button className="w-full mt-4 bg-gclx-navy hover:bg-blue-900">
-                    {isRTL ? "حجز الآن" : "Book Now"}
+                    {isRTL ? "انضم للرحلة - مجاناً" : "Join Tour - FREE"}
                   </Button>
                 </CardContent>
               </Card>
@@ -396,7 +397,7 @@ const Tourism: React.FC = () => {
           <div className="bg-red-500 rounded-lg py-2 px-4 inline-flex items-center justify-center mb-6">
             <Star className="h-5 w-5 mr-2" />
             <span className="font-bold text-xl">
-              {isRTL ? "احجز رحلتك المجانية الآن!" : "Book Your FREE Trip Now!"}
+              {isRTL ? "انضم لرحلتك المجانية الآن! لا حجز مطلوب" : "Join Your FREE Trip Now! NO BOOKING REQUIRED"}
             </span>
             <Star className="h-5 w-5 ml-2" />
           </div>
