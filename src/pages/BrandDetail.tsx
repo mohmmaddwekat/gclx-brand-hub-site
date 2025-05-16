@@ -1,11 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, Globe } from 'lucide-react';
 import PageLayout from '@/components/PageLayout';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 // Using the same brands array from Collections page
 const brands = [
@@ -1003,8 +1004,26 @@ const brandProducts = {
   ]
 };
 
+// Translations for the interface elements
+const translations = {
+  en: {
+    backToAllBrands: "Back to all brands",
+    featuredItems: "Featured Items",
+    clickToOpen: "Click any item to open the official",
+    store: "store.",
+  },
+  ar: {
+    backToAllBrands: "العودة إلى جميع الماركات",
+    featuredItems: "منتجات مميزة",
+    clickToOpen: "انقر على أي منتج لفتح المتجر الرسمي لـ",
+    store: ".",
+  }
+};
+
 const BrandDetail: React.FC = () => {
   const { brandSlug } = useParams<{ brandSlug: string; }>();
+  const [language, setLanguage] = useState<"en" | "ar">("en");
+  const t = translations[language];
 
   // Find the brand based on the slug from URL
   const brand = brands.find(b => b.slug === brandSlug);
@@ -1030,12 +1049,23 @@ const BrandDetail: React.FC = () => {
       title={`${brand.name} – Featured Items`} 
       description={`Click any item to open the official ${brand.name} store.`}
     >
-      {/* Back Button - Now more prominent */}
-      <div className="container-custom mt-6">
+      {/* Language Selector and Back Button */}
+      <div className="container-custom mt-6 flex justify-between items-center">
         <Link to="/collections" className="text-gclx-navy hover:underline mb-4 inline-flex items-center font-medium" aria-label="Back to all brands">
           <ChevronLeft size={20} />
-          <span>All Brands</span>
+          <span>{t.backToAllBrands}</span>
         </Link>
+        
+        <Select value={language} onValueChange={(value) => setLanguage(value as "en" | "ar")}>
+          <SelectTrigger className="w-[150px]">
+            <Globe size={16} className="mr-2" />
+            <SelectValue placeholder="Language" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="en">English</SelectItem>
+            <SelectItem value="ar">العربية</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
       {/* Hero Banner */}
@@ -1046,9 +1076,9 @@ const BrandDetail: React.FC = () => {
             (e.target as HTMLImageElement).src = `https://via.placeholder.com/140x60?text=${brand.name}`;
           }} className="max-h-16 mx-auto bg-white p-2 rounded-lg" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{brand.name} – Featured Items</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">{brand.name} – {t.featuredItems}</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Click any item to open the official {brand.name} store.
+            {t.clickToOpen} {brand.name} {t.store}
           </p>
         </div>
       </section>
@@ -1077,16 +1107,6 @@ const BrandDetail: React.FC = () => {
               </a>
             ))}
           </div>
-          
-          {/* Arabic Back Button at the bottom */}
-          <div className="flex justify-center mt-8">
-            <Link to="/collections">
-              <Button variant="outline" className="flex items-center gap-2 text-gclx-navy hover:bg-gclx-navy hover:text-white">
-                <ChevronLeft size={20} />
-                العودة إلى جميع الماركات
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -1095,5 +1115,5 @@ const BrandDetail: React.FC = () => {
     </PageLayout>
   );
 };
-export default BrandDetail;
 
+export default BrandDetail;
