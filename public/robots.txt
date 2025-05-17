@@ -6,7 +6,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://www.gclx-trading.com/sitemap.xml
+Sitemap: https://www.gclxgt.com/sitemap.xml
 
 # Specific rules for major search engines
 User-agent: Googlebot

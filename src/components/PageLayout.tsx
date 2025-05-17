@@ -20,7 +20,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   description = "Shop authentic fashion, beauty and lifestyle products from 40+ world-class brands at 20-50% off.",
   keywords = "GCLX, UAE brands, discount brands, fashion Dubai, luxury shopping UAE",
   canonicalUrl,
-  ogImage = "https://www.gclx-trading.com/logo.png"
+  ogImage = "https://www.gclxgt.com/logo.png"
 }) => {
   const { t, language, isRTL } = useLanguage();
   const fullTitle = title === "GCLX General Trading" 
@@ -29,7 +29,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   
   // Determine the canonical URL based on the current page
   const currentPath = window.location.pathname;
-  const siteUrl = "https://www.gclx-trading.com";
+  const siteUrl = "https://www.gclxgt.com";
   const fullCanonicalUrl = canonicalUrl || `${siteUrl}${currentPath}`;
   
   return (

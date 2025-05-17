@@ -7,7 +7,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://www.gclx-trading.com/</loc>
+    <loc>https://www.gclxgt.com/</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -15,7 +15,7 @@
 
   <!-- About Page -->
   <url>
-    <loc>https://www.gclx-trading.com/about</loc>
+    <loc>https://www.gclxgt.com/about</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -23,7 +23,7 @@
 
   <!-- Services Page -->
   <url>
-    <loc>https://www.gclx-trading.com/services</loc>
+    <loc>https://www.gclxgt.com/services</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -31,7 +31,7 @@
 
   <!-- Collections Page -->
   <url>
-    <loc>https://www.gclx-trading.com/collections</loc>
+    <loc>https://www.gclxgt.com/collections</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -39,7 +39,7 @@
 
   <!-- Tourism Page -->
   <url>
-    <loc>https://www.gclx-trading.com/tourism</loc>
+    <loc>https://www.gclxgt.com/tourism</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -47,7 +47,7 @@
 
   <!-- Contact Page -->
   <url>
-    <loc>https://www.gclx-trading.com/contact</loc>
+    <loc>https://www.gclxgt.com/contact</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -55,42 +55,42 @@
 
   <!-- Arabic Versions of Pages -->
   <url>
-    <loc>https://www.gclx-trading.com/ar</loc>
+    <loc>https://www.gclxgt.com/ar</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://www.gclx-trading.com/ar/about</loc>
+    <loc>https://www.gclxgt.com/ar/about</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.gclx-trading.com/ar/services</loc>
+    <loc>https://www.gclxgt.com/ar/services</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.gclx-trading.com/ar/collections</loc>
+    <loc>https://www.gclxgt.com/ar/collections</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.gclx-trading.com/ar/tourism</loc>
+    <loc>https://www.gclxgt.com/ar/tourism</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.gclx-trading.com/ar/contact</loc>
+    <loc>https://www.gclxgt.com/ar/contact</loc>
     <lastmod>2025-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
