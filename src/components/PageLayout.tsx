@@ -22,7 +22,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   canonicalUrl,
   ogImage = "https://www.gclx-trading.com/logo.png"
 }) => {
-  const { t, currentLanguage } = useLanguage();
+  const { t, language, isRTL } = useLanguage();
   const fullTitle = title === "GCLX General Trading" 
     ? title 
     : `${title} | GCLX General Trading`;
@@ -35,7 +35,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   return (
     <>
       <Helmet>
-        <html lang={currentLanguage === 'ar' ? 'ar' : 'en'} />
+        <html lang={language === 'ar' ? 'ar' : 'en'} />
         <title>{fullTitle}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
@@ -56,8 +56,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         <meta name="twitter:image" content={ogImage} />
         
         {/* Language alternates */}
-        <link rel="alternate" href={`${siteUrl}${currentPath}`} hreflang="en" />
-        <link rel="alternate" href={`${siteUrl}/ar${currentPath}`} hreflang="ar" />
+        <link rel="alternate" href={`${siteUrl}${currentPath}`} hrefLang="en" />
+        <link rel="alternate" href={`${siteUrl}/ar${currentPath}`} hrefLang="ar" />
       </Helmet>
       <div className="flex flex-col min-h-screen w-full">
         <Header />
