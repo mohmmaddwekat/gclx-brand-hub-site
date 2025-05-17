@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Logo from './Logo';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -55,16 +55,6 @@ const Header: React.FC = () => {
           </nav>
           
           <div className="flex items-center space-x-2">
-            {/* Favorites Heart Icon */}
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="text-gclx-navy hover:text-red-500 transition-colors"
-              title={t('favorites')}
-            >
-              <Heart className="h-5 w-5" />
-            </Button>
-            
             {/* Desktop Language Switcher */}
             <div className="hidden md:block">
               <LanguageSwitcher />
