@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -44,16 +45,50 @@ const Collections: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { t, isRTL } = useLanguage();
   
+  // Add structured data for SEO
+  useEffect(() => {
+    // Create JSON-LD structured data for brand collection
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": brands.map((brand, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Brand",
+          "name": brand.name,
+          "url": `https://www.gclx-trading.com/collections/${brand.slug}`,
+          "image": brand.logo
+        }
+      }))
+    };
+
+    // Add script to head
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    // Clean up function
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+  
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real app, this would filter the brands
     console.log('Searching for:', searchTerm);
   };
 
+  const pageKeywords = "fashion brands UAE, luxury brands Dubai, discounted brands, Nike UAE, Amazon UAE, Gucci Dubai, Zara discount";
+
   return (
     <PageLayout 
       title={t('allBrands')} 
       description={t('tapToSee')}
+      keywords={pageKeywords}
+      canonicalUrl="https://www.gclx-trading.com/collections"
     >
       {/* Hero Banner */}
       <section className="bg-gradient-to-br from-gclx-navy to-blue-950 py-8 md:py-16">
@@ -85,6 +120,7 @@ const Collections: React.FC = () => {
                       src={brand.logo} 
                       alt={`${brand.name} logo`}
                       className="max-h-full max-w-full object-contain"
+                      loading="lazy" // Add lazy loading for images
                       onError={(e) => {
                         // Fallback for broken image links
                         (e.target as HTMLImageElement).src = `https://via.placeholder.com/140x60?text=${brand.name}`;
