@@ -26,11 +26,7 @@ const brands = [{
   name: "Talabat",
   slug: "talabat",
   logo: "https://logo.clearbit.com/talabat.com"
-}, {
-  name: "Carrefour",
-  slug: "carrefour",
-  logo: "https://logo.clearbit.com/carrefour.com"
-}, {
+},  {
   name: "Namshi",
   slug: "namshi",
   logo: "https://logo.clearbit.com/namshi.com"
@@ -229,32 +225,6 @@ const brandProducts = {
     title: "Wildflower Poke Family Meal",
     img: "https://d22rp9usybekre.cloudfront.net/products/photos/000/064/197/menu/BBDa__Wildflower-Family.jpg",
     link: "https://www.talabat.com/uae"
-  }],
-  "carrefour": [{
-    id: "carrefour-1",
-    title: "EAT NATURAL Gluten-Free Peanut and Dark Chocolate",
-    img: "https://media.carrefour.fr/medias/cf300233c51941c5bbbeb766044605a2/p_200x200/08000500435670_C1N1_s01.png",
-    link: "https://www.carrefour.fr/"
-  }, {
-    id: "carrefour-2",
-    title: "SKIP Intense Freshness Capsule Laundry",
-    img: "https://media.carrefour.fr/medias/fdcd27a9f60047228087705771ce0b82/p_200x200/08720181248252_H1N1_s28.png",
-    link: "https://www.carrefour.fr/"
-  }, {
-    id: "carrefour-3",
-    title: "Door washing machine 11 kg F14R15WHS LG",
-    img: "https://media.carrefour.fr/medias/6d2f35096614452882ef0ce75d7ec419/p_200x200/8806084778222_0.jpg",
-    link: "https://www.carrefour.fr/"
-  }, {
-    id: "carrefour-4",
-    title: "MOULINEX EZ145820 Air Fryer",
-    img: "https://media.carrefour.fr/medias/a822765e1287400ca58aeed1e8ea1ccf/p_200x200/3045387291037_0.jpg",
-    link: "https://www.carrefour.fr/"
-  }, {
-    id: "carrefour-5",
-    title: "MiniLED TV 65'' (165 cm) 65C61K TCL",
-    img: "https://media.carrefour.fr/medias/1b87a11033794b5aa51f5e14687be5af/p_200x200/5901292526856_0.jpg",
-    link: "https://www.carrefour.fr/"
   }],
   "namshi": [{
     id: "namshi-1",

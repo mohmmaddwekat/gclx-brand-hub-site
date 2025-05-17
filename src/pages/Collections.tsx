@@ -15,7 +15,6 @@ const brands = [
   { name: "Amazon", slug: "amazon", logo: "https://logo.clearbit.com/amazon.com" },
   { name: "Noon", slug: "noon", logo: "https://logo.clearbit.com/noon.com" },
   { name: "Talabat", slug: "talabat", logo: "https://logo.clearbit.com/talabat.com" },
-  { name: "Carrefour", slug: "carrefour", logo: "https://logo.clearbit.com/carrefour.com" },
   { name: "Namshi", slug: "namshi", logo: "https://logo.clearbit.com/namshi.com" },
   { name: "IKEA", slug: "ikea", logo: "https://logo.clearbit.com/ikea.com" },
   { name: "Puma", slug: "puma", logo: "https://logo.clearbit.com/puma.com" },
