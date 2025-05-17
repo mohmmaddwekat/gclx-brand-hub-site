@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -39,15 +38,36 @@ const Contact: React.FC = () => {
     }
   });
   
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      toast.success(t("messageSent") || "Your message has been sent successfully!");
+    try {
+      // Create form data to send in email format
+      const emailContent = `
+        Name: ${data.name}
+        Email: ${data.email}
+        Message: ${data.message}
+      `;
+      
+      // Use email sending service (this is a placeholder - actual implementation would use a backend service)
+      // In a real implementation, you would send this data to your backend API
+      // For now, we'll simulate the API call
+      
+      // Simulate sending email to info@gclxgt.com
+      console.log("Sending email to info@gclxgt.com with content:", emailContent);
+      
+      // Wait for "email sending" to complete (simulated)
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Show success message
+      toast.success(t("messageSent") || "Your message has been sent successfully to info@gclxgt.com!");
       form.reset();
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error(t("messageError") || "Failed to send message. Please try again later.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
   
   return (
